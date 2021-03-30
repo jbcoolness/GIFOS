@@ -19,6 +19,7 @@ header {
   height: 45px;
   top: 0;
   padding: 10px 5%;
+  border-top: 0.3125rem solid #572EE5;
 }
 
 header img {
@@ -49,6 +50,10 @@ header nav .menu ul li a {
   padding: 1.5rem 1rem 0 5%;
   line-height: 1.7rem;
   display: block;
+}
+
+header nav .menu #btn-create {
+  display: none;
 }
 
 header nav .menu {
@@ -132,6 +137,12 @@ header nav .menu span:nth-last-child(2) {
     margin-left: 1.5rem;
   }
   header nav .menu ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: relative;
     top: 0;
     right: 0;
@@ -148,18 +159,33 @@ header nav .menu span:nth-last-child(2) {
     padding: unset;
     line-height: unset;
   }
-  header nav .menu ul li a:hover {
-    background: unset;
-    border-bottom: 2px solid #50E3C2;
+  header nav .menu ul .item-menu {
+    display: inline-block;
   }
-  header nav .menu ul li a:active {
+  header nav .menu ul .item-menu:hover {
+    border-bottom: 1px solid #50E3C2;
+  }
+  header nav .menu ul .item-menu:active {
     color: #9CAFC3 100%;
   }
-  .header .nav .menu span {
+  header nav .menu #btn-create {
+    display: inline-block;
+  }
+  header nav .menu span {
     display: none;
   }
-  .header .nav .menu input {
+  header nav .menu input {
     display: none;
   }
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=style.css.map */

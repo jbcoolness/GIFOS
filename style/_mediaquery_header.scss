@@ -17,6 +17,8 @@
         nav {
             .menu {
                 ul {
+                    display: flex;
+                    align-items: center;
                     position: relative;
                     top: 0;
                     right: 0;
@@ -38,16 +40,9 @@
                         display: inline-block;
                         
                         a {
-                            color: $color-morado;
+                            color: $color-purple;
                             padding: unset;
                             line-height: unset;
-                            &:hover {
-                                background: unset;
-                                border-bottom: 2px solid $color-verde-menta;
-                            }
-                            &:active {                                
-                                color: $color-gray;
-                            }
                         }
                     }
                 }
@@ -55,8 +50,38 @@
         }
     }
 
-    .header {
-        .nav {
+    // Elementos del menú
+    header {
+        nav {
+            .menu {
+                ul {
+                    .item-menu {
+                        display: inline-block;
+                        &:hover {
+                            border-bottom: 1px solid $color-mint-green;
+                        }
+                        &:active{
+                            color: $color-gray;
+                        }
+                    }
+                }                
+            }
+        }
+    }
+
+    // icono de agregar
+    header {
+        nav {
+            .menu {
+                #btn-create {
+                    display: inline-block;                    
+                }
+            }
+        }
+    }
+
+    header {
+        nav {
             .menu {
                 span {
                     display: none;
