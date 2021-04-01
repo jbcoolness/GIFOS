@@ -9,30 +9,43 @@
 </head>
 <body>
     <header>
-        <img src="./assets/img/logo-desktop.svg" alt="logo de gifos">
-        <nav>
-            <div class="menu">
-                <input type="checkbox" id="checkbox">
-                <span></span>
-                <span></span>
-                <span></span>                    
-                <ul>
-                    <li><a href="#" class="item-menu"> MODO NOCTURNO </a></li>
-                    <li><a href="#" class="item-menu"> FAVORITOS </a></li>
-                    <li><a href="#" class="item-menu"> MIS GIFOS </a></li>
-                    <li><a class="btn-create" href="#"> <img id="btn-create" src="./assets/img/button-crear-gifo.svg" alt=""> </a></li>
-                </ul>
+        <nav id="menu" class="menu">
+            <div class="logo">
+                <img id="logoGifos" class="logo-gifos" src="./assets/img/logo-desktop.svg" alt="logo de gifos">            
+            </div>
+        
+            <div class="items">
+                <a href="#" class="item-menu"> Modo Nocturno </a>
+                <a href="#" class="item-menu"> Favoritos </a>
+                <a href="#" class="item-menu"> Mis Gifos </a>
+                <a href="#"> <img id="btn-create" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
+            </div>
+            <div class="burger">
+                <img id="iconBurger" class="burger-normal" alt="icono menu hamburguesa">
             </div>
         </nav>
+
+        <div class="title-container">
+            <div class="title-text">
+                <h2>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
+            </div>
+
+            <div class="title-ilustration">
+                <img src="./assets/img/ilustra_header.svg" alt="Imagen con personas de Gifos">
+                <input type="text" class="search" placeholder="Busca GIFOS y más">
+            </div>
+        </div>
+        
     </header>
 
     <main>
+        
 
     </main>
 
     <footer>
         <div class="social-media">
-            <p>Compartir en FB TW IG</p>
+            <p>Compartir en <img src="./assets/img/icon_facebook.svg" alt="icono de facebook"> <img src="./assets/img/icon-twitter.svg" alt="Icono de twitter"> <img src="./assets/img/icon_instagram.svg" alt="Icono de Instagram"></p>
         </div>
 
         <div class="rights">

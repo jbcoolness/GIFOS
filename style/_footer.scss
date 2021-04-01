@@ -1,5 +1,14 @@
 footer {
-    display: flex;
     width: 100%;
+    display: flex;    
     justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 2.5rem 2.5rem;
+    font-family: $font-roboto;
+    background: $color-white;
+
+    img {
+        margin: auto 0.7rem;
+    }
 }
