@@ -1,9 +1,3 @@
-// $color-purple= #572EE5;
-// $color-mint-green= #50E3C2;
-// $color-gray= #9CAFC3 100%;
-// $color-bg-header= rgba(255,255,255,0.50);
-// $color-white= #FFFFFF 100%;
-
 // Efecto de boton menu hamburguesa
 const iconBurger = document.getElementById('iconBurger');
 const menu = document.getElementById('menu');
@@ -41,10 +35,31 @@ menuBurger.addEventListener('click', function() {
     toggleMenu();    
 });
 
-window.addEventListener('resize', function(){
-    if (screen.width > 769) {
-        toggleMenu();
-        items.style.transition = 'none';
-    }
-})
+// window.addEventListener('resize', function(){
+//     if (screen.width > 769) {
+//         iconBurgerToggle();
+//         toggleMenu();
+//         items.style.transition = 'none';
+//     }
+// })
 
+// API trending
+let apiKey = 'api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC';
+let urlTrending = 'api.giphy.com/v1/trending/searches';
+divTrending = document.getElementById('trending');
+
+function getTrending(url, key) {
+    fetch(`http://${url}?${key}`)
+        .then(json => json.json())
+        .then(json => {
+            let [tren1, tren2, tren3, tren4, tren5] = json.data;
+            const pTending = document.createElement('p');
+            pTending.textContent = (`${tren1}, ${tren2}, ${tren3}, ${tren4}, ${tren5}`);
+            divTrending.appendChild(pTending);
+            //console.log(json.data.length);
+        })
+}
+
+window.addEventListener('load', function(){
+    getTrending(urlTrending, apiKey);
+})

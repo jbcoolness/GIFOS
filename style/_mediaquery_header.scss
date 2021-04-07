@@ -30,5 +30,17 @@
                 transform: translateX(0%);
             }
         }
+
+        .title-container{
+            .title-ilustration {            
+                input {                
+                    width: 320px;
+                // height: 2.3rem;
+                // background: url(/assets/img/icon-search.svg) no-repeat;
+                // background-position: 95% 50%;
+                // padding-left: 3rem;
+                }
+            }
+        }
     }
 }
