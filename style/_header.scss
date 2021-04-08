@@ -86,6 +86,10 @@ header {
             background: url(/assets/img/icon-search.svg) no-repeat;
             background-position: 95% 50%;
             padding-left: 3rem;
+            &:focus {
+                outline: none;
+                border: 2px solid $color-purple;
+            }
         }
     }
 

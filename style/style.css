@@ -120,6 +120,11 @@ header nav.menu .burger img {
   padding-left: 3rem;
 }
 
+.title-container .title-ilustration input:focus {
+  outline: none;
+  border: 2px solid #572EE5;
+}
+
 .title-container .trending {
   margin: 3rem 0;
   display: -webkit-box;
