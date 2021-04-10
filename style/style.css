@@ -105,24 +105,59 @@ header nav.menu .burger img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.title-container .title-ilustration input {
+.title-container .list-autocomplete-focus {
+  border: 1px solid #572EE5;
+  border-radius: 15px;
+  padding-bottom: 0.5rem;
+}
+
+.title-container .list-autocomplete-focus .searchBar-focus {
+  outline: none;
+  width: 35.625rem;
+  height: 2.3rem;
+  background: url(/assets/img/close.svg) no-repeat;
+  background-position: 95% 50%;
+  padding: 1.2rem 3rem;
+}
+
+.title-container .list-autocomplete {
+  position: relative;
+  border-radius: 15px;
+  padding-bottom: 0.5rem;
+}
+
+.title-container .list-autocomplete .searchBar {
   border: 1px solid #572EE5;
   border-radius: 15px;
   width: 35.625rem;
   height: 2.3rem;
   background: url(/assets/img/icon-search.svg) no-repeat;
   background-position: 95% 50%;
-  padding-left: 3rem;
+  padding: 1.2rem 3rem;
 }
 
-.title-container .title-ilustration input:focus {
+.title-container .list-autocomplete .searchBar:focus {
   outline: none;
-  border: 2px solid #572EE5;
+}
+
+.title-container .list-autocomplete ul {
+  display: none;
+  padding: 0rem 1.7rem 0 1.7rem;
+  list-style: none;
+  color: #9CAFC3;
+  line-height: 1.5rem;
+}
+
+.title-container .list-autocomplete ul .first-li {
+  border-top: 1px solid #9CAFC3;
+  padding-top: 0.7rem;
+}
+
+.title-container .list-autocomplete ul i {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
 }
 
 .title-container .trending {
@@ -201,7 +236,41 @@ main {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  background: #9CAFC3 100%;
+  background: #9CAFC3;
+}
+
+main .trendingGifos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .trendingGifos .titleTrending {
+  text-align: center;
+  margin: 4rem 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+main .trendingGifos .titleTrending h2 {
+  color: #572EE5;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+main .trendingGifos .cardGifos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .trendingGifos .cardGifos .card {
+  width: 357px;
+  height: 275px;
+  background: url("https://giphy.com/embed/Sd3cd0SrUKZEyWmAlM") no-repeat;
 }
 
 footer {

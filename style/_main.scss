@@ -2,4 +2,30 @@ main {
     width: 100%;
     display: grid;
     background: $color-gray;
+
+    .trendingGifos{
+        display: flex;
+        flex-direction: column;
+        .titleTrending {
+            text-align: center;
+            margin: 4rem 0;
+            font-family: $font-monserrat;             
+            h2 {
+                color: $color-purple;
+                font-weight: bold;           
+                margin-bottom: 1rem;
+            }
+
+        }
+        .cardGifos{
+            display: flex;
+            //justify-content: space-between;
+            .card {
+                width: 357px;
+                height: 275px;
+                background: url("https://giphy.com/embed/Sd3cd0SrUKZEyWmAlM") no-repeat;
+                //align-items: center;
+            }
+        }
+    }
 }

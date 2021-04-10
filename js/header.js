@@ -8,11 +8,13 @@ const iconBurgerToggle= () =>{
     iconBurger.classList.toggle('burger-close');
 }
 
+// proceso que escucha el evento click sobre el icono burger para
+// cambiarle el icono abierto o cerrado
 iconBurger.addEventListener('click', function() {
     iconBurgerToggle();
 })
 
-// Efecto para boton crear del menu
+// Efecto mouseover y mouseout para boton crear del menu
 const btnCreate = document.getElementById("btn-create");
 btnCreate.addEventListener('mouseover', function () {
     btnCreate.src= "./assets/img/CTA-crear-gifo-hover.svg";
@@ -26,11 +28,13 @@ btnCreate.addEventListener('mouseout', function () {
 const items = document.getElementsByClassName('items')[0];
 const menuBurger = document.getElementById('iconBurger');
 
+// Funcion que me agrega la clase con una transicion para que
+// aparezca el menú
 const toggleMenu = ()=> {
     items.classList.toggle('items2')
     items.style.transition = "transform 0.3s ease-in-out";
 }
-
+// agregamos la clase con el eveto click
 menuBurger.addEventListener('click', function() {
     toggleMenu();    
 });
@@ -44,48 +48,82 @@ menuBurger.addEventListener('click', function() {
 // })
 
 // API trending
-let apiKey = 'api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC';
-let urlTrending = 'api.giphy.com/v1/trending/searches';
-const divTrending = document.getElementById('trending');
+const apiKey = 'api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC';
+const urlTrending = 'api.giphy.com/v1/trending/searches';
+let fetchTrending = fetch(`http://${urlTrending}?${apiKey}`).then(response => response.json());
 
-
-function getTrending(url, key) {
-    fetch(`http://${url}?${key}`)
-        .then(json => json.json())
-        .then(json => {
-            let [tren1, tren2, tren3, tren4, tren5] = json.data;
-            const pTending = document.createElement('p');
-            pTending.textContent = (`${tren1}, ${tren2}, ${tren3}, ${tren4}, ${tren5}`);
-            divTrending.appendChild(pTending);
-            //console.log(json.data.length);
-        })
-}
+// En el evento load de la app hacemos una promesa que se conecta a
+// la api y recibe las trending y las imprime dentro de un div
 
 window.addEventListener('load', function(){
-    getTrending(urlTrending, apiKey);
-})
+    fetchTrending.then(trending =>{
+        let [tren1, tren2, tren3, tren4, tren5] = trending.data;
+        console.log(tren1, tren2, tren3, tren4, tren5)
+        let divTrending = document.getElementById('divTrending');
+        let pTending = document.createElement('p');
+        pTending.textContent = (`${tren1}, ${tren2}, ${tren3}, ${tren4}, ${tren5}`);
+        divTrending.appendChild(pTending);
+    }).catch(error => { 
+        console.log(error);
+        let divTrending = document.getElementById('divTrending');
+        let pTending = document.createElement('p');
+        pTending.textContent = (error);
+        divTrending.appendChild(pTending);
+    });
+});
+
 
 
 const urlAutocolplete = 'api.giphy.com/v1/gifs/search/tags';
-const searchBar = document.getElementById('searchBar')
+let searchBar = document.getElementById('searchBar');
+//let fetchAutocolplete = fetch(`http://${urlAutocolplete}?${apiKey}&q=${word}`).then(response => response.json());
+let divAutocomplete = document.getElementById('divAutocomplete');
+let ulAutocomplete = document.getElementById('ulAutocomplete')
+
+searchBar.addEventListener('focus', function () {    
+    window.addEventListener('keyup', function (event) {
+        divAutocomplete.classList.add('list-autocomplete-focus');
+        ulAutocomplete.style.display='block';
+        searchBar.classList.remove('searchBar');
+        searchBar.classList.add('searchBar-focus');
+
+        let word = searchBar.value;
+        console.log(word);
+        getSearch(urlAutocolplete, apiKey, word);
+        //ulAutocomplete.children[0].style.backgroundColor = "yellow";
+    })
+});
+searchBar.addEventListener('blur', function () {
+    divAutocomplete.classList.remove('list-autocomplete-focus');
+    divAutocomplete.classList.add('list-autocomplete');
+    searchBar.classList.add('searchBar');
+    ulAutocomplete.style.display='none';
+})
+
 
 function getSearch(url, key, word) {
     fetch(`http://${url}?${key}&q=${word}`)
         .then(json => json.json())
-        .then(json => {
-            for (let i = 0; i < 5; i++) {
-                console.log(json.data[i]['name'])
+        .then(words => {
+            ulAutocomplete.innerHTML = '';
+            for (let word of words.data) {
+                ulAutocomplete.innerHTML += `
+                <li><i class="fas fa-search"></i> ${word['name']}</li>
+                `
+                console.log(word['name'])
+                ulAutocomplete.children[0].classList.add('first-li');
             }
+            
             // console.log(json.data[0]['name'])
             // console.log(json.pagination['count'])
         })
         //.catch(console.log(error))
 }
 
-searchBar.addEventListener('focus', function () {
-    window.addEventListener('keyup', function(event){
-        let word = searchBar.value;
-        console.log(word);
-        getSearch(urlAutocolplete, apiKey, word);
-    })
-})
+// searchBar.addEventListener('focus', function () {
+//     window.addEventListener('keyup', function(event){
+//         let word = searchBar.value;
+//         console.log(word);
+//         getSearch(urlAutocolplete, apiKey, word);
+//     })
+// })

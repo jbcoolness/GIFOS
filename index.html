@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN de font aweson -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" 
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" 
+        crossorigin="anonymous" 
+    />
+
     <link rel="stylesheet" href="./style/style.css">
     <title>GIFOS</title>
 </head>
@@ -26,6 +34,7 @@
         </nav>
 
         <div class="title-container">
+
             <div class="title-text">
                 <h2>Inspírate, busca, guarda, y crea                </h2>
                 <h2>los mejores <span>GIFOS</span></h2>
@@ -33,10 +42,22 @@
 
             <div class="title-ilustration">
                 <img src="./assets/img/ilustra_header.svg" alt="Imagen con personas de Gifos">
-                <input type="text" class="searchBar" id="searchBar" placeholder="Busca GIFOS y más">                
-            </div>
+            </div>    
 
-            <div class="trending" id="trending">
+            <div class="list-autocomplete" id="divAutocomplete">
+                <input type="text" class="searchBar" id="searchBar" placeholder="Busca GIFOS y más">
+                
+                <ul id="ulAutocomplete">
+                    <!-- <li class="first-li"><i class="fas fa-search"></i> Sugerencia de busqueda 1</li>
+                    <li><i class="fas fa-search"></i> Sugerencia de busqueda 2</li>
+                    <li><i class="fas fa-search"></i> Sugerencia de busqueda 3</li>
+                    <li><i class="fas fa-search"></i> Sugerencia de busqueda 4</li>
+                    <li><i class="fas fa-search"></i> Sugerencia de busqueda 5</li> -->
+                </ul>
+            </div>
+            
+
+            <div class="trending" id="divTrending">
                 <h3>Trending</h3>
 
             </div>
@@ -45,7 +66,36 @@
     </header>
 
     <main>
-        
+        <section class="trendingGifos" id="trendingGifos">
+            <div class="titleTrending">
+                <h2>
+                    Trending GIFOS
+                </h2>
+                <p>Mira los últimos GIFOS de nuestra comunidad</p>
+            </div>
+
+            <div class="cardGifos">
+                <div class="leftRow" id="leftRow">
+                    <img src="/assets/img/button-slider-left.svg" alt="">
+                </div>
+    
+                <div class="card" id="card1">
+                    <!-- <img src="https://giphy.com/embed/Sd3cd0SrUKZEyWmAlM" id="imgCard1" alt="gifo tendencia 1"> -->
+    
+                </div>
+                <div class="card" id="card2">
+                    <!-- <img src="" id="imgCard2" alt="gifo tendencia 2"> -->
+                </div>
+                <div class="card" id="card3">
+                    <!-- <img src="" id="imgCard3" alt="gifo tendencia 3"> -->
+                </div>
+    
+                <div class="rightRow" id="rightRow">
+                    <img src="/assets/img/Button-Slider-right.svg" alt="">
+                </div>
+            </div>
+
+        </section>
 
     </main>
 
@@ -62,5 +112,6 @@
 
 
     <script src="./js/header.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
