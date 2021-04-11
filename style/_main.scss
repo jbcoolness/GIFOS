@@ -19,12 +19,19 @@ main {
         }
         .cardGifos{
             display: flex;
-            //justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8rem;
+
             .card {
-                width: 357px;
-                height: 275px;
-                background: url("https://giphy.com/embed/Sd3cd0SrUKZEyWmAlM") no-repeat;
-                //align-items: center;
+                justify-content: center;
+                // width: 357px;
+                // height: 275px;
+                margin: 0 1rem;
+                img {
+                    //width: 357px;
+                    height: 200px;
+                }
             }
         }
     }

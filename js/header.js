@@ -50,7 +50,7 @@ menuBurger.addEventListener('click', function() {
 // API trending
 const apiKey = 'api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC';
 const urlTrending = 'api.giphy.com/v1/trending/searches';
-let fetchTrending = fetch(`http://${urlTrending}?${apiKey}`).then(response => response.json());
+const fetchTrending = fetch(`http://${urlTrending}?${apiKey}`).then(response => response.json());
 
 // En el evento load de la app hacemos una promesa que se conecta a
 // la api y recibe las trending y las imprime dentro de un div
@@ -58,7 +58,7 @@ let fetchTrending = fetch(`http://${urlTrending}?${apiKey}`).then(response => re
 window.addEventListener('load', function(){
     fetchTrending.then(trending =>{
         let [tren1, tren2, tren3, tren4, tren5] = trending.data;
-        console.log(tren1, tren2, tren3, tren4, tren5)
+        //console.log(tren1, tren2, tren3, tren4, tren5)
         let divTrending = document.getElementById('divTrending');
         let pTending = document.createElement('p');
         pTending.textContent = (`${tren1}, ${tren2}, ${tren3}, ${tren4}, ${tren5}`);
@@ -73,13 +73,15 @@ window.addEventListener('load', function(){
 });
 
 
-
+// Declaramos los elementos que vamos a usar y acceder en el HTML
 const urlAutocolplete = 'api.giphy.com/v1/gifs/search/tags';
 let searchBar = document.getElementById('searchBar');
-//let fetchAutocolplete = fetch(`http://${urlAutocolplete}?${apiKey}&q=${word}`).then(response => response.json());
 let divAutocomplete = document.getElementById('divAutocomplete');
 let ulAutocomplete = document.getElementById('ulAutocomplete')
 
+// Funciones que escucharan los eventos focus sobre la barra de busqueda
+// y cuando el ususario digite su busqueda para generar los cambios
+// necesarios y autocompletar con las opciones
 searchBar.addEventListener('focus', function () {    
     window.addEventListener('keyup', function (event) {
         divAutocomplete.classList.add('list-autocomplete-focus');
@@ -88,11 +90,13 @@ searchBar.addEventListener('focus', function () {
         searchBar.classList.add('searchBar-focus');
 
         let word = searchBar.value;
-        console.log(word);
+        //console.log(word);
         getSearch(urlAutocolplete, apiKey, word);
         //ulAutocomplete.children[0].style.backgroundColor = "yellow";
     })
 });
+
+// cambio que suceden al quitar el focus de la barra de busqueda
 searchBar.addEventListener('blur', function () {
     divAutocomplete.classList.remove('list-autocomplete-focus');
     divAutocomplete.classList.add('list-autocomplete');
@@ -100,7 +104,8 @@ searchBar.addEventListener('blur', function () {
     ulAutocomplete.style.display='none';
 })
 
-
+// Funcion encargada de crear los elementos ul de la lista de
+// opciones de autocomplete
 function getSearch(url, key, word) {
     fetch(`http://${url}?${key}&q=${word}`)
         .then(json => json.json())
@@ -113,17 +118,6 @@ function getSearch(url, key, word) {
                 console.log(word['name'])
                 ulAutocomplete.children[0].classList.add('first-li');
             }
-            
-            // console.log(json.data[0]['name'])
-            // console.log(json.pagination['count'])
         })
         //.catch(console.log(error))
 }
-
-// searchBar.addEventListener('focus', function () {
-//     window.addEventListener('keyup', function(event){
-//         let word = searchBar.value;
-//         console.log(word);
-//         getSearch(urlAutocolplete, apiKey, word);
-//     })
-// })

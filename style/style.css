@@ -265,12 +265,24 @@ main .trendingGifos .cardGifos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8rem;
 }
 
 main .trendingGifos .cardGifos .card {
-  width: 357px;
-  height: 275px;
-  background: url("https://giphy.com/embed/Sd3cd0SrUKZEyWmAlM") no-repeat;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 1rem;
+}
+
+main .trendingGifos .cardGifos .card img {
+  height: 200px;
 }
 
 footer {
