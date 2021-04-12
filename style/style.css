@@ -262,6 +262,7 @@ main .trendingGifos .titleTrending h2 {
 }
 
 main .trendingGifos .cardGifos {
+  margin-bottom: 8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,18 +272,42 @@ main .trendingGifos .cardGifos {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 8rem;
 }
 
-main .trendingGifos .cardGifos .card {
+main .trendingGifos .cardGifos .cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75vw;
+  overflow: hidden;
   margin: 0 1rem;
 }
 
-main .trendingGifos .cardGifos .card img {
-  height: 200px;
+main .trendingGifos .cardGifos .cards-container .card {
+  width: auto;
+  height: 220px;
+  margin: 0 0.5rem;
+}
+
+main .trendingGifos .cardGifos .cards-container .card img {
+  width: auto;
+  height: 100%;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  main .trendingGifos .cardGifos .cards-container .card img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center center;
+       object-position: center center;
+  }
 }
 
 footer {

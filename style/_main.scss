@@ -17,22 +17,42 @@ main {
             }
 
         }
-        .cardGifos{
+        .cardGifos{            
+            margin-bottom: 8rem;
             display: flex;
+            //flex-flow: row wrap;
             justify-content: center;
             align-items: center;
-            margin-bottom: 8rem;
-
-            .card {
+            .cards-container {
+                display: flex;
                 justify-content: center;
-                // width: 357px;
-                // height: 275px;
+                align-items:center;
+                width: 75vw;
+                overflow: hidden;
                 margin: 0 1rem;
-                img {
-                    //width: 357px;
-                    height: 200px;
+                
+                .card {
+                    width: auto;
+                    height: 220px;
+                    margin: 0 0.5rem;
+                    img {
+                        //width: 357px;
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+                @supports(object-fit: cover){
+                    .card{
+                        img {
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center center;
+                        }
+                    }
                 }
             }
+            
         }
+        
     }
 }
