@@ -55,4 +55,63 @@ main {
         }
         
     }
+    .search {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        background: $color-white;
+        .title-search {
+            text-align: center;
+            margin-bottom: 3rem;
+            h3 {
+                font-family: $font-monserrat;
+                font-weight: bold;
+                color: $color-purple;
+            }
+        }
+        .search-result {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90vw;
+            margin: 1rem 5%;
+            //height: 100vh;
+            justify-content: center;
+            align-items: center;
+            .div-result {
+                width: 260px;
+                height: 200px;
+                overflow: hidden;
+                margin: 1rem;
+                .img-result {
+                    width: auto;
+                    height: 100%;
+                }
+            }
+            @supports(object-fit: cover){
+                .div-result{
+                    .img-result {
+                        height: 50%;
+                        object-fit: cover;
+                        object-position: center center;
+                    }
+                }
+            }
+        }
+
+        .div-show-more{
+            justify-content: center;
+            // align-items: center;
+            display: none;
+            // width:127px;
+            // height:50px;
+            .img-show-more {
+                content:url("/assets/img/CTA-ver-mas.svg");
+            }&:hover{
+                
+                content:url("/assets/img/CTA-ver-mas-hover.svg");
+            }
+
+        }
+        
+    }
 }
