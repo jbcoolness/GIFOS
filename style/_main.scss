@@ -33,7 +33,7 @@ main {
                 
                 .card {
                     width: auto;
-                    height: 220px;
+                    height: 275px;
                     margin: 0 0.5rem;
                     img {
                         //width: 357px;
@@ -73,8 +73,7 @@ main {
             display: flex;
             flex-wrap: wrap;
             width: 90vw;
-            margin: 1rem 5%;
-            //height: 100vh;
+            margin: 1rem 5%;            
             justify-content: center;
             align-items: center;
             .div-result {
@@ -90,7 +89,7 @@ main {
             @supports(object-fit: cover){
                 .div-result{
                     .img-result {
-                        height: 50%;
+                        height: 100%;
                         object-fit: cover;
                         object-position: center center;
                     }

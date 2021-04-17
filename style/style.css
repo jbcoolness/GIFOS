@@ -291,7 +291,7 @@ main .trendingGifos .cardGifos .cards-container {
 
 main .trendingGifos .cardGifos .cards-container .card {
   width: auto;
-  height: 220px;
+  height: 275px;
   margin: 0 0.5rem;
 }
 
@@ -363,7 +363,7 @@ main .search .search-result .div-result .img-result {
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
   main .search .search-result .div-result .img-result {
-    height: 50%;
+    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
     -o-object-position: center center;
