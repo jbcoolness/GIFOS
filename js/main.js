@@ -1,5 +1,5 @@
 
-import {getApi} from './globalData.js'
+import {getApi} from './globalData.js';
 
 let urlGifsTrneding = (`api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&limit=30`)
 
@@ -63,23 +63,41 @@ leftRow.addEventListener('click', function () {
 
 import {printSearchGifs} from './globalData.js'
 // Busqueda de gifs mediante Barra
-const searchResult = document.getElementById('searchResult');
+// const searchResult = document.getElementById('searchResult');
 let imgShowMore;
+let titleSearch;
 
 searchBar.addEventListener('focus', function () {
     searchBar.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
-            let word = searchBar.value;
-            console.log(word);
-            let offset = 12;
-            let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
-            
-            // Variable que almacena el resultado de la API con la consulta
-            let searchGifs = getApi(urlSearchGifs);
+            // Eliminamos la lista del autocomletar
+            try {
+                ulAutocomplete.remove();                
+                searchBar.blur();
 
-            // Recibe la respuesta con 12 gif y los muestra en el div
-            printSearchGifs(searchGifs)
-        }
+                titleSearch = document.getElementById('titleSearch');
+                // let wordSearch = document.createElement('h3')
+                // titleSearch.appendChild(wordSearch)
+            
+                let searchResult = document.getElementById('searchResult');
+                searchResult.innerHTML = '';
+
+                let word = searchBar.value;
+                let offset = 12;
+                let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
+                
+                console.log(word);            
+
+                // Variable que almacena el resultado de la API con la consulta
+                let searchGifs = getApi(urlSearchGifs);
+                titleSearch.innerHTML = `<h3>${word}</h3>`
+
+                // Recibe la respuesta con 12 gif y los muestra en el div
+                printSearchGifs(searchGifs);
+            } catch (error) {
+                console.log(error + ' porque ya fue eliminada pero hagale')
+            };
+        };
     });
 });
 

@@ -108,24 +108,51 @@ header nav.menu .burger img {
 }
 
 .title-container .list-autocomplete-focus {
+  position: relative;
   border: 1px solid #572EE5;
   border-radius: 15px;
-  padding-bottom: 0.5rem;
 }
 
 .title-container .list-autocomplete-focus .searchBar-focus {
   outline: none;
   width: 35.625rem;
   height: 2.3rem;
-  background: url(/assets/img/close.svg) no-repeat;
-  background-position: 95% 50%;
+  background: transparent;
   padding: 1.2rem 3rem;
+}
+
+.title-container .list-autocomplete-focus .icon-Search {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.title-container .list-autocomplete-focus .icon-Search:hover {
+  cursor: pointer;
+}
+
+.title-container .list-autocomplete-focus ul {
+  display: block;
+  padding: 0rem 1.7rem 0 1.7rem;
+  list-style: none;
+  color: #9CAFC3;
+  line-height: 1.5rem;
+}
+
+.title-container .list-autocomplete-focus ul .first-li {
+  border-top: 1px solid #9CAFC3;
+  padding-top: 0.7rem;
+}
+
+.title-container .list-autocomplete-focus ul i {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
 }
 
 .title-container .list-autocomplete {
   position: relative;
+  border: none;
   border-radius: 15px;
-  padding-bottom: 0.5rem;
 }
 
 .title-container .list-autocomplete .searchBar {
@@ -133,8 +160,7 @@ header nav.menu .burger img {
   border-radius: 15px;
   width: 35.625rem;
   height: 2.3rem;
-  background: url(/assets/img/icon-search.svg) no-repeat;
-  background-position: 95% 50%;
+  background: transparent;
   padding: 1.2rem 3rem;
 }
 
@@ -142,17 +168,14 @@ header nav.menu .burger img {
   outline: none;
 }
 
-.title-container .list-autocomplete ul {
-  display: none;
-  padding: 0rem 1.7rem 0 1.7rem;
-  list-style: none;
-  color: #9CAFC3;
-  line-height: 1.5rem;
+.title-container .list-autocomplete .icon-Search {
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
 
-.title-container .list-autocomplete ul .first-li {
-  border-top: 1px solid #9CAFC3;
-  padding-top: 0.7rem;
+.title-container .list-autocomplete .icon-Search:hover {
+  cursor: pointer;
 }
 
 .title-container .list-autocomplete ul i {
@@ -189,6 +212,10 @@ header nav.menu .burger img {
 .title-container .trending p {
   font-weight: normal;
   font-size: 1rem;
+}
+
+.title-container .trending p:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 769px) {
