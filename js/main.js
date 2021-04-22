@@ -1,10 +1,29 @@
 
-import {getApi} from './globalData.js';
+// Importamos todas las variables y funciones del archivo global
+// que vamos a necesitar en este script
+
+import {getApiTrendingGifs, printSearchGifs, printCardsGif} from './globalData.js';
+
+// Funcion para pedir una busqueda validada por la variable 
+// {word} y la cantidad de resultados por {limite}. La variable 
+// offset es para interactuar y poder pedir mas imagenes
+
+async function getApiSearchgGifs(word, offset) {
+    try {        
+        let requestGifs = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
+        let response = await requestGifs.json();
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 let urlGifsTrneding = (`api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&limit=30`)
 
 // variable que recibe los 30 gifs que llegan de la API
-let trendingGifs = getApi(urlGifsTrneding);
+let trendingGifs = getApiTrendingGifs();
 
 // div donde se crearan las cards con los gifs
 const cardsContainer = document.getElementById('cardsContainer')
@@ -16,7 +35,7 @@ const imgCard3 = document.getElementById('imgCard3');
 const rightRow = document.getElementById('imgRightRow');
 const leftRow = document.getElementById('imgLeftRow');
 
-import {printCardsGif} from './globalData.js';
+
 // Variable para iterar e ir cambiando los gif del slide
 let indexGif;
 window.addEventListener('load', function () {
@@ -61,7 +80,7 @@ leftRow.addEventListener('click', function () {
 });
 
 
-import {printSearchGifs} from './globalData.js'
+
 // Busqueda de gifs mediante Barra
 // const searchResult = document.getElementById('searchResult');
 let imgShowMore;
@@ -81,15 +100,14 @@ searchBar.addEventListener('focus', function () {
             
                 let searchResult = document.getElementById('searchResult');
                 searchResult.innerHTML = '';
-
                 let word = searchBar.value;
                 let offset = 12;
-                let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
+                // let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
                 
-                console.log(word);            
+                console.log(word);          
 
                 // Variable que almacena el resultado de la API con la consulta
-                let searchGifs = getApi(urlSearchGifs);
+                let searchGifs = getApiSearchgGifs(word, offset);
                 titleSearch.innerHTML = `<h3>${word}</h3>`
 
                 // Recibe la respuesta con 12 gif y los muestra en el div

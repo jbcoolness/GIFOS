@@ -1,32 +1,9 @@
-// URL o ends points de peticiones a Giphy
+// URL o endpoints de peticiones a Giphy
 
 // Para pedir las palabras o tags tendencias
-const urlTrneding = (`api.giphy.com/v1/trending/searches?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC`);
-
-// Para pedir los gifs tendencias, limitados a 30
-const urlGifsTrneding = (`api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&limit=30`)
-
-// Para pedir una busqueda validada por la variable 
-// {word} y la cantidas por {limite}
-// let word;
-// let offset;
-// let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
-
-// Para pedir el autocompletado de la busqueda mediante la variable
-// word que se le vaya tipeando
-// let letter;
-// let urlAutocomplete = (`api.giphy.com/v1/gifs/search/tags?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${letter}`)
-
-export {urlTrneding, urlGifsTrneding};
-
-// <<------------------------*------------------------>>
-
-// Funcion general que recibe una url o end point de la API giphy
-// configurado para esta aplicacion, trayendo el json y retornandolo
-// como dato para su tratamiento
-async function getApi(url) {
+async function getApiTrendingTerms() {
     try {        
-        let requestGifs = await fetch(`http://${url}`);
+        let requestGifs = await fetch(`http://api.giphy.com/v1/trending/searches?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC`);
         let response = await requestGifs.json();
         console.log(response.data);
         return response.data;
@@ -35,6 +12,29 @@ async function getApi(url) {
         console.log(error);
     }
 };
+
+// Para pedir los gifs tendencias, limitados a 30
+async function getApiTrendingGifs() {
+    try {        
+        let requestGifs = await fetch(`http://api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&limit=30`);
+        let response = await requestGifs.json();
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
+
+// <<------------------------*------------------------>>
+
+// Funcion general que recibe una url o end point de la API giphy
+// configurado para esta aplicacion, trayendo el json y retornandolo
+// como dato para su tratamiento
+
 
 // Funcion recibe la variable con gifs y muestra 
 // los 3 gifs en el slide del trending
@@ -65,4 +65,4 @@ function printSearchGifs(searchGifs) {
     });    
 };
 
-export {getApi, printCardsGif, printSearchGifs};
+export {getApiTrendingTerms, getApiTrendingGifs, printCardsGif, printSearchGifs};

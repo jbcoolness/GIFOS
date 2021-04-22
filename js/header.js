@@ -1,3 +1,36 @@
+// Importamos todas las variables y funciones del archivo global
+// que vamos a necesitar en este script
+import {getApiTrendingTerms, printSearchGifs} from './globalData.js';
+
+// Funcion lanza la apli que autocompleta el texto 
+// de busqueda de gif
+async function getApiAutocomplete(letter) {
+    try {        
+        let requestGifs = await fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${letter}`);
+        let response = await requestGifs.json();
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// Funcion lanza la API de busqueda mediante una palabra
+async function getApiSearchgGifs(word, offset) {
+    try {        
+        let requestGifs = await fetch(`http://api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
+        let response = await requestGifs.json();
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
 // Efecto de boton menu hamburguesa
 const iconBurger = document.getElementById('iconBurger');
 const menu = document.getElementById('menu');
@@ -50,15 +83,15 @@ menuBurger.addEventListener('click', function() {
 // <<------------------------ **** ------------------------>>
 // API trending
 
-import {urlTrneding, getApi, printSearchGifs} from './globalData.js';
-const trending = getApi(urlTrneding);
+
+const trendingTerms = getApiTrendingTerms();
 
 // En el evento load de la app mediante la funcion getApi no conectamos
 // a la api y recibimos las trending y mosytramos dentro de un div
 let divTrending;
 window.addEventListener('load', function(){
-    trending.then(trending =>{        
-        let [tren1, tren2, tren3, tren4, tren5] = trending;
+    trendingTerms.then(trendingTerms =>{        
+        let [tren1, tren2, tren3, tren4, tren5] = trendingTerms;
         divTrending = document.getElementById('divTrending');
         let pTending = document.createElement('p');
         pTending.innerHTML = (`<span>${tren1}</span>, <span>${tren2}</span>, <span>${tren3}</span>, <span>${tren4}</span>, <span>${tren5}</span>`);
@@ -78,7 +111,7 @@ window.addEventListener('load', function(){
                     console.log(word);            
 
                     // Variable que almacena el resultado de la API con la consulta
-                    let searchGifs = getApi(urlSearchGifs);
+                    let searchGifs = getApiSearchgGifs(word, offset);
                     titleSearch.innerHTML = `<h3>${word}</h3>`
 
                     // Recibe la respuesta con 12 gif y los muestra en el div
@@ -122,8 +155,7 @@ searchBar.addEventListener('focus', function () {
         searchBar.classList.add('searchBar-focus');
 
         let letter = searchBar.value;        
-        let urlAutocomplete = (`api.giphy.com/v1/gifs/search/tags?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${letter}`)
-        printWords(getApi(urlAutocomplete));
+        printWords(getApiAutocomplete(letter));
     })
 });
 
