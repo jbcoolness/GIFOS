@@ -27,27 +27,18 @@ main {
                 display: flex;
                 justify-content: center;
                 align-items:center;
-                width: 75vw;
+                width: 80vw;
                 overflow: hidden;
                 margin: 0 1rem;
                 
                 .card {
-                    width: auto;
-                    height: 275px;
+                    // width: 268px;
+                    // height: 478px;
                     margin: 0 0.5rem;
                     img {
                         //width: 357px;
                         width: auto;
-                        height: 100%;
-                    }
-                }
-                @supports(object-fit: cover){
-                    .card{
-                        img {
-                            height: 100%;
-                            object-fit: cover;
-                            object-position: center center;
-                        }
+                        height: 357px;
                     }
                 }
             }

@@ -311,30 +311,18 @@ main .trendingGifos .cardGifos .cards-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 75vw;
+  width: 80vw;
   overflow: hidden;
   margin: 0 1rem;
 }
 
 main .trendingGifos .cardGifos .cards-container .card {
-  width: auto;
-  height: 275px;
   margin: 0 0.5rem;
 }
 
 main .trendingGifos .cardGifos .cards-container .card img {
   width: auto;
-  height: 100%;
-}
-
-@supports ((-o-object-fit: cover) or (object-fit: cover)) {
-  main .trendingGifos .cardGifos .cards-container .card img {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center center;
-       object-position: center center;
-  }
+  height: 357px;
 }
 
 main .search {
