@@ -334,6 +334,9 @@ main .search {
       -ms-flex-direction: column;
           flex-direction: column;
   justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #FFFFFF;
 }
 
@@ -390,15 +393,18 @@ main .search .div-show-more {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: none;
-}
-
-main .search .div-show-more .img-show-more {
-  content: url("/assets/img/CTA-ver-mas.svg");
+  width: 127px;
+  height: 50px;
+  margin: 2rem 0;
+  background-image: url("/assets/img/CTA-ver-mas.svg");
 }
 
 main .search .div-show-more:hover {
-  content: url("/assets/img/CTA-ver-mas-hover.svg");
+  background-image: url("/assets/img/CTA-ver-mas-hover.svg");
 }
 
 footer {

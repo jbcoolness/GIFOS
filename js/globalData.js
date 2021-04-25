@@ -27,13 +27,7 @@ async function getApiTrendingGifs() {
 };
 
 
-
-
 // <<------------------------*------------------------>>
-
-// Funcion general que recibe una url o end point de la API giphy
-// configurado para esta aplicacion, trayendo el json y retornandolo
-// como dato para su tratamiento
 
 
 // Funcion recibe la variable con gifs y muestra 
@@ -51,10 +45,17 @@ function printCardsGif(trendingGifs, indexGif) {
 // Funcion que recibe la variable con la respuesta de 12 gif y 
 // los muestra en pantalla, creando los elementos necesarios
 function printSearchGifs(searchGifs) {
+    try {
+        divShowMore.style.display=('none')
+    } catch (error) {
+        console.log('aun no existe' + error)
+    }
+    const divShowMore = document.getElementById('divShowMore');
+    divShowMore.classList.add('div-show-more');
     searchGifs.then( gifs => {
         gifs.forEach( gif => {
-            let divResult = document.createElement('div');
-            let imgResult =  document.createElement('img');
+            const divResult = document.createElement('div');
+            const imgResult =  document.createElement('img');            
             divResult.classList.add('div-result');
             imgResult.classList.add('img-Result');
             searchResult.appendChild(divResult);
@@ -62,7 +63,8 @@ function printSearchGifs(searchGifs) {
             imgResult.setAttribute('src', gif.images.fixed_height.url);
             console.log(gif.images.fixed_height.url)
         });
-    });    
+    });
+    divShowMore.style.display=('block')
 };
 
 export {getApiTrendingTerms, getApiTrendingGifs, printCardsGif, printSearchGifs};

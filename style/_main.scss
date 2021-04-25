@@ -50,6 +50,7 @@ main {
         display: flex;
         flex-direction: column;
         justify-items: center;
+        align-items: center;
         background: $color-white;
         .title-search {
             text-align: center;
@@ -90,18 +91,15 @@ main {
 
         .div-show-more{
             justify-content: center;
-            // align-items: center;
+            align-items: center;
             display: none;
-            // width:127px;
-            // height:50px;
-            .img-show-more {
-                content:url("/assets/img/CTA-ver-mas.svg");
-            }&:hover{
-                
-                content:url("/assets/img/CTA-ver-mas-hover.svg");
+            width:127px;
+            height:50px;
+            margin: 2rem 0;
+            background-image: url("/assets/img/CTA-ver-mas.svg");
+            &:hover{                
+                background-image: url("/assets/img/CTA-ver-mas-hover.svg");
             }
-
         }
-        
     }
 }

@@ -86,9 +86,10 @@ menuBurger.addEventListener('click', function() {
 
 const trendingTerms = getApiTrendingTerms();
 
-// En el evento load de la app mediante la funcion getApi no conectamos
-// a la api y recibimos las trending y mosytramos dentro de un div
+// En el evento load de la app nos conectamos a la api y recibimos  
+// las trending y mosytramos dentro de un div
 let divTrending;
+let offset = 0;
 window.addEventListener('load', function(){
     trendingTerms.then(trendingTerms =>{        
         let [tren1, tren2, tren3, tren4, tren5] = trendingTerms;
@@ -105,17 +106,18 @@ window.addEventListener('load', function(){
                     searchResult.innerHTML = '';
                     console.log(text);
                     let word = text;
-                    let offset = 12;
+                    
                     let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
                 
                     console.log(word);            
 
                     // Variable que almacena el resultado de la API con la consulta
                     let searchGifs = getApiSearchgGifs(word, offset);
-                    titleSearch.innerHTML = `<h3>${word}</h3>`
+                    titleSearch.innerHTML = `<h3 id="h3TitleSearch">${word}</h3>`
 
                     // Recibe la respuesta con 12 gif y los muestra en el div
                     printSearchGifs(searchGifs);
+                    offset = offset + 12;
                 }
         }, false);
     }).catch(error => {
