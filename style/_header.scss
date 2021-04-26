@@ -1,18 +1,20 @@
 // muestra icono de burger normal o cerrado
-.burger-normal {
+.menuburger__icon--lines {
     content: url("/assets/img/burger.svg");
 }
 
 // muestra icono de burger en X o abierto
-.burger-close {
+.menuburger__icon--x {
     content: url("/assets/img/close.svg");
 }
 
-header {
+.header {
     background: $color-white;
     width: 100%;
+    border-top: solid $color-purple 3px;
+}
 
-    nav.menu {
+    .header__menu {
         height: 90px;
         width: 90%;
         background: $color-white;
@@ -21,34 +23,44 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
 
-        .items {
-            a {
-                text-decoration: none;
-                font-family: $font-monserrat;
-                font-weight: bold;
-                margin-right: 30px;
-                vertical-align: middle;                
-            }
-            .item-menu {
-                &:hover {
-                    border-bottom: 1.5px solid $color-mint-green;
-                }
-            }
-        }
 
-        .burger {
+
+    .menulink {
+        text-decoration: none;
+        font-family: $font-monserrat;
+        font-weight: bold;
+        margin-right: 30px;        
+    &:hover {
+        border-bottom: solid $color-mint-green 2px;
+    }
+}
+
+    .menuline{
+        display: none;
+    }
+
+    .menulink--btncreate {
+        vertical-align: middle;
+        &:hover {
+            content: url("/assets/img/CTA-crear-gifo-hover.svg");
+        }        
+    }
+
+
+.menuburger {
             height: 100%;
             width: 80px;
             text-align: center;
             display: none;
-            img {
-                vertical-align: top;
-                padding: 40px;
-            }
-        }
-    }
 }
+
+    .menuburger--img {
+        vertical-align: top;
+        padding: 40px;
+    }
+
 
 
 //Stylos del Titulo del header

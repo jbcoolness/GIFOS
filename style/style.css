@@ -13,20 +13,21 @@
   margin: auto;
 }
 
-.burger-normal {
+.menuburger__icon--lines {
   content: url("/assets/img/burger.svg");
 }
 
-.burger-close {
+.menuburger__icon--x {
   content: url("/assets/img/close.svg");
 }
 
-header {
+.header {
   background: #FFFFFF;
   width: 100%;
+  border-top: solid #572EE5 3px;
 }
 
-header nav.menu {
+.header__menu {
   height: 90px;
   width: 90%;
   background: #FFFFFF;
@@ -43,26 +44,37 @@ header nav.menu {
           align-items: center;
 }
 
-header nav.menu .items a {
+.menulink {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-right: 30px;
+}
+
+.menulink:hover {
+  border-bottom: solid #50E3C2 2px;
+}
+
+.menuline {
+  display: none;
+}
+
+.menulink--btncreate {
   vertical-align: middle;
 }
 
-header nav.menu .items .item-menu:hover {
-  border-bottom: 1.5px solid #50E3C2;
+.menulink--btncreate:hover {
+  content: url("/assets/img/CTA-crear-gifo-hover.svg");
 }
 
-header nav.menu .burger {
+.menuburger {
   height: 100%;
   width: 80px;
   text-align: center;
   display: none;
 }
 
-header nav.menu .burger img {
+.menuburger--img {
   vertical-align: top;
   padding: 40px;
 }
@@ -219,10 +231,11 @@ header nav.menu .burger img {
 }
 
 @media screen and (max-width: 769px) {
-  header nav.menu .burger {
+  .menuburger {
+    padding-top: 30px;
     display: block;
   }
-  header nav.menu .items {
+  .menulist {
     z-index: 1;
     position: fixed;
     background: rgba(87, 46, 229, 0.9);
@@ -243,19 +256,25 @@ header nav.menu .burger img {
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
   }
-  header nav.menu .items a {
-    margin: 30px 0;
+  .menulink {
+    margin: 40px 0 0 0;
     color: #FFFFFF;
   }
-  header nav.menu .items a:last-child {
+  .menulink::after {
+    content: "______";
+    color: #9CAFC3;
+    display: block;
+    text-align: center;
+  }
+  .menulink--btncreate {
     display: none;
   }
-  header nav.menu .items2 {
+  .menulist2 {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
-  header .title-container .title-ilustration input {
-    width: 320px;
+  .title-container .title-ilustration input {
+    width: 300px;
   }
 }
 
@@ -322,7 +341,7 @@ main .trendingGifos .cardGifos .cards-container .card {
 
 main .trendingGifos .cardGifos .cards-container .card img {
   width: auto;
-  height: 357px;
+  height: 200px;
 }
 
 main .search {

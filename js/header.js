@@ -38,7 +38,7 @@ const menu = document.getElementById('menu');
 // Arrow function que me cambia el icon Burger 
 // de pendiendo si está abier o cerrado
 const iconBurgerToggle= () =>{
-    iconBurger.classList.toggle('burger-close');
+    iconBurger.classList.toggle('menuburger__icon--x');
 }
 
 // proceso que escucha el evento click sobre el icono burger para
@@ -58,14 +58,14 @@ btnCreate.addEventListener('mouseout', function () {
 })
 
 // Efecto de desplazamiento del menú
-const items = document.getElementsByClassName('items')[0];
+const menulist = document.getElementsByClassName('menulist')[0];
 const menuBurger = document.getElementById('iconBurger');
 
 // Funcion que agrega la clase con una transicion para que
 // aparezca el menú
 const toggleMenu = ()=> {
-    items.classList.toggle('items2')
-    items.style.transition = "transform 0.3s ease-in-out";
+    menulist.classList.toggle('menulist2')
+    menulist.style.transition = "transform 0.3s ease-in-out";
 }
 // agregamos la clase con el eveto click
 menuBurger.addEventListener('click', function() {
