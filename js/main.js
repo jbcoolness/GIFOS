@@ -107,7 +107,7 @@ searchBar.addEventListener('focus', function () {
 
                 // Variable que almacena el resultado de la API con la consulta
                 let searchGifs = getApiSearchgGifs(word, offset);
-                titleSearch.innerHTML = `<h3 id="h3TitleSearch">${word}</h3>`
+                titleSearch.innerHTML = `<h3 class="searchText__title" id="h3TitleSearch">${word}</h3>`
 
                 // Recibe la respuesta con 12 gif y los muestra en el div
                 printSearchGifs(searchGifs);

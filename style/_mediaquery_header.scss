@@ -38,15 +38,28 @@
         }
         
 
-        .title-container{
-            .title-ilustration {            
-                input {                
-                    width: 300px;
-                // height: 2.3rem;
-                // background: url(/assets/img/icon-search.svg) no-repeat;
-                // background-position: 95% 50%;
-                // padding-left: 3rem;
-                }
-            }
+        .title__text {
+            width: 90%;
+            font-size: 1rem;
         }
-    }
+        
+        .title__ilustration--size{
+            width: 270px;
+            height: auto;
+        }
+        
+        .listAutocomplete__searchBar {                
+            width: 290px;
+        }
+
+        .trending {
+            width: 80%;
+        }
+
+        .trending__terms {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+}

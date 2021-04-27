@@ -79,7 +79,7 @@
   padding: 40px;
 }
 
-.title-container {
+.title {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,7 +96,7 @@
           align-items: center;
 }
 
-.title-container .title-text {
+.title__text {
   font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
@@ -105,11 +105,11 @@
   margin: 1.5rem 0;
 }
 
-.title-container .title-text h2 span {
+.title__text--gren {
   color: #50E3C2;
 }
 
-.title-container .title-ilustration {
+.title__ilustration {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,31 +119,21 @@
           flex-direction: column;
 }
 
-.title-container .list-autocomplete-focus {
+.listAutocomplete {
   position: relative;
-  border: 1px solid #572EE5;
-  border-radius: 15px;
 }
 
-.title-container .list-autocomplete-focus .searchBar-focus {
-  outline: none;
-  width: 35.625rem;
-  height: 2.3rem;
-  background: transparent;
-  padding: 1.2rem 3rem;
-}
-
-.title-container .list-autocomplete-focus .icon-Search {
+.listAutocomplete__iconSearch {
   position: absolute;
   right: 15px;
   top: 10px;
 }
 
-.title-container .list-autocomplete-focus .icon-Search:hover {
+.listAutocomplete__iconSearch:hover {
   cursor: pointer;
 }
 
-.title-container .list-autocomplete-focus ul {
+.listAutocomplete__ul {
   display: block;
   padding: 0rem 1.7rem 0 1.7rem;
   list-style: none;
@@ -151,23 +141,23 @@
   line-height: 1.5rem;
 }
 
-.title-container .list-autocomplete-focus ul .first-li {
+.listAutocomplete__ul--firstli {
   border-top: 1px solid #9CAFC3;
   padding-top: 0.7rem;
 }
 
-.title-container .list-autocomplete-focus ul i {
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-}
-
-.title-container .list-autocomplete {
+.listAutocomplete {
   position: relative;
   border: none;
   border-radius: 15px;
 }
 
-.title-container .list-autocomplete .searchBar {
+.listAutocomplete:focus {
+  outline: none;
+  border: 1px solid #572EE5;
+}
+
+.listAutocomplete__searchBar {
   border: 1px solid #572EE5;
   border-radius: 15px;
   width: 35.625rem;
@@ -176,26 +166,34 @@
   padding: 1.2rem 3rem;
 }
 
-.title-container .list-autocomplete .searchBar:focus {
+.listAutocomplete__searchBar:focus {
   outline: none;
 }
 
-.title-container .list-autocomplete .icon-Search {
+.listAutocomplete--focus {
+  border: 1px solid #572EE5;
+}
+
+.listAutocomplete__searchBar--focus {
+  border: none;
+}
+
+.listAutocomplete__iconSearch {
   position: absolute;
   right: 15px;
   top: 10px;
 }
 
-.title-container .list-autocomplete .icon-Search:hover {
+.listAutocomplete__iconSearch:hover {
   cursor: pointer;
 }
 
-.title-container .list-autocomplete ul i {
+.li__iconSearch {
   font-size: 0.8rem;
   margin-right: 0.5rem;
 }
 
-.title-container .trending {
+.trending {
   margin: 3rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -214,19 +212,19 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.title-container .trending h3 {
+.trending__title {
   margin-bottom: 0.8rem;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 1.125rem;
 }
 
-.title-container .trending p {
+.trending__terms {
   font-weight: normal;
   font-size: 1rem;
 }
 
-.title-container .trending p:hover {
+.trending__terms:hover {
   cursor: pointer;
 }
 
@@ -273,8 +271,31 @@
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
-  .title-container .title-ilustration input {
-    width: 300px;
+  .title__text {
+    width: 90%;
+    font-size: 1rem;
+  }
+  .title__ilustration--size {
+    width: 270px;
+    height: auto;
+  }
+  .listAutocomplete__searchBar {
+    width: 290px;
+  }
+  .trending {
+    width: 80%;
+  }
+  .trending__terms {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
@@ -285,66 +306,7 @@ main {
   background: #9CAFC3;
 }
 
-main .trendingGifos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-main .trendingGifos .titleTrending {
-  text-align: center;
-  margin: 4rem 0;
-  font-family: "Montserrat", sans-serif;
-}
-
-main .trendingGifos .titleTrending h2 {
-  color: #572EE5;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-main .trendingGifos .cardGifos {
-  margin-bottom: 8rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-main .trendingGifos .cardGifos .cards-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 80vw;
-  overflow: hidden;
-  margin: 0 1rem;
-}
-
-main .trendingGifos .cardGifos .cards-container .card {
-  margin: 0 0.5rem;
-}
-
-main .trendingGifos .cardGifos .cards-container .card img {
-  width: auto;
-  height: 200px;
-}
-
-main .search {
+.search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,18 +321,18 @@ main .search {
   background: #FFFFFF;
 }
 
-main .search .title-search {
+.searchText {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-main .search .title-search h3 {
+.searchText__title {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   color: #572EE5;
 }
 
-main .search .search-result {
+.searchResult {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -386,20 +348,20 @@ main .search .search-result {
           align-items: center;
 }
 
-main .search .search-result .div-result {
+.searchResult__cards {
   width: 260px;
   height: 200px;
   overflow: hidden;
   margin: 1rem;
 }
 
-main .search .search-result .div-result .img-result {
+.searchResult__img {
   width: auto;
   height: 100%;
 }
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-  main .search .search-result .div-result .img-result {
+  .searchResult__cards .searchResult__img {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -408,7 +370,7 @@ main .search .search-result .div-result .img-result {
   }
 }
 
-main .search .div-show-more {
+.searchShowMore {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -422,8 +384,86 @@ main .search .div-show-more {
   background-image: url("/assets/img/CTA-ver-mas.svg");
 }
 
-main .search .div-show-more:hover {
+.searchShowMore:hover {
   background-image: url("/assets/img/CTA-ver-mas-hover.svg");
+}
+
+.trendingGifosContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.trendingGifosTexts {
+  text-align: center;
+  margin: 4rem 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.trendingGifosTexts__title {
+  color: #572EE5;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.trendingGifos {
+  margin-bottom: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trendingGifos__cardsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80vw;
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.trendingGifos__card {
+  margin: 0 0.5rem;
+}
+
+.trendingGifos__img {
+  width: auto;
+  height: 200px;
+}
+
+@media screen and (max-width: 600px) {
+  .trendingGifos__leftRow {
+    display: none;
+  }
+  .trendingGifos__rightRow {
+    display: none;
+  }
+  .trendingGifos__cardsContainer {
+    width: 90vw;
+  }
+  .searchResult {
+    width: 100vw;
+  }
+  .searchResult__cards {
+    width: 160px;
+    height: 80px;
+  }
 }
 
 footer {

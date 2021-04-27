@@ -64,119 +64,101 @@
 
 
 //Stylos del Titulo del header
-.title-container {
+.title {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
-    .title-text {
+    .title__text {
         font-family: $font-monserrat;
         font-size: 1.5rem;
         font-weight: bold;
         color: $color-purple;
         text-align: center;        
         margin: 1.5rem 0;
-
-        h2 {
-            span {
-                color: $color-mint-green;
-            }
-        }
     }
 
-    .title-ilustration {
+        .title__text--gren {
+            color: $color-mint-green;
+        }
+
+    .title__ilustration {
         display: flex;
         flex-direction: column;
         // align-items: center;
     }
+
+.listAutocomplete {
+    position: relative;
+}
     
-    .list-autocomplete-focus {
-        position: relative;
-        border: 1px solid $color-purple;
-        border-radius: 15px;
-        // padding-bottom: 0.5rem;
-        .searchBar-focus {    
-            outline: none;        
-            width: 35.625rem;
-            height: 2.3rem;
-            background: transparent;
-            // background: url(/assets/img/close.svg) no-repeat;
-            // background-position: 95% 50%;
-            padding: 1.2rem 3rem;
-        }
-        .icon-Search{
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        ul {
-            display: block;
-            padding: 0rem 1.7rem 0 1.7rem;                
-            list-style: none;
-            color: $color-gray;
-            line-height: 1.5rem;
-            .first-li {
-                border-top: 1px solid $color-gray;
-                padding-top: 0.7rem;
-            }
-            i {
-                font-size: 0.8rem;
-                margin-right: 0.5rem;
-                //font-weight :bold;            
-            
-            }
+    .listAutocomplete__iconSearch{
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        &:hover {
+            cursor: pointer;
         }
     }
+    
+    .listAutocomplete__ul {
+        display: block;
+        padding: 0rem 1.7rem 0 1.7rem;                
+        list-style: none;
+        color: $color-gray;
+        line-height: 1.5rem;
+    }
+        .listAutocomplete__ul--firstli {
+            border-top: 1px solid $color-gray;
+            padding-top: 0.7rem;
+        }
 
-    .list-autocomplete {
+    .listAutocomplete {
         position: relative;
         border: none;
         border-radius: 15px;
-        // padding-bottom: 0.5rem;
-        .searchBar {
+        &:focus {
+            outline: none;
             border: 1px solid $color-purple;
-            border-radius: 15px;
-            width: 35.625rem;
-            height: 2.3rem;
-            //background: url(/assets/img/icon-search.svg) no-repeat;
-            background: transparent;
-            // background-position: 95% 50%;
-            padding: 1.2rem 3rem;
-            &:focus {
-                outline: none;
-                //border: 2px solid $color-purple;                
-            }
         }
-        .icon-Search{
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            &:hover {
-                cursor: pointer;
-            }
+    }
+    .listAutocomplete__searchBar {
+        border: 1px solid $color-purple;
+        border-radius: 15px;
+        width: 35.625rem;
+        height: 2.3rem;
+        background: transparent;
+        padding: 1.2rem 3rem;
+        &:focus {
+            outline: none;
+            //border: 2px solid $color-purple;                
         }
-        ul {
-            // display: none;
-            // padding: 0rem 1.7rem 0 1.7rem;                
-            // list-style: none;
-            // color: $color-gray;
-            // line-height: 1.5rem;
-            // .first-li {
-            //     border-top: 1px solid $color-gray;
-            //     padding-top: 0.7rem;
-            // }
-            i {
-                font-size: 0.8rem;
-                margin-right: 0.5rem;
-                //font-weight :bold;            
-            
-            }
+    }
+
+    .listAutocomplete--focus {
+        border: 1px solid $color-purple;
+    }
+
+    .listAutocomplete__searchBar--focus {
+        border: none;
+    }
+    
+    .listAutocomplete__iconSearch{
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        &:hover {
+            cursor: pointer;
         }
+    }
+    
+    .li__iconSearch {
+        font-size: 0.8rem;
+        margin-right: 0.5rem;
+        //font-weight :bold;            
     }
 
     .trending {
@@ -187,19 +169,19 @@
         align-items: center;
         color: $color-purple;
         font-family: $font-monserrat;
-        h3 {
+    }
+        .trending__title {
             margin-bottom: 0.8rem;
             font-family: $font-monserrat;
             font-weight: bold;
             font-size: 1.125rem;
             
         }
-        p {
+        .trending__terms {
             font-weight: normal;
             font-size: 1rem;
             &:hover {
                 cursor: pointer;
             }
         }
-    }
-}
+

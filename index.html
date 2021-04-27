@@ -33,20 +33,20 @@
             </div>
         </nav>
 
-        <div class="title-container">
+        <div class="title">
 
-            <div class="title-text">
+            <div class="title__text">
                 <h2>Inspírate, busca, guarda, y crea                </h2>
-                <h2>los mejores <span>GIFOS</span></h2>
+                <h2>los mejores <span class="title__text--gren">GIFOS</span></h2>
             </div>
 
-            <div class="title-ilustration">
-                <img src="./assets/img/ilustra_header.svg" alt="Imagen con personas de Gifos">
+            <div class="title__ilustration">
+                <img class="title__ilustration--size" src="./assets/img/ilustra_header.svg" alt="Imagen con personas de Gifos">
             </div>    
 
-            <div class="list-autocomplete" id="divAutocomplete">
-                <input type="text" class="searchBar" id="searchBar" placeholder="Busca GIFOS y más">
-                <img class="icon-Search" src="/assets/img/icon-search.svg" alt="icon Search">
+            <div class="listAutocomplete" id="divAutocomplete">
+                <input type="text" class="listAutocomplete__searchBar" id="searchBar" placeholder="Busca GIFOS y más">
+                <img class="listAutocomplete__iconSearch" src="/assets/img/icon-search.svg" alt="icon Search">
                 
                 <!-- <ul id="ulAutocomplete">
                     
@@ -55,7 +55,7 @@
             
 
             <div class="trending" id="divTrending">
-                <h3>Trending</h3>
+                <h3 class="trending__title">Trending</h3>
 
             </div>
         </div>
@@ -64,46 +64,46 @@
 
     <main>
         <section class="search" id="sectionSearch">
-            <div class="title-search" id="titleSearch">
+            <div class="searchText" id="titleSearch">
                 
             </div>
 
-            <div class="search-result" id="searchResult">
+            <div class="searchResult" id="searchResult">
                 
             </div>
-            <div class="div-show-more" id="divShowMore">
+            <div class="searchShowMore" id="divShowMore">
             </div>
         </section>
 
 
-        <section class="trendingGifos" id="trendingGifos">
-            <div class="titleTrending">
-                <h2>
+        <section class="trendingGifosContainer" id="trendingGifos">
+            <div class="trendingGifosTexts">
+                <h2 class="trendingGifosTexts__title">
                     Trending GIFOS
                 </h2>
                 <p>Mira los últimos GIFOS de nuestra comunidad</p>
             </div>
 
-            <div class="cardGifos">
-                <div class="leftRow" id="leftRow">
+            <div class="trendingGifos">
+                <div class="trendingGifos__leftRow" id="leftRow">
                     <img src="/assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
                 </div>
     
-                <div class="cards-container" id="cardsContainer">
-                    <div class="card" id="card1">
-                        <img src="" id="imgCard1" alt="gifo tendencia 1">
+                <div class="trendingGifos__cardsContainer" id="cardsContainer">
+                    <div class="trendingGifos__card" id="card1">
+                        <img class="trendingGifos__img" src="" id="imgCard1" alt="gifo tendencia 1">
         
                     </div>
-                    <div class="card" id="card2">
-                        <img src="" id="imgCard2" alt="gifo tendencia 2">
+                    <div class="trendingGifos__card" id="card2">
+                        <img class="trendingGifos__img" src="" id="imgCard2" alt="gifo tendencia 2">
                     </div>
                     
-                    <div class="card" id="card3">
-                        <img src="" id="imgCard3" alt="gifo tendencia 3">
+                    <div class="trendingGifos__card" id="card3">
+                        <img class="trendingGifos__img" src="" id="imgCard3" alt="gifo tendencia 3">
                     </div>
                 </div>
     
-                <div class="rightRow" id="rightRow">
+                <div class="trendingGifos__rightRow" id="rightRow">
                     <img src="/assets/img/Button-Slider-right.svg" id="imgRightRow" alt="">
                 </div>
             </div>

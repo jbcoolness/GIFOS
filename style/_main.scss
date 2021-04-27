@@ -2,104 +2,109 @@ main {
     width: 100%;
     display: grid;
     background: $color-gray;
-
-    .trendingGifos{
-        display: flex;
-        flex-direction: column;
-        .titleTrending {
-            text-align: center;
-            margin: 4rem 0;
-            font-family: $font-monserrat;             
-            h2 {
-                color: $color-purple;
-                font-weight: bold;           
-                margin-bottom: 1rem;
-            }
-
-        }
-        .cardGifos{            
-            margin-bottom: 8rem;
-            display: flex;
-            //flex-flow: row wrap;
-            justify-content: center;
-            align-items: center;
-            .cards-container {
-                display: flex;
-                justify-content: center;
-                align-items:center;
-                width: 80vw;
-                overflow: hidden;
-                margin: 0 1rem;
-                
-                .card {
-                    // width: 268px;
-                    // height: 478px;
-                    margin: 0 0.5rem;
-                    img {
-                        //width: 357px;
-                        width: auto;
-                        height: 200px;
-                    }
-                }
-            }
-            
-        }
-        
-    }
-    .search {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        align-items: center;
-        background: $color-white;
-        .title-search {
-            text-align: center;
-            margin-bottom: 3rem;
-            h3 {
-                font-family: $font-monserrat;
-                font-weight: bold;
-                color: $color-purple;
-            }
-        }
-        .search-result {
-            display: flex;
-            flex-wrap: wrap;
-            width: 90vw;
-            margin: 1rem 5%;            
-            justify-content: center;
-            align-items: center;
-            .div-result {
-                width: 260px;
-                height: 200px;
-                overflow: hidden;
-                margin: 1rem;
-                .img-result {
-                    width: auto;
-                    height: 100%;
-                }
-            }
-            @supports(object-fit: cover){
-                .div-result{
-                    .img-result {
-                        height: 100%;
-                        object-fit: cover;
-                        object-position: center center;
-                    }
-                }
-            }
-        }
-
-        .div-show-more{
-            justify-content: center;
-            align-items: center;
-            display: none;
-            width:127px;
-            height:50px;
-            margin: 2rem 0;
-            background-image: url("/assets/img/CTA-ver-mas.svg");
-            &:hover{                
-                background-image: url("/assets/img/CTA-ver-mas-hover.svg");
-            }
-        }
-    }
 }
+
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background: $color-white;
+}
+    .searchText {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+        .searchText__title {
+            font-family: $font-monserrat;
+            font-weight: bold;
+            color: $color-purple;
+        }
+
+    .searchResult {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+        margin: 1rem 5%;            
+        justify-content: center;
+        align-items: center;
+    }
+        .searchResult__cards {
+            width: 260px;
+            height: 200px;
+            overflow: hidden;
+            margin: 1rem;
+        }
+            .searchResult__img {
+                width: auto;
+                height: 100%;
+            }
+
+        @supports(object-fit: cover){
+            .searchResult__cards{
+                .searchResult__img {
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center center;
+                }
+            }
+        }
+
+    .searchShowMore{
+        justify-content: center;
+        align-items: center;
+        display: none;
+        width:127px;
+        height:50px;
+        margin: 2rem 0;
+        background-image: url("/assets/img/CTA-ver-mas.svg");
+        &:hover{                
+            background-image: url("/assets/img/CTA-ver-mas-hover.svg");
+        }
+    }
+
+
+
+    .trendingGifosContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .trendingGifosTexts {
+        text-align: center;
+        margin: 4rem 0;
+        font-family: $font-monserrat;
+    }          
+        .trendingGifosTexts__title {
+            color: $color-purple;
+            font-weight: bold;           
+            margin-bottom: 1rem;
+        }
+
+    .trendingGifos{            
+        margin-bottom: 8rem;
+        display: flex;
+        //flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .trendingGifos__cardsContainer {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            width: 80vw;
+            overflow: hidden;
+            margin: 0 1rem;
+        }
+
+            .trendingGifos__card {
+                // width: 268px;
+                // height: 478px;
+                margin: 0 0.5rem;
+            }
+                .trendingGifos__img {
+                    // width: 357px;
+                    width: auto;
+                    height: 200px;
+                }

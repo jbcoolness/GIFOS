@@ -72,18 +72,9 @@ menuBurger.addEventListener('click', function() {
     toggleMenu();    
 });
 
-// window.addEventListener('resize', function(){
-//     if (screen.width > 769) {
-//         iconBurgerToggle();
-//         toggleMenu();
-//         items.style.transition = 'none';
-//     }
-// })
 
 // <<------------------------ **** ------------------------>>
 // API trending
-
-
 const trendingTerms = getApiTrendingTerms();
 
 // En el evento load de la app nos conectamos a la api y recibimos  
@@ -95,7 +86,8 @@ window.addEventListener('load', function(){
         let [tren1, tren2, tren3, tren4, tren5] = trendingTerms;
         divTrending = document.getElementById('divTrending');
         let pTending = document.createElement('p');
-        pTending.innerHTML = (`<span>${tren1}</span>, <span>${tren2}</span>, <span>${tren3}</span>, <span>${tren4}</span>, <span>${tren5}</span>`);
+        pTending.classList.add('trending__terms');
+        pTending.innerHTML = (`<span>${tren1} </span>, <span>${tren2}</span>, <span>${tren3}</span>, <span>${tren4}</span>, <span>${tren5}</span>`);
         divTrending.appendChild(pTending);
         
         pTending.addEventListener('click', function(e) {
@@ -105,15 +97,12 @@ window.addEventListener('load', function(){
                 if (text.indexOf(',') == -1) {
                     searchResult.innerHTML = '';
                     console.log(text);
-                    let word = text;
-                    
-                    let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
-                
+                    let word = text;                
                     console.log(word);            
 
                     // Variable que almacena el resultado de la API con la consulta
                     let searchGifs = getApiSearchgGifs(word, offset);
-                    titleSearch.innerHTML = `<h3 id="h3TitleSearch">${word}</h3>`
+                    titleSearch.innerHTML = `<h3 class="searchText__title" id="h3TitleSearch">${word}</h3>`
 
                     // Recibe la respuesta con 12 gif y los muestra en el div
                     printSearchGifs(searchGifs);
@@ -124,8 +113,6 @@ window.addEventListener('load', function(){
         console.log(error)
     });
 });
-
-// 
 
 // Declaramos los elementos que vamos a usar y acceder en el HTML
 // const urlAutocolplete = 'api.giphy.com/v1/gifs/search/tags';
@@ -146,31 +133,28 @@ searchBar.addEventListener('focus', function () {
     divAutocomplete.appendChild(elementUlAutocomplete);
     // Lo seleccionamos mediante su ID
     ulAutocomplete = document.getElementById('ulAutocomplete');
+    ulAutocomplete.classList.add('listAutocomplete__ul');
 
     window.addEventListener('keyup', function (event) {
         // Creamos la lista que nos mostrará las palabras de autocompletado
-                
-        divAutocomplete.classList.remove('list-autocomplete');
-        divAutocomplete.classList.add('list-autocomplete-focus');
+
+        divAutocomplete.classList.add('listAutocomplete--focus');
         ulAutocomplete.style.display='block';
-        searchBar.classList.remove('searchBar');
-        searchBar.classList.add('searchBar-focus');
+        // searchBar.classList.remove('searchBar');
+        searchBar.classList.add('listAutocomplete__searchBar--focus');
 
         let letter = searchBar.value;        
         printWords(getApiAutocomplete(letter));
     })
 });
 
-// cambio que suceden al quitar el focus de la barra de busqueda
-// let wordsLi = document.getElementsByClassName('first-li')[0];
+// cambios que suceden al quitar el focus de la barra de busqueda
 searchBar.addEventListener('blur', function () {
     
     ulAutocomplete.remove();
-    divAutocomplete.classList.remove('list-autocomplete-focus');
-    divAutocomplete.classList.add('list-autocomplete');
-    //divAutocomplete.classList.toggle('list-autocomplete');
+    divAutocomplete.classList.remove('listAutocomplete--focus');
+    searchBar.classList.remove('listAutocomplete__searchBar--focus');
     searchBar.classList.add('searchBar');
-    //ulAutocomplete.style.display='none';
 })
 
 // Funcion encargada de crear los elementos ul de la lista de
@@ -180,10 +164,10 @@ function printWords(getWords) {
         ulAutocomplete.innerHTML = '';
         words.forEach (word => {
             ulAutocomplete.innerHTML += `
-            <li><i class="fas fa-search"></i> ${word['name']}</li>
+            <li id="liIconSearch"><i class="fas fa-search li__iconSearch"></i> ${word['name']}</li>
             `
             console.log(word['name'])
-            ulAutocomplete.children[0].classList.add('first-li');                        
+            ulAutocomplete.children[0].classList.add('listAutocomplete__ul--firstli');
         });
     });
 };

@@ -56,8 +56,8 @@ function printSearchGifs(searchGifs) {
         gifs.forEach( gif => {
             const divResult = document.createElement('div');
             const imgResult =  document.createElement('img');            
-            divResult.classList.add('div-result');
-            imgResult.classList.add('img-Result');
+            divResult.classList.add('searchResult__cards');
+            imgResult.classList.add('searchResult__img');
             searchResult.appendChild(divResult);
             divResult.appendChild(imgResult);
             imgResult.setAttribute('src', gif.images.fixed_height.url);
