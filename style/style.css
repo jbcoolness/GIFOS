@@ -182,15 +182,24 @@
   position: absolute;
   right: 15px;
   top: 10px;
+  z-index: 10;
 }
 
 .listAutocomplete__iconSearch:hover {
   cursor: pointer;
 }
 
+.li__wordSearch:hover {
+  cursor: pointer;
+}
+
 .li__iconSearch {
   font-size: 0.8rem;
   margin-right: 0.5rem;
+}
+
+.li__iconSearch:hover {
+  cursor: pointer;
 }
 
 .trending {
@@ -349,25 +358,13 @@ main {
 }
 
 .searchResult__cards {
+  position: relative;
   width: 260px;
   height: 200px;
-  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
   margin: 1rem;
-}
-
-.searchResult__img {
-  width: auto;
-  height: 100%;
-}
-
-@supports ((-o-object-fit: cover) or (object-fit: cover)) {
-  .searchResult__cards .searchResult__img {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center center;
-       object-position: center center;
-  }
 }
 
 .searchShowMore {
@@ -433,18 +430,43 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80vw;
+  width: 85vw;
   overflow: hidden;
-  margin: 0 1rem;
 }
 
 .trendingGifos__card {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
   margin: 0 0.5rem;
 }
 
-.trendingGifos__img {
-  width: auto;
-  height: 200px;
+.trendingGifos__card:hover {
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+}
+
+.hoverCardText {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFF;
+}
+
+.hoverCardText--title {
+  font-weight: bold;
+}
+
+.hoverCardImg {
+  position: relative;
+  top: 1rem;
+  left: 15rem;
+  width: 32px;
+  height: 32px;
 }
 
 @media screen and (max-width: 600px) {

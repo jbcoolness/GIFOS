@@ -18,8 +18,8 @@
 <body>
     <header class="header">
         <nav id="menu" class="header__menu">
-            <div class="menu__header--logo">
-                <img id="logoGifos" class="logo-gifos" src="./assets/img/logo-desktop.svg" alt="logo de gifos">            
+            <div class="menu__header--logo">                
+                <a href="/index.html"><img id="logoGifos" class="logo-gifos" src="./assets/img/logo-desktop.svg" alt="logo de gifos"></a>
             </div>
         
             <div class="menulist">
@@ -46,7 +46,7 @@
 
             <div class="listAutocomplete" id="divAutocomplete">
                 <input type="text" class="listAutocomplete__searchBar" id="searchBar" placeholder="Busca GIFOS y más">
-                <img class="listAutocomplete__iconSearch" src="/assets/img/icon-search.svg" alt="icon Search">
+                <img id="iconSearch" class="listAutocomplete__iconSearch" src="/assets/img/icon-search.svg" alt="icon Search">
                 
                 <!-- <ul id="ulAutocomplete">
                     
@@ -64,6 +64,7 @@
 
     <main>
         <section class="search" id="sectionSearch">
+
             <div class="searchText" id="titleSearch">
                 
             </div>
@@ -71,12 +72,15 @@
             <div class="searchResult" id="searchResult">
                 
             </div>
+            
             <div class="searchShowMore" id="divShowMore">
             </div>
+
         </section>
 
 
         <section class="trendingGifosContainer" id="trendingGifos">
+
             <div class="trendingGifosTexts">
                 <h2 class="trendingGifosTexts__title">
                     Trending GIFOS
@@ -91,16 +95,35 @@
     
                 <div class="trendingGifos__cardsContainer" id="cardsContainer">
                     <div class="trendingGifos__card" id="card1">
-                        <img class="trendingGifos__img" src="" id="imgCard1" alt="gifo tendencia 1">
+                        <div class="hoverCardText">
+                            <p>user</p>
+                            <p class="hoverCardText--title">Title del Gif</p>
+                        </div>
+                        <img class="hoverCardImg" src="/assets/img/icon-fav.svg" id="iconFav" alt="Icono de favoritos">
+                        <img class="hoverCardImg" src="/assets/img/icon-download.svg" id="iconFav" alt="Icono de descarga">
+                        <img class="hoverCardImg" src="/assets/img/icon-max-normal.svg" id="iconFav" alt="Icono de descarga">
         
                     </div>
                     <div class="trendingGifos__card" id="card2">
-                        <img class="trendingGifos__img" src="" id="imgCard2" alt="gifo tendencia 2">
+                        <div class="hoverCardText">
+                            <p>user</p>
+                            <p class="hoverCardText--title">Title del Gif</p>
+                        </div>
+                        <img class="hoverCardImg" src="/assets/img/icon-fav.svg" id="iconFav" alt="Icono de favoritos">
+                        <img class="hoverCardImg" src="/assets/img/icon-download.svg" id="iconFav" alt="Icono de descarga">
+                        <img class="hoverCardImg" src="/assets/img/icon-max-normal.svg" id="iconFav" alt="Icono de descarga">
                     </div>
                     
                     <div class="trendingGifos__card" id="card3">
-                        <img class="trendingGifos__img" src="" id="imgCard3" alt="gifo tendencia 3">
+                        <div class="hoverCardText">
+                            <p>user</p>
+                            <p class="hoverCardText--title">Title del Gif</p>
+                        </div>
+                        <img class="hoverCardImg" src="/assets/img/icon-fav.svg" id="iconFav" alt="Icono de favoritos">
+                        <img class="hoverCardImg" src="/assets/img/icon-download.svg" id="iconFav" alt="Icono de descarga">
+                        <img class="hoverCardImg" src="/assets/img/icon-max-normal.svg" id="iconFav" alt="Icono de descarga">
                     </div>
+
                 </div>
     
                 <div class="trendingGifos__rightRow" id="rightRow">

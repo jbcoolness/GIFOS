@@ -25,12 +25,6 @@ let urlGifsTrneding = (`api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lA
 // variable que recibe los 30 gifs que llegan de la API
 let trendingGifs = getApiTrendingGifs();
 
-// div donde se crearan las cards con los gifs
-const cardsContainer = document.getElementById('cardsContainer')
-const imgCard1 = document.getElementById('imgCard1');
-const imgCard2 = document.getElementById('imgCard2');
-const imgCard3 = document.getElementById('imgCard3');
-
 // flecha derecha e izquierda con el que pasaran las cards con los gifs
 const rightRow = document.getElementById('imgRightRow');
 const leftRow = document.getElementById('imgLeftRow');

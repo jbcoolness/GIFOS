@@ -97,8 +97,8 @@ window.addEventListener('load', function(){
                 if (text.indexOf(',') == -1) {
                     searchResult.innerHTML = '';
                     console.log(text);
-                    let word = text;                
-                    console.log(word);            
+                    let word = text;
+                    console.log(word);
 
                     // Variable que almacena el resultado de la API con la consulta
                     let searchGifs = getApiSearchgGifs(word, offset);
@@ -134,6 +134,7 @@ searchBar.addEventListener('focus', function () {
     // Lo seleccionamos mediante su ID
     ulAutocomplete = document.getElementById('ulAutocomplete');
     ulAutocomplete.classList.add('listAutocomplete__ul');
+    const iconSearch = document.getElementById('iconSearch')
 
     window.addEventListener('keyup', function (event) {
         // Creamos la lista que nos mostrará las palabras de autocompletado
@@ -145,17 +146,46 @@ searchBar.addEventListener('focus', function () {
 
         let letter = searchBar.value;        
         printWords(getApiAutocomplete(letter));
-    })
+        
+        // Cambiamos el icono de busqueda por y validamos el click
+        iconSearch.src = "/assets/img/close.svg";
+        iconSearch.addEventListener('click', function () {
+            ulAutocomplete.remove();
+            iconSearch.src = "/assets/img/icon-search.svg";
+        })
+    });
+    window.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (e.target.matches("#liIconSearch")) {
+            let searchResult = document.getElementById('searchResult');
+            searchResult.innerHTML = '';
+            console.log(e.target.textContent);
+            let word = e.target.textContent;
+            console.log(word);
+
+            // Variable que almacena el resultado de la API con la consulta
+            let searchGifs = getApiSearchgGifs(word, offset);
+            titleSearch.innerHTML = `<h3 class="searchText__title" id="h3TitleSearch">${word}</h3>`
+
+            // Recibe la respuesta con 12 gif y los muestra en el div
+            printSearchGifs(searchGifs);
+            // offset = offset + 12;
+            ulAutocomplete.remove();
+            searchBar.blur();
+        // }
+        } else if ((!e.target.matches("#iconSearch")) && (!e.target.matches("#ulAutocomplete")) && (!e.target.matches("#searchBar"))) {
+            ulAutocomplete.remove();
+        }
+    });
 });
 
 // cambios que suceden al quitar el focus de la barra de busqueda
-searchBar.addEventListener('blur', function () {
-    
-    ulAutocomplete.remove();
-    divAutocomplete.classList.remove('listAutocomplete--focus');
-    searchBar.classList.remove('listAutocomplete__searchBar--focus');
-    searchBar.classList.add('searchBar');
-})
+// searchBar.addEventListener('blur', function () {    
+//     ulAutocomplete.remove();
+//     divAutocomplete.classList.remove('listAutocomplete--focus');
+//     searchBar.classList.remove('listAutocomplete__searchBar--focus');
+// });
+
 
 // Funcion encargada de crear los elementos ul de la lista de
 // opciones de autocomplete
@@ -164,7 +194,7 @@ function printWords(getWords) {
         ulAutocomplete.innerHTML = '';
         words.forEach (word => {
             ulAutocomplete.innerHTML += `
-            <li id="liIconSearch"><i class="fas fa-search li__iconSearch"></i> ${word['name']}</li>
+            <li class="li__wordSearch" id="liIconSearch"><i class="fas fa-search li__iconSearch"></i> ${word['name']}</li>
             `
             console.log(word['name'])
             ulAutocomplete.children[0].classList.add('listAutocomplete__ul--firstli');
