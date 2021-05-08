@@ -90,18 +90,18 @@ main {
             justify-content: center;
             align-items:center;
             width: 85vw;
-            overflow: hidden;
+            overflow-x: hidden;
             // margin: 0 1rem;
         }
 
             .trendingGifos__card {
                 position: relative;
-                width: 350px;
-                height: 250px;
+                min-width: 21.875rem;
+                min-height: 15.625rem;
                 background-repeat: no-repeat;
                 background-position: center top;
                 background-size: cover;
-                margin: 0 0.5rem;
+                margin: 0 1rem;
             }
 
             .trendingGifos__card {
@@ -116,16 +116,47 @@ main {
     left: 1rem;
     font-family: $font-roboto;
     color: $color-white;
+    // display: none;
+    z-index: 10;
 }
 
 .hoverCardText--title {
     font-weight: bold;
 }
 
-.hoverCardImg {
-    position: relative;
+
+.hoverIconsCard {
+    position: absolute;
     top: 1rem;
-    left: 15rem;
-    width: 32px;
-    height: 32px;
+    right: 1rem;
+    // width: 2rem;
+    // height: 2rem;
+    // display: none;
+}
+
+
+
+
+// @mixin hoverIconsCard($right-value) {
+//     position: absolute;
+//     top: 1rem;
+//     right: $right-value;
+//     width: 2rem;
+//     height: 2rem;
+//     display: none;
+// }
+// .hoverCardIconFav {
+//     @include hoverIconsCard(6rem)
+// }
+
+// .hoverCardIconDow {
+//     @include hoverIconsCard(3.5rem)
+// }
+
+// .hoverCardIconMax {
+//     @include hoverIconsCard(1rem)
+// }
+
+.active {
+    display: block;
 }

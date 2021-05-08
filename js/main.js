@@ -20,8 +20,6 @@ async function getApiSearchgGifs(word, offset) {
     }
 };
 
-let urlGifsTrneding = (`api.giphy.com/v1/gifs/trending?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&limit=30`)
-
 // variable que recibe los 30 gifs que llegan de la API
 let trendingGifs = getApiTrendingGifs();
 
@@ -73,7 +71,52 @@ leftRow.addEventListener('click', function () {
     }    
 });
 
+// const iconFav = document.getElementById('iconFav');
+// const iconDow = document.getElementById('iconDow');
+// const iconMax = document.getElementById('iconMax');
 
+const card1 = document.getElementById('hoverCard1');
+const card2 = document.getElementById('hoverCard2');
+const card3 = document.getElementById('hoverCard2');
+const hoverCard = document.getElementById('hoverCard');
+const hoverIconsCard = document.getElementById('hoverIconsCard');
+
+card1.addEventListener('mouseover', ()=> {
+    hoverCard.style.display = "block";
+    hoverIconsCard.display = "block";
+    // iconDow.style.display = "block";
+    // iconMax.style.display = "block";
+});
+card1.addEventListener('mouseout', ()=> {
+    hoverCard.style.display = "none";
+    hoverIconsCard.style.display = "none";
+    // iconDow.style.display = "none";
+    // iconMax.style.display = "none";
+});
+// card2.addEventListener('mouseover', ()=> {
+//     hoverCard.style.display = "block";
+//     iconFav.style.display = "block";
+//     iconDow.style.display = "block";
+//     iconMax.style.display = "block";
+// });
+// card2.addEventListener('mouseout', ()=> {
+//     hoverCard.style.display = "none";
+//     iconFav.style.display = "none";
+//     iconDow.style.display = "none";
+//     iconMax.style.display = "none";
+// });
+// card3.addEventListener('mouseover', ()=> {
+//     hoverCard.style.display = "block";
+//     iconFav.style.display = "block";
+//     iconDow.style.display = "block";
+//     iconMax.style.display = "block";
+// });
+// card3.addEventListener('mouseout', ()=> {
+//     hoverCard.style.display = "none";
+//     iconFav.style.display = "none";
+//     iconDow.style.display = "none";
+//     iconMax.style.display = "none";
+// });
 
 // Busqueda de gifs mediante Barra
 // const searchResult = document.getElementById('searchResult');
@@ -106,6 +149,7 @@ searchBar.addEventListener('focus', function () {
                 // Recibe la respuesta con 12 gif y los muestra en el div
                 printSearchGifs(searchGifs);
                 offset = offset + 12;
+                
             } catch (error) {
                 console.log(error + ' porque ya fue eliminada pero hagale')
             };
@@ -124,5 +168,5 @@ divShowMore.addEventListener('click', function () {
 
     // Recibe la respuesta con 12 gif y los muestra en el div
     printSearchGifs(searchGifs);
-})
+});
 
