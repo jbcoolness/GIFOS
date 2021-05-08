@@ -2,7 +2,7 @@
 // Importamos todas las variables y funciones del archivo global
 // que vamos a necesitar en este script
 
-import {getApiTrendingGifs, printSearchGifs, printCardsGif} from './globalData.js';
+import {getApiTrendingGifs, printSearchGifs, printCardsGif, card1, card2, card3} from './globalData.js';
 
 // Funcion para pedir una busqueda validada por la variable 
 // {word} y la cantidad de resultados por {limite}. La variable 
@@ -75,48 +75,33 @@ leftRow.addEventListener('click', function () {
 // const iconDow = document.getElementById('iconDow');
 // const iconMax = document.getElementById('iconMax');
 
-const card1 = document.getElementById('hoverCard1');
-const card2 = document.getElementById('hoverCard2');
-const card3 = document.getElementById('hoverCard2');
-const hoverCard = document.getElementById('hoverCard');
-const hoverIconsCard = document.getElementById('hoverIconsCard');
-
 card1.addEventListener('mouseover', ()=> {
-    hoverCard.style.display = "block";
-    hoverIconsCard.display = "block";
-    // iconDow.style.display = "block";
-    // iconMax.style.display = "block";
+    hoverCardText1.style.display = "block";
+    hoverIconsCard1.style.display = "block";
 });
 card1.addEventListener('mouseout', ()=> {
-    hoverCard.style.display = "none";
-    hoverIconsCard.style.display = "none";
-    // iconDow.style.display = "none";
-    // iconMax.style.display = "none";
+    hoverCardText1.style.display = "none";
+    hoverIconsCard1.style.display = "none";
 });
-// card2.addEventListener('mouseover', ()=> {
-//     hoverCard.style.display = "block";
-//     iconFav.style.display = "block";
-//     iconDow.style.display = "block";
-//     iconMax.style.display = "block";
-// });
-// card2.addEventListener('mouseout', ()=> {
-//     hoverCard.style.display = "none";
-//     iconFav.style.display = "none";
-//     iconDow.style.display = "none";
-//     iconMax.style.display = "none";
-// });
-// card3.addEventListener('mouseover', ()=> {
-//     hoverCard.style.display = "block";
-//     iconFav.style.display = "block";
-//     iconDow.style.display = "block";
-//     iconMax.style.display = "block";
-// });
-// card3.addEventListener('mouseout', ()=> {
-//     hoverCard.style.display = "none";
-//     iconFav.style.display = "none";
-//     iconDow.style.display = "none";
-//     iconMax.style.display = "none";
-// });
+
+card2.addEventListener('mouseover', ()=> {
+    hoverCardText2.style.display = "block";
+    hoverIconsCard2.style.display = "block";
+});
+card2.addEventListener('mouseout', ()=> {
+    hoverCardText2.style.display = "none";
+    hoverIconsCard2.style.display = "none";
+});
+
+card3.addEventListener('mouseover', ()=> {
+    hoverCardText3.style.display = "block";
+    hoverIconsCard3.style.display = "block";
+});
+card3.addEventListener('mouseout', ()=> {
+    hoverCardText3.style.display = "none";
+    hoverIconsCard3.style.display = "none";
+});
+
 
 // Busqueda de gifs mediante Barra
 // const searchResult = document.getElementById('searchResult');

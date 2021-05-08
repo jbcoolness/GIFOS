@@ -1,6 +1,24 @@
 // URL o endpoints de peticiones a Giphy
 import { CONFIG_DEV } from './config.js';
 
+const card1 = document.getElementById('card1');
+const hoverCardText1 = document.getElementById('hoverCardText1');
+const hoverIconsCard1 = document.getElementById('hoverIconsCard1');
+const userName1 = document.getElementById('pUserName1');
+const title1 = document.getElementById('pTitle1');
+
+const card2 = document.getElementById('card2');
+const hoverCardText2 = document.getElementById('hoverCardText2');
+const hoverIconsCard2 = document.getElementById('hoverIconsCard2');
+const userName2 = document.getElementById('pUserName2');
+const title2 = document.getElementById('pTitle2');
+
+const card3 = document.getElementById('card3');
+const hoverCardText3 = document.getElementById('hoverCardText3');
+const hoverIconsCard3 = document.getElementById('hoverIconsCard3');
+const userName3 = document.getElementById('pUserName3');
+const title3 = document.getElementById('pTitle3');
+
 // Para pedir las palabras o tags tendencias
 async function getApiTrendingTerms() {
     try {        
@@ -38,18 +56,6 @@ const cardsContainer = document.getElementById('cardsContainer')
 // const imgCard1 = document.getElementById('imgCard1');
 // const imgCard2 = document.getElementById('imgCard2');
 // const imgCard3 = document.getElementById('imgCard3');
-
-const card1 = document.getElementById('card1');
-const userName1 = document.getElementById('pUserName1')
-const title1 = document.getElementById('pTitle1')
-
-const card2 = document.getElementById('card2');
-const userName2 = document.getElementById('pUserName2')
-const title2 = document.getElementById('pTitle2')
-
-const card3 = document.getElementById('card3');
-const userName3 = document.getElementById('pUserName3')
-const title3 = document.getElementById('pTitle3')
 
 function printCardsGif(trendingGifs, indexGif) {
     trendingGifs.then(gifs => {
@@ -111,4 +117,4 @@ function printSearchGifs(searchGifs) {
     divShowMore.style.display=('block')
 };
 
-export {getApiTrendingTerms, getApiTrendingGifs, printCardsGif, printSearchGifs};
+export {getApiTrendingTerms, getApiTrendingGifs, printCardsGif, printSearchGifs, card1, card2, card3};

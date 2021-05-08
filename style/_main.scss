@@ -116,22 +116,18 @@ main {
     left: 1rem;
     font-family: $font-roboto;
     color: $color-white;
-    // display: none;
-    z-index: 10;
+    display: none;
 }
 
 .hoverCardText--title {
     font-weight: bold;
 }
 
-
 .hoverIconsCard {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    // width: 2rem;
-    // height: 2rem;
-    // display: none;
+    display: none;
 }
 
 
