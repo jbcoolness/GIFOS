@@ -88,9 +88,9 @@ function printSearchGifs(searchGifs) {
                 <p class="hoverCardText--title">${gif.title}</p>
             </div>
             <div class= "hoverIconsCard">
-                <img class="hoverCardIconFav" src="/assets/img/icon-fav.svg" alt="Icono de favoritos">
-                <img class="hoverCardIconDow" src="/assets/img/icon-download.svg" alt="Icono de descarga">
-                <img class="hoverCardIconMax" src="/assets/img/icon-max-normal.svg"alt="Icono de descarga">
+                <i class="far fa-heart hoverIcon"></i>
+                <i class="fas fa-download hoverIcon"></i>
+                <i class="fas fa-expand-alt hoverIcon"></i>
             </div>
             `;
             const divResult = document.createElement('div');
