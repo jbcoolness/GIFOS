@@ -157,7 +157,6 @@ searchBar.addEventListener('focus', function () {
     window.addEventListener('click', (e) => {
         e.preventDefault();
         if (e.target.matches("#liIconSearch")) {
-            let searchResult = document.getElementById('searchResult');
             searchResult.innerHTML = '';
             console.log(e.target.textContent);
             let word = e.target.textContent;

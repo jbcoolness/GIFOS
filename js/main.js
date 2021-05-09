@@ -104,7 +104,6 @@ card3.addEventListener('mouseout', ()=> {
 
 
 // Busqueda de gifs mediante Barra
-// const searchResult = document.getElementById('searchResult');
 let titleSearch;
 
 searchBar.addEventListener('focus', function () {
@@ -116,15 +115,10 @@ searchBar.addEventListener('focus', function () {
                 searchBar.blur();
 
                 titleSearch = document.getElementById('titleSearch');
-                // let wordSearch = document.createElement('h3')
-                // titleSearch.appendChild(wordSearch)
             
-                let searchResult = document.getElementById('searchResult');
                 searchResult.innerHTML = '';
                 let word = searchBar.value;
-                
-                // let urlSearchGifs = (`api.giphy.com/v1/gifs/search?api_key=yFy6hNfjHa8UkN2lAHcIVF1PmSdcvQTC&q=${word}&limit=12&offset=${offset}`);
-                
+
                 console.log(word);          
 
                 // Variable que almacena el resultado de la API con la consulta
@@ -154,4 +148,15 @@ divShowMore.addEventListener('click', function () {
     // Recibe la respuesta con 12 gif y los muestra en el div
     printSearchGifs(searchGifs);
 });
+
+searchResult.addEventListener('mouseover', (event)=> {
+    let x = event.clientX
+    let y = event.clientY
+    let elementMouseIsOver = document.elementFromPoint(x, y);
+    console.log(elementMouseIsOver.className);
+    if (elementMouseIsOver.className == 'searchResult__cards') {
+        elementMouseIsOver.style.display = 'block'
+        console.log('in')        
+    }
+})
 

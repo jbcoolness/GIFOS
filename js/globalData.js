@@ -1,6 +1,8 @@
 // URL o endpoints de peticiones a Giphy
 import { CONFIG_DEV } from './config.js';
 
+const searchResult = document.getElementById('searchResult');
+
 const card1 = document.getElementById('card1');
 const hoverCardText1 = document.getElementById('hoverCardText1');
 const hoverIconsCard1 = document.getElementById('hoverIconsCard1');
@@ -51,17 +53,10 @@ async function getApiTrendingGifs() {
 
 // Funcion recibe la variable con gifs y muestra 
 // los 3 gifs en el slide del trending
-// div donde se crearan las cards con los gifs
-const cardsContainer = document.getElementById('cardsContainer')
-// const imgCard1 = document.getElementById('imgCard1');
-// const imgCard2 = document.getElementById('imgCard2');
-// const imgCard3 = document.getElementById('imgCard3');
-
 function printCardsGif(trendingGifs, indexGif) {
     trendingGifs.then(gifs => {
         console.log(indexGif);
         console.log(gifs.length);
-        // Crear div donde se muestra gif
 
         card1.style.backgroundImage = `url(${gifs[indexGif].images.fixed_height.url})`;
         userName1.textContent = `${gifs[indexGif].username}`;
@@ -88,14 +83,14 @@ function printSearchGifs(searchGifs) {
         gifs.forEach( gif => {
             // Crear div donde se muestra gif
             const text = `
-            <div class="hoverCardText" id="hoverCard">
+            <div class="hoverCardText">
                 <p>${gif.username}</p>
                 <p class="hoverCardText--title">${gif.title}</p>
             </div>
-            <div class= "hoverIconsCard" id="hoverIconsCard">
-                <img class="hoverCardIconFav" src="/assets/img/icon-fav.svg" id="iconFav" alt="Icono de favoritos">
-                <img class="hoverCardIconDow" src="/assets/img/icon-download.svg" id="iconDow" alt="Icono de descarga">
-                <img class="hoverCardIconMax" src="/assets/img/icon-max-normal.svg" id="iconMax" alt="Icono de descarga">
+            <div class= "hoverIconsCard">
+                <img class="hoverCardIconFav" src="/assets/img/icon-fav.svg" alt="Icono de favoritos">
+                <img class="hoverCardIconDow" src="/assets/img/icon-download.svg" alt="Icono de descarga">
+                <img class="hoverCardIconMax" src="/assets/img/icon-max-normal.svg"alt="Icono de descarga">
             </div>
             `;
             const divResult = document.createElement('div');

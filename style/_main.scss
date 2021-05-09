@@ -131,8 +131,6 @@ main {
 }
 
 
-
-
 // @mixin hoverIconsCard($right-value) {
 //     position: absolute;
 //     top: 1rem;
@@ -141,18 +139,23 @@ main {
 //     height: 2rem;
 //     display: none;
 // }
-// .hoverCardIconFav {
-//     @include hoverIconsCard(6rem)
-// }
+.hoverIcon {
+    padding-top: 8px;
+    text-align: center;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+    opacity: 0.5;
+    margin: 0 5px;
+    background: $color-white;
+    color: $color-purple;
+    &:hover {
+        opacity: 1;
+    }
+}
 
-// .hoverCardIconDow {
-//     @include hoverIconsCard(3.5rem)
-// }
-
-// .hoverCardIconMax {
-//     @include hoverIconsCard(1rem)
-// }
-
-.active {
-    display: block;
+.iconActive {
+    opacity: 1;
+    color: $color-purple;
 }
