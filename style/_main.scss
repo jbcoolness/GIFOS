@@ -38,6 +38,9 @@ main {
             background-size: cover;
             // overflow: hidden;
             margin: 1rem;
+            &:hover {
+                box-shadow: inset 0 0 0 1000px $color-cards-hover;
+            }
         }
             // .searchResult__img {
             //     // width: auto;
@@ -116,7 +119,8 @@ main {
     left: 1rem;
     font-family: $font-roboto;
     color: $color-white;
-    display: none;
+    // display: none;
+    visibility: hidden;
 }
 
 .hoverCardText--title {
@@ -127,7 +131,8 @@ main {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    display: none;
+    // display: none;
+    visibility: hidden;
 }
 
 

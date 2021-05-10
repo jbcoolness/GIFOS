@@ -75,32 +75,32 @@ leftRow.addEventListener('click', function () {
 // const iconDow = document.getElementById('iconDow');
 // const iconMax = document.getElementById('iconMax');
 
-card1.addEventListener('mouseover', ()=> {
-    hoverCardText1.style.display = "block";
-    hoverIconsCard1.style.display = "block";
-});
-card1.addEventListener('mouseout', ()=> {
-    hoverCardText1.style.display = "none";
-    hoverIconsCard1.style.display = "none";
-});
+// card1.addEventListener('mouseover', ()=> {
+//     hoverCardText1.style.display = "block";
+//     hoverIconsCard1.style.display = "block";
+// });
+// card1.addEventListener('mouseout', ()=> {
+//     hoverCardText1.style.display = "none";
+//     hoverIconsCard1.style.display = "none";
+// });
 
-card2.addEventListener('mouseover', ()=> {
-    hoverCardText2.style.display = "block";
-    hoverIconsCard2.style.display = "block";
-});
-card2.addEventListener('mouseout', ()=> {
-    hoverCardText2.style.display = "none";
-    hoverIconsCard2.style.display = "none";
-});
+// card2.addEventListener('mouseover', ()=> {
+//     hoverCardText2.style.display = "block";
+//     hoverIconsCard2.style.display = "block";
+// });
+// card2.addEventListener('mouseout', ()=> {
+//     hoverCardText2.style.display = "none";
+//     hoverIconsCard2.style.display = "none";
+// });
 
-card3.addEventListener('mouseover', ()=> {
-    hoverCardText3.style.display = "block";
-    hoverIconsCard3.style.display = "block";
-});
-card3.addEventListener('mouseout', ()=> {
-    hoverCardText3.style.display = "none";
-    hoverIconsCard3.style.display = "none";
-});
+// card3.addEventListener('mouseover', ()=> {
+//     hoverCardText3.style.display = "block";
+//     hoverIconsCard3.style.display = "block";
+// });
+// card3.addEventListener('mouseout', ()=> {
+//     hoverCardText3.style.display = "none";
+//     hoverIconsCard3.style.display = "none";
+// });
 
 
 // Busqueda de gifs mediante Barra
@@ -153,10 +153,8 @@ searchResult.addEventListener('mouseover', (event)=> {
     let x = event.clientX
     let y = event.clientY
     let elementMouseIsOver = document.elementFromPoint(x, y);
-    console.log(elementMouseIsOver.className);
-    if (elementMouseIsOver.className == 'searchResult__cards') {
-        elementMouseIsOver.style.display = 'block'
-        console.log('in')        
-    }
+    console.log(elementMouseIsOver);
 })
 
+let X = 0;
+let Y = 0;

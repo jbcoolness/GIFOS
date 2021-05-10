@@ -47,9 +47,7 @@ async function getApiTrendingGifs() {
     }
 };
 
-
 // <<------------------------*------------------------>>
-
 
 // Funcion recibe la variable con gifs y muestra 
 // los 3 gifs en el slide del trending
@@ -72,41 +70,72 @@ function printCardsGif(trendingGifs, indexGif) {
     })
 };
 
-
 // Funcion que recibe la variable con la respuesta de 12 gif y 
 // los muestra en pantalla, creando los elementos necesarios
 function printSearchGifs(searchGifs) {
     const divShowMore = document.getElementById('divShowMore');
     divShowMore.style.display=('none')
     divShowMore.classList.add('div-show-more');
+    let countId = 0;
     searchGifs.then( gifs => {
         gifs.forEach( gif => {
             // Crear div donde se muestra gif
             const text = `
-            <div class="hoverCardText">
-                <p>${gif.username}</p>
-                <p class="hoverCardText--title">${gif.title}</p>
+            <div class="elementText hoverCardText" id="hoverCardText${countId}">
+                <p class="elementText">${gif.username}</p>
+                <p class="elementText hoverCardText--title">${gif.title}</p>
             </div>
-            <div class= "hoverIconsCard">
-                <i class="far fa-heart hoverIcon"></i>
-                <i class="fas fa-download hoverIcon"></i>
-                <i class="fas fa-expand-alt hoverIcon"></i>
+            <div class="elementIcon hoverIconsCard" id="hoverIconsCard${countId}">
+                <i class="elementIcon far fa-heart hoverIcon"></i>
+                <i class="elementIcon fas fa-download hoverIcon"></i>
+                <i class="elementIcon fas fa-expand-alt hoverIcon"></i>
             </div>
             `;
             const divResult = document.createElement('div');
 
             // Agrega clase a div
             divResult.classList.add('searchResult__cards');
-            divResult.setAttribute('id', 'searchCard');
+            divResult.setAttribute('id', `searchCard${countId}`);            
             
             // agrega background con gif
             divResult.style.backgroundImage= `url(${gif.images.fixed_height.url})`;
             divResult.insertAdjacentHTML('afterbegin', text);
+
             
+            
+            divResult.onmouseover = (e)=> {
+                // console.log(e)
+                // debugger;
+                if ((e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) || (e.target.id == `hoverCardText${e.target.id[e.target.id.length-1]}`) || (e.target.id == `hoverIconsCard${e.target.id[e.target.id.length-1]}`)) {
+                    var cardElement = document.getElementById(`searchCard${e.target.id[e.target.id.length-1]}`);
+                    cardElement.children[0].style.visibility = "visible";
+                    cardElement.children[1].style.visibility = "visible";
+                    console.log('in')
+                }
+                
+            }
+            
+            divResult.onmouseout = (e)=> {
+                console.log(X, Y);
+                let elementMouseIsOver = document.elementFromPoint(X, Y);
+                console.log(elementMouseIsOver.className);
+                // if ((e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) && (e.target.id != `hoverCardText${e.target.id[e.target.id.length-1]}`) && (e.target.id != `hoverIconsCard${e.target.id[e.target.id.length-1]}`)) {
+                if (e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) {
+                    // debugger;
+                    if ( (elementMouseIsOver.classList[0] != 'elementText') && (elementMouseIsOver.classList[0] != 'elementIcon')){
+                        var cardElement = document.getElementById(`searchCard${e.target.id[e.target.id.length-1]}`);
+                        cardElement.children[0].style.visibility = "hidden";
+                        cardElement.children[1].style.visibility = "hidden";
+                        console.log('out')
+                    }
+                }
+            }
+
             // agrega div con gif en el div de resultado de busqueda
             searchResult.appendChild(divResult);
             
             console.log(gif.images.fixed_height.url)
+            countId++;
         });
     });
     divShowMore.style.display=('block')

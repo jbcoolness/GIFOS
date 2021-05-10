@@ -367,6 +367,11 @@ main {
   margin: 1rem;
 }
 
+.searchResult__cards:hover {
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+}
+
 .searchShowMore {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -455,7 +460,7 @@ main {
   left: 1rem;
   font-family: "Roboto", sans-serif;
   color: #FFFFFF;
-  display: none;
+  visibility: hidden;
 }
 
 .hoverCardText--title {
@@ -466,7 +471,7 @@ main {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  display: none;
+  visibility: hidden;
 }
 
 .hoverIcon {
