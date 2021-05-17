@@ -72,11 +72,11 @@ function printCardsGif(trendingGifs, indexGif) {
 
 // Funcion que recibe la variable con la respuesta de 12 gif y 
 // los muestra en pantalla, creando los elementos necesarios
+let countId = 0;
 function printSearchGifs(searchGifs) {
     const divShowMore = document.getElementById('divShowMore');
     divShowMore.style.display=('none')
-    divShowMore.classList.add('div-show-more');
-    let countId = 0;
+    divShowMore.classList.add('div-show-more');    
     searchGifs.then( gifs => {
         gifs.forEach( gif => {
             // Crear div donde se muestra gif
@@ -106,28 +106,56 @@ function printSearchGifs(searchGifs) {
             divResult.onmouseover = (e)=> {
                 // console.log(e)
                 // debugger;
-                if ((e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) || (e.target.id == `hoverCardText${e.target.id[e.target.id.length-1]}`) || (e.target.id == `hoverIconsCard${e.target.id[e.target.id.length-1]}`)) {
-                    var cardElement = document.getElementById(`searchCard${e.target.id[e.target.id.length-1]}`);
-                    cardElement.children[0].style.visibility = "visible";
-                    cardElement.children[1].style.visibility = "visible";
-                    console.log('in')
+                if (e.target.id[11] == undefined) {
+                    let numberCard = e.target.id.slice(10,11)
+                    console.log(numberCard)
+                    if ((e.target.id == `searchCard${numberCard}`) || (e.target.id == `hoverCardText${numberCard}`) || (e.target.id == `hoverIconsCard${numberCard}`)) {
+                        var cardElement = document.getElementById(`searchCard${numberCard}`);
+                        cardElement.children[0].style.visibility = "visible";
+                        cardElement.children[1].style.visibility = "visible";
+                        console.log('in')
+                    }
+                }else {
+                    let numberCard = e.target.id.slice(10,13)
+                    console.log(numberCard)
+                    if ((e.target.id == `searchCard${numberCard}`) || (e.target.id == `hoverCardText${numberCard}`) || (e.target.id == `hoverIconsCard${numberCard}`)) {
+                        var cardElement = document.getElementById(`searchCard${numberCard}`);
+                        cardElement.children[0].style.visibility = "visible";
+                        cardElement.children[1].style.visibility = "visible";
+                        console.log('in')
+                    }
+
                 }
-                
             }
             
             divResult.onmouseout = (e)=> {
                 console.log(X, Y);
+                let numberCard = e.target.id.slice(10,13)
+                console.log(numberCard)
                 let elementMouseIsOver = document.elementFromPoint(X, Y);
                 console.log(elementMouseIsOver.className);
                 // if ((e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) && (e.target.id != `hoverCardText${e.target.id[e.target.id.length-1]}`) && (e.target.id != `hoverIconsCard${e.target.id[e.target.id.length-1]}`)) {
-                if (e.target.id == `searchCard${e.target.id[e.target.id.length-1]}`) {
-                    // debugger;
-                    if ( (elementMouseIsOver.classList[0] != 'elementText') && (elementMouseIsOver.classList[0] != 'elementIcon')){
-                        var cardElement = document.getElementById(`searchCard${e.target.id[e.target.id.length-1]}`);
-                        cardElement.children[0].style.visibility = "hidden";
-                        cardElement.children[1].style.visibility = "hidden";
-                        console.log('out')
+                if (e.target.id[11] == undefined) {
+                    if (e.target.id == `searchCard${numberCard}`) {
+                        // debugger;
+                        if ( (elementMouseIsOver.classList[0] != 'elementText') && (elementMouseIsOver.classList[0] != 'elementIcon')){
+                            var cardElement = document.getElementById(`searchCard${numberCard}`);
+                            cardElement.children[0].style.visibility = "hidden";
+                            cardElement.children[1].style.visibility = "hidden";
+                            console.log('out')
+                        }
                     }
+                }else {
+                    if (e.target.id == `searchCard${numberCard}`) {
+                        // debugger;
+                        if ( (elementMouseIsOver.classList[0] != 'elementText') && (elementMouseIsOver.classList[0] != 'elementIcon')){
+                            var cardElement = document.getElementById(`searchCard${numberCard}`);
+                            cardElement.children[0].style.visibility = "hidden";
+                            cardElement.children[1].style.visibility = "hidden";
+                            console.log('out')
+                        }
+                    }
+
                 }
             }
 
