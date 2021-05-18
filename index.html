@@ -13,16 +13,12 @@
     />
 
     <link rel="stylesheet" href="./style/style.css">
+    
+    <script src="./js/mousePosition.js"></script>
+
     <title>GIFOS</title>
 </head>
 
-<script>
-    function mousePosition(e) {
-    X = e.clientX;
-    Y = e.clientY;
-    console.log(X, Y);
-}
-</script>
 <body onmousemove="mousePosition(event)">
     <header class="header">
         <nav id="menu" class="header__menu">
@@ -101,20 +97,34 @@
                     <img src="./assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
                 </div>
     
-                <div class="trendingGifos__cardsContainer" id="cardsContainer">
+                <div class="trendingGifos__cardsContainer" id="gifdTrendingContainer">
                     
+                    <div class="trendingGifos__card" id="card0">
+                        <div class="hoverCardText" id="hoverCardText0">
+                            <p id="pUserName0"></p>
+                            <p id="pTitle0" class="hoverCardText--title"></p>
+                        </div>
+                        <div class= "hoverIconsCard" id="hoverIconsCard0">
+                            <i class="far fa-heart hoverIcon" id="iconFav0"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow0"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax0"></i>
+                        </div>
+                    </div>
+
                     <div class="trendingGifos__card" id="card1">
+
                         <div class="hoverCardText" id="hoverCardText1">
                             <p id="pUserName1"></p>
                             <p id="pTitle1" class="hoverCardText--title"></p>
                         </div>
                         <div class= "hoverIconsCard" id="hoverIconsCard1">
-                            <i class="far fa-heart hoverIcon"></i>
-                            <i class="fas fa-download hoverIcon"></i>
-                            <i class="fas fa-expand-alt hoverIcon"></i>
+                            <i class="far fa-heart hoverIcon" id="iconFav1"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow1"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax1"></i>
                         </div>
-                    </div>
 
+                    </div>
+                    
                     <div class="trendingGifos__card" id="card2">
 
                         <div class="hoverCardText" id="hoverCardText2">
@@ -122,23 +132,9 @@
                             <p id="pTitle2" class="hoverCardText--title"></p>
                         </div>
                         <div class= "hoverIconsCard" id="hoverIconsCard2">
-                            <i class="far fa-heart hoverIcon"></i>
-                            <i class="fas fa-download hoverIcon"></i>
-                            <i class="fas fa-expand-alt hoverIcon"></i>
-                        </div>
-
-                    </div>
-                    
-                    <div class="trendingGifos__card" id="card3">
-
-                        <div class="hoverCardText" id="hoverCardText3">
-                            <p id="pUserName3"></p>
-                            <p id="pTitle3" class="hoverCardText--title"></p>
-                        </div>
-                        <div class= "hoverIconsCard" id="hoverIconsCard3">
-                            <i class="far fa-heart hoverIcon"></i>
-                            <i class="fas fa-download hoverIcon"></i>
-                            <i class="fas fa-expand-alt hoverIcon"></i>
+                            <i class="far fa-heart hoverIcon" id="iconFav2"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow2"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax2"></i>
                         </div>
 
                     </div>

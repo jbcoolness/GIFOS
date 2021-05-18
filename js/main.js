@@ -2,7 +2,7 @@
 // Importamos todas las variables y funciones del archivo global
 // que vamos a necesitar en este script
 
-import {getApiTrendingGifs, printSearchGifs, printCardsGif, card1, card2, card3} from './globalData.js';
+import {getApiTrendingGifs, printSearchGifs, printCardsGif, card0, card1, card2} from './globalData.js';
 
 // Funcion para pedir una busqueda validada por la variable 
 // {word} y la cantidad de resultados por {limite}. La variable 
@@ -71,37 +71,59 @@ leftRow.addEventListener('click', function () {
     }    
 });
 
-// const iconFav = document.getElementById('iconFav');
-// const iconDow = document.getElementById('iconDow');
-// const iconMax = document.getElementById('iconMax');
 
-// card1.addEventListener('mouseover', ()=> {
-//     hoverCardText1.style.display = "block";
-//     hoverIconsCard1.style.display = "block";
-// });
-// card1.addEventListener('mouseout', ()=> {
-//     hoverCardText1.style.display = "none";
-//     hoverIconsCard1.style.display = "none";
-// });
+let gifsTrendingContainer = document.getElementById('gifdTrendingContainer')
 
-// card2.addEventListener('mouseover', ()=> {
-//     hoverCardText2.style.display = "block";
-//     hoverIconsCard2.style.display = "block";
-// });
-// card2.addEventListener('mouseout', ()=> {
-//     hoverCardText2.style.display = "none";
-//     hoverIconsCard2.style.display = "none";
-// });
+card0.addEventListener('mouseover', ()=> {
+    hoverCardText0.style.visibility = "visible";
+    hoverIconsCard0.style.visibility = "visible";
+});
+card0.addEventListener('mouseout', ()=> {
+    hoverCardText0.style.visibility = "hidden";
+    hoverIconsCard0.style.visibility = "hidden";
+});
 
-// card3.addEventListener('mouseover', ()=> {
-//     hoverCardText3.style.display = "block";
-//     hoverIconsCard3.style.display = "block";
-// });
-// card3.addEventListener('mouseout', ()=> {
-//     hoverCardText3.style.display = "none";
-//     hoverIconsCard3.style.display = "none";
-// });
+card1.addEventListener('mouseover', ()=> {
+    hoverCardText1.style.visibility = "visible";
+    hoverIconsCard1.style.visibility = "visible";
+});
+card1.addEventListener('mouseout', ()=> {
+    hoverCardText1.style.visibility = "hidden";
+    hoverIconsCard1.style.visibility = "hidden";
+});
 
+card2.addEventListener('mouseover', ()=> {
+    hoverCardText2.style.visibility = "visible";
+    hoverIconsCard2.style.visibility = "visible";
+});
+card2.addEventListener('mouseout', ()=> {
+    hoverCardText2.style.visibility = "hidden";
+    hoverIconsCard2.style.visibility = "hidden";
+});
+
+
+let favGifs = [];
+
+gifsTrendingContainer.addEventListener('click', (event)=> {
+    let elementMouseIsOver = document.elementFromPoint(X, Y);
+    let iconId = elementMouseIsOver.id
+    let iconIdNumber = elementMouseIsOver.id[elementMouseIsOver.id.length-1]
+    if (iconId == `iconFav${iconIdNumber}`) {
+        console.log('click sobre Icono fav')
+        document.getElementById(`${iconId}`).classList.toggle('fas')
+        favGifs.push(trendingGifs[iconIdNumber]);
+        console.log(trendingGifs[parseInt(iconIdNumber)]);
+        trendingGifs.then((gif)=> favGifs.push(gif[iconIdNumber]))
+        console.log(favGifs)
+
+    } else if (iconId == `iconDow${iconIdNumber}`) {
+        console.log('click sobre Icono Download Gif')
+
+    } else if (iconId == `iconMax${iconIdNumber}`) {
+        console.log('click sobre Icono Maximizar gif')
+
+    }
+});
 
 // Busqueda de gifs mediante Barra
 let titleSearch;
@@ -149,12 +171,9 @@ divShowMore.addEventListener('click', function () {
     printSearchGifs(searchGifs);
 });
 
-searchResult.addEventListener('mouseover', (event)=> {
-    let x = event.clientX
-    let y = event.clientY
-    let elementMouseIsOver = document.elementFromPoint(x, y);
-    console.log(elementMouseIsOver);
-})
-
-let X = 0;
-let Y = 0;
+// searchResult.addEventListener('mouseover', (event)=> {
+//     let x = event.clientX
+//     let y = event.clientY
+//     let elementMouseIsOver = document.elementFromPoint(x, y);
+//     console.log(elementMouseIsOver);
+// })
