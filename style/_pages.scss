@@ -1,0 +1,36 @@
+.page {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page__title {
+    color: $color-purple;
+    font-family: $font-monserrat;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.page__image {
+    display: flex;
+    flex-direction: column;
+    width: 431px;
+    text-align: center;
+    
+}
+
+.page__image--text {
+    color: $color-mint-green;
+    font-family: $font-monserrat;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.page__favGifs {
+    display: flex;
+    flex-wrap: wrap;
+}

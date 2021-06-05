@@ -237,6 +237,59 @@
   cursor: pointer;
 }
 
+.page {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page__title {
+  color: #572EE5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.page__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 431px;
+  text-align: center;
+}
+
+.page__image--text {
+  color: #50E3C2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.page__favGifs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 @media screen and (max-width: 769px) {
   .menuburger {
     padding-top: 30px;

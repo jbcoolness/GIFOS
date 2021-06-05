@@ -28,7 +28,7 @@
         
             <div class="menulist">
                 <a href="#" class="menulink">Modo Nocturno</a>
-                <a href="#" class="menulink">Favoritos</a>
+                <a href="#" id="favPage" class="menulink">Favoritos</a>
                 <a href="#" class="menulink">Mis Gifos</a>
                 <a href="#" > <img class= "menulink--btncreate" id="btn-create" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
             </div>
@@ -37,7 +37,25 @@
             </div>
         </nav>
 
-        <div class="title">
+        <section class="page" id="page">
+            
+            <div class="page__title" id="pageTitleFav">
+                <img class="" src="./assets/img/icon-favoritos.svg" alt="icono de favoritos">
+                <h3 class="">Favoritos</h3>
+            </div>
+
+            <div class="page__image" id="pageImage">
+                <img class="" src="./assets/img/icon-fav-sin-contenido.svg" alt="no hay favoritos">
+                <p class="page__image--text">"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
+            </div>
+
+            <div class="page__favGifs" id="divFavGifs">
+
+            </div>
+            
+        </section>
+
+        <div class="title" id="homeTitle">
 
             <div class="title__text">
                 <h2>Inspírate, busca, guarda, y crea                </h2>
@@ -52,9 +70,6 @@
                 <input type="text" class="listAutocomplete__searchBar" id="searchBar" placeholder="Busca GIFOS y más">
                 <img id="iconSearch" class="listAutocomplete__iconSearch" src="./assets/img/icon-search.svg" alt="icon Search">
                 
-                <!-- <ul id="ulAutocomplete">
-                    
-                </ul> -->
             </div>
             
 
@@ -100,11 +115,11 @@
                 <div class="trendingGifos__cardsContainer" id="gifdTrendingContainer">
                     
                     <div class="trendingGifos__card" id="card0">
-                        <div class="hoverCardText" id="hoverCardText0">
+                        <div class="hoverCardText" id="trendingCardText0">
                             <p id="pUserName0"></p>
                             <p id="pTitle0" class="hoverCardText--title"></p>
                         </div>
-                        <div class= "hoverIconsCard" id="hoverIconsCard0">
+                        <div class= "hoverIconsCard" id="trendingIconsCard0">
                             <i class="far fa-heart hoverIcon" id="iconFav0"></i>
                             <i class="fas fa-download hoverIcon" id="iconDow0"></i>
                             <i class="fas fa-expand-alt hoverIcon" id="iconMax0"></i>
@@ -113,11 +128,11 @@
 
                     <div class="trendingGifos__card" id="card1">
 
-                        <div class="hoverCardText" id="hoverCardText1">
+                        <div class="hoverCardText" id="trendingCardText1">
                             <p id="pUserName1"></p>
                             <p id="pTitle1" class="hoverCardText--title"></p>
                         </div>
-                        <div class= "hoverIconsCard" id="hoverIconsCard1">
+                        <div class= "hoverIconsCard" id="trendingIconsCard1">
                             <i class="far fa-heart hoverIcon" id="iconFav1"></i>
                             <i class="fas fa-download hoverIcon" id="iconDow1"></i>
                             <i class="fas fa-expand-alt hoverIcon" id="iconMax1"></i>
@@ -127,11 +142,11 @@
                     
                     <div class="trendingGifos__card" id="card2">
 
-                        <div class="hoverCardText" id="hoverCardText2">
+                        <div class="hoverCardText" id="trendingCardText2">
                             <p id="pUserName2"></p>
                             <p id="pTitle2" class="hoverCardText--title"></p>
                         </div>
-                        <div class= "hoverIconsCard" id="hoverIconsCard2">
+                        <div class= "hoverIconsCard" id="trendingIconsCard2">
                             <i class="far fa-heart hoverIcon" id="iconFav2"></i>
                             <i class="fas fa-download hoverIcon" id="iconDow2"></i>
                             <i class="fas fa-expand-alt hoverIcon" id="iconMax2"></i>
@@ -164,5 +179,6 @@
 
     <script src="./js/header.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/favorite.js" type="module"></script>
 </body>
 </html>
