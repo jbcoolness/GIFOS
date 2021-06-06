@@ -3,24 +3,6 @@ import { CONFIG_DEV } from './config.js';
 
 const searchResult = document.getElementById('searchResult');
 
-const card0 = document.getElementById('card0');
-const trendingCardText0 = document.getElementById('trendingCardText0');
-const trendingIconscard0 = document.getElementById('trendingIconsCard0');
-const userName0 = document.getElementById('pUserName0');
-const title0 = document.getElementById('pTitle0');
-
-const card1 = document.getElementById('card1');
-const trendingCardText1 = document.getElementById('trendingCardText1');
-const trendingIconscard1 = document.getElementById('trendingIconsCard1');
-const userName1 = document.getElementById('pUserName1');
-const title1 = document.getElementById('pTitle1');
-
-const card2 = document.getElementById('card2');
-const trendingCardText2 = document.getElementById('trendingCardText2');
-const trendingIconscard2 = document.getElementById('trendingIconsCard2');
-const userName2 = document.getElementById('pUserName2');
-const title2 = document.getElementById('pTitle2');
-
 // Para pedir las palabras o tags tendencias
 async function getApiTrendingTerms() {
     try {        
@@ -46,129 +28,7 @@ async function getApiTrendingGifs() {
 };
 
 // <<------------------------*------------------------>>
-// Acciones sobre los iconos de los gifs
-let gifsTrendingContainer = document.getElementById('gifdTrendingContainer')
-let favGifs = [];
 
-let gifsDisplay = []
-let obj;
-let obj1;
-let obj2;
-// Funcion recibe la variable con gifs y muestra 
-// los 3 gifs en el slide del trending
-function printCardsGif(trendingGifs, indexGif, c0, c1, c2) {
-    trendingGifs.then(gifs => {
-        console.log(indexGif);
-        console.log(gifs.length);
-        let display = [
-            obj = {
-                'id':`${gifs[indexGif].id}`,
-                'img':`${gifs[indexGif].images.fixed_height.url}`,
-                'username':`${gifs[indexGif].username}`,
-                'title':`${gifs[indexGif].title}`
-            },
-            obj1 = {
-                'id':`${gifs[indexGif+1].id}`,
-                'img':`${gifs[indexGif+1].images.fixed_height.url}`,
-                'username':`${gifs[indexGif+1].username}`,
-                'title':`${gifs[indexGif+1].title}`
-            },
-            obj2 = {
-                'id':`${gifs[indexGif+2].id}`,
-                'img':`${gifs[indexGif+2].images.fixed_height.url}`,
-                'username':`${gifs[indexGif+2].username}`,
-                'title':`${gifs[indexGif+2].title}`
-            }
-        ];
-
-        card0.style.backgroundImage = `url(${gifs[indexGif].images.fixed_height.url})`;
-        userName0.textContent = `${gifs[indexGif].username}`;
-        title0.textContent = `${gifs[indexGif].title}`;
-        let fav0 = favGifs.findIndex(fav=> fav.id == display[0].id);
-        if ((fav0 != -1) && (fav0 != undefined)) {
-            document.getElementById('iconFav0').classList.add('fas');
-        }else {
-            document.getElementById('iconFav0').classList.remove('fas');
-        };
-
-        card1.style.backgroundImage = `url(${gifs[indexGif+1].images.fixed_height.url})`;
-        userName1.textContent = `${gifs[indexGif+1].username}`;
-        title1.textContent = `${gifs[indexGif+1].title}`;
-        let fav1 = favGifs.findIndex(fav=> fav.id == display[1].id);
-        if ((fav1 != -1) && (fav1 != undefined)) {
-            document.getElementById('iconFav1').classList.add('fas');
-        }else {
-            document.getElementById('iconFav1').classList.remove('fas');
-        };
-
-        card2.style.backgroundImage = `url(${gifs[indexGif+2].images.fixed_height.url})`;
-        userName2.textContent = `${gifs[indexGif+2].username}`;
-        title2.textContent = `${gifs[indexGif+2].title}`;
-        let fav2 = favGifs.findIndex(fav=> fav.id == display[2].id);
-        if ((fav2 != -1) && (fav2 != undefined)) {
-            document.getElementById('iconFav2').classList.add('fas');
-        }else {
-            document.getElementById('iconFav2').classList.remove('fas');
-        };
-
-        gifsDisplay[c0] = display[0];
-        gifsDisplay[c1] = display[1];
-        gifsDisplay[c2] = display[2];
-        console.log(c0 + ' ' + c1 + ' '+c2)
-    
-
-        gifsTrendingContainer.addEventListener('click', (event)=> {
-            let elementMouseIsOver = document.elementFromPoint(X, Y);
-            let iconId = elementMouseIsOver.id
-            let iconIdNumber = elementMouseIsOver.id[elementMouseIsOver.id.length-1]
-            
-            if (iconId == `iconFav${iconIdNumber}`) {
-                console.log('click sobre Icono fav');                
-                console.log(iconIdNumber)
-                if (iconIdNumber == '0') {
-                    fav0 = favGifs.findIndex(fav=> fav.id == display[0].id);
-                    if ((fav0 == -1) || (fav0 == undefined)) {
-                        document.getElementById(`${iconId}`).classList.add('fas');
-                        favGifs.push(gifsDisplay[c0]);
-                    }else {
-                        document.getElementById(`${iconId}`).classList.remove('fas');
-                        favGifs.splice(fav0, 1);
-                    };
-                
-                }else if (iconIdNumber == '1'){
-                    fav1 = favGifs.findIndex(fav=> fav.id == display[1].id);
-                    if ((fav1 == -1) || (fav1 == undefined)) {
-                        document.getElementById(`${iconId}`).classList.add('fas');
-                        favGifs.push(gifsDisplay[c1]);
-                    }else {
-                        document.getElementById(`${iconId}`).classList.remove('fas');
-                        favGifs.splice(fav1, 1);
-                    };
-                    
-                }else if (iconIdNumber == '2'){
-                    fav2 = favGifs.findIndex(fav=> fav.id == display[2].id);
-                    if ((fav2 == -1) || (fav2 == undefined)) {
-                        document.getElementById(`${iconId}`).classList.add('fas');
-                        favGifs.push(gifsDisplay[c2]);
-                    }else {
-                        document.getElementById(`${iconId}`).classList.remove('fas');
-                        favGifs.splice(fav2, 1);
-                    };
-                    
-                }
-            
-            } else if (iconId == `iconDow${iconIdNumber}`) {
-                console.log('click sobre Icono Download Gif')
-        
-            } else if (iconId == `iconMax${iconIdNumber}`) {
-                console.log('click sobre Icono Maximizar gif')
-        
-            }
-
-            console.log(favGifs)
-        });
-    });
-};
 
 
 
@@ -268,4 +128,4 @@ function printSearchGifs(searchGifs) {
     divShowMore.style.display=('block')
 };
 
-export {getApiTrendingTerms, getApiTrendingGifs, printCardsGif, printSearchGifs, card0, card1, card2, favGifs};
+export {getApiTrendingTerms, getApiTrendingGifs, printSearchGifs};

@@ -27,7 +27,7 @@
             </div>
         
             <div class="menulist">
-                <a href="#" class="menulink">Modo Nocturno</a>
+                <a href="#" id= 'ModoNocturno' onclick="getIdElement(this)" class="menulink">Modo Nocturno</a>
                 <a href="#" id="favPage" class="menulink">Favoritos</a>
                 <a href="#" class="menulink">Mis Gifos</a>
                 <a href="#" > <img class= "menulink--btncreate" id="btn-create" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
@@ -112,7 +112,7 @@
                     <img src="./assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
                 </div>
     
-                <div class="trendingGifos__cardsContainer" id="gifdTrendingContainer">
+                <div class="trendingGifos__cardsContainer" id="gifsTrendingContainer">
                     
                     <div class="trendingGifos__card" id="card0">
                         <div class="hoverCardText" id="trendingCardText0">
@@ -120,9 +120,9 @@
                             <p id="pTitle0" class="hoverCardText--title"></p>
                         </div>
                         <div class= "hoverIconsCard" id="trendingIconsCard0">
-                            <i class="far fa-heart hoverIcon" id="iconFav0"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow0"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax0"></i>
+                            <i class="far fa-heart hoverIcon" id="iconFav0" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow0" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax0" onclick="getIdElement(this)"></i>
                         </div>
                     </div>
 
@@ -133,9 +133,9 @@
                             <p id="pTitle1" class="hoverCardText--title"></p>
                         </div>
                         <div class= "hoverIconsCard" id="trendingIconsCard1">
-                            <i class="far fa-heart hoverIcon" id="iconFav1"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow1"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax1"></i>
+                            <i class="far fa-heart hoverIcon" id="iconFav1" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow1" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax1" onclick="getIdElement(this)"></i>
                         </div>
 
                     </div>
@@ -147,9 +147,9 @@
                             <p id="pTitle2" class="hoverCardText--title"></p>
                         </div>
                         <div class= "hoverIconsCard" id="trendingIconsCard2">
-                            <i class="far fa-heart hoverIcon" id="iconFav2"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow2"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax2"></i>
+                            <i class="far fa-heart hoverIcon" id="iconFav2" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-download hoverIcon" id="iconDow2" onclick="getIdElement(this)"></i>
+                            <i class="fas fa-expand-alt hoverIcon" id="iconMax2" onclick="getIdElement(this)"></i>
                         </div>
 
                     </div>
@@ -179,6 +179,7 @@
 
     <script src="./js/header.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/gifsTrending.js" type="module"></script>
     <script src="./js/favorite.js" type="module"></script>
 </body>
 </html>

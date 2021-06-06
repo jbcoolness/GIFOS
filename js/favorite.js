@@ -1,4 +1,4 @@
-import { favGifs } from './globalData.js';
+import { favGifs } from './gifsTrending.js';
 
 const homeTitle = document.getElementById('homeTitle');
 const pageTitleFav = document.getElementById('pageTitleFav');
@@ -7,14 +7,14 @@ const divFavGifs = document.getElementById('divFavGifs');
 const favPage = document.getElementById('favPage');
 
 const printFavGifs = (favGifs)=> {
-    debugger;
     homeTitle.style.display = 'none';
     document.getElementById('page').style.display = 'flex';
+    divFavGifs.innerHTML="";
     if (favGifs.length == 0) {
+        pageImage.style.display= "flex";
         return
     }
-    pageImage.style.display= "none";
-    divFavGifs.innerHTML="";
+    pageImage.style.display= "none";  
     favGifs.forEach( (gif, index) => {
         
         const text = `
@@ -36,7 +36,7 @@ const printFavGifs = (favGifs)=> {
             divResult.setAttribute('id', `searchCard${index}`);            
             
             // agrega background con gif
-            divResult.style.backgroundImage= `url(${gif.img})`;
+            divResult.style.backgroundImage= `url(${gif.images.fixed_height.url})`;
             divResult.insertAdjacentHTML('afterbegin', text);
 
             divFavGifs.appendChild(divResult);
@@ -45,8 +45,5 @@ const printFavGifs = (favGifs)=> {
 };
 
 favPage.addEventListener('click', ()=> {
-    console.log(favGifs);
     printFavGifs(favGifs);
 });
-
-// export {favGifs};
