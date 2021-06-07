@@ -6,14 +6,9 @@ function mousePosition(e) {
 }
 
 let iconSelect;
-function getIdElement(ele) {
+const getIdElement = (ele)=> {
     iconSelect = ele.id 
-    // console.log(iconSelect)
-} 
-
-// const getIdElementc = (el)=> {
-//    iconSelect = ele.id 
-//    console.log(iconSelect)
-// }
+    console.log(iconSelect)
+}
 
 // export {actionGif};

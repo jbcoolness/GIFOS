@@ -29,11 +29,6 @@ async function getApiTrendingGifs() {
 
 // <<------------------------*------------------------>>
 
-
-
-
-
-
 // Funcion que recibe la variable con la respuesta de 12 gif y 
 // los muestra en pantalla, creando los elementos necesarios
 let countId = 0;
