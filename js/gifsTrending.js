@@ -145,37 +145,74 @@ function printCardsGif(trendingGifs, indexGif) {
     });
 };
 
+let iconNumber;
 gifsTrendingContainer.addEventListener('click', ()=> {
     trendingGifs.then(gifs => {
+        console.log(gifs)
         if (!iconSelect) {
             console.log('No ha clickeado incono');        
         }else {
-            let iconNumber = parseInt(iconSelect.slice(7, iconSelect.length))
+            iconNumber = parseInt(iconSelect.slice(7, iconSelect.length))
             let icon = iconSelect.slice(0,-1)
             console.log(iconNumber)
             console.log(icon)
             if (icon == 'iconFav') {
-                favorite = favGifs.findIndex(fav=> fav.id == gifs[indexGif+iconNumber].id);
-                if ((favorite == -1) || (favorite == undefined)) {
-                    document.getElementById(`${icon+iconNumber}`).classList.add('fas');
-                    favGifs.push(gifs[indexGif+iconNumber]);
-                }else {
-                    document.getElementById(`${icon+iconNumber}`).classList.remove('fas');
-                    favGifs.splice(favorite, 1);
-                }
+                favoriteGif(gifs[indexGif+iconNumber], `${icon+iconNumber}`);
 
             }else if (icon == 'iconDow') {                
                 console.log('click sobre iconDow');
                 downloadGif(gifs[indexGif+iconNumber].images.fixed_height.url, gifs[indexGif+iconNumber].title);
+
             }else if (icon == 'iconMax') {
                 console.log('click sobre iconMax');
-
-                
+                console.log(indexGif+iconNumber)
+                maximizeGif(gifs[indexGif+iconNumber]);                
             };
         };
     });
     
 });
+
+
+// Funcion para marcar o desmarcar favoritos eliminandolos de Favoritos
+const favoriteGif = (gif, iconFav)=> {
+    debugger;
+    let favorite = favGifs.findIndex(fav=> fav.id == gif.id);
+    if ((favorite == -1) || (favorite == undefined)) {
+        document.getElementById(`${iconFav}`).classList.add('fas');
+        favGifs.push(gif);
+        console.log(gif);
+    }else {
+        document.getElementById(`${iconFav}`).classList.remove('fas');
+        favGifs.splice(favorite, 1);
+    };
+}
+
+// Funcion para marcar o desmarcar icono de Favoritos sin eliminarlos
+const checkFav = (gif, iconFav)=> {
+    favorite = favGifs.findIndex(fav=> fav.id == gif.id);
+    if ((favorite == -1) || (favorite == undefined)) {
+        document.getElementById(`${iconFav}`).classList.remove('fas');
+    }else {
+        document.getElementById(`${iconFav}`).classList.add('fas');
+    };
+}
+
+
+
+
+// Funcion para agragar gif en favoritos
+// const favoriteGif = (gif, iconNumber) => {
+//     favorite = favGifs.findIndex(fav=> fav.id == gif.id);
+//     if ((favorite == -1) || (favorite == undefined)) {
+//         document.getElementById(`iconFav${iconNumber}`).classList.add('fas');
+//         favGifs.push(gif);
+//         console.log(gif);
+//     }else {
+//         document.getElementById(`iconFav${iconNumber}`).classList.remove('fas');
+//         favGifs.splice(favorite, 1);
+//     };
+// }
 
 // Funcion para descargar gif slelecionado
 const downloadGif = async (url, title) => {
@@ -186,6 +223,59 @@ const downloadGif = async (url, title) => {
     a.href = window.URL.createObjectURL(file);
     a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
     a.click();
+};
+
+const maximizeGif = (gif)=> {
+    document.getElementById('modal').style.display = 'flex';
+    checkFav(gif, 'modalFavIcon');
+    document.getElementById('imgGif').src = gif.images.fixed_height.url;
+    document.getElementById('modalUser').textContent = gif.username;
+    document.getElementById('modalTitle').textContent = gif.title;
+};
+
+// Acciones del modal
+let countRow = 0;
+document.getElementById('modalRightArrow').addEventListener('click', ()=> { 
+    if(indexGif+(iconNumber+countRow) == 29) {
+        return
+    }
+    countRow++;
+    console.log(indexGif+(iconNumber+countRow));
+    trendingGifs.then(gifs => {
+        maximizeGif(gifs[indexGif+(iconNumber+countRow)])
+    });
+});
+
+document.getElementById('modalLeftArrow').addEventListener('click', ()=> { 
+    if(indexGif+(iconNumber+countRow) == 0) {
+        return
+    }
+    countRow--;
+    trendingGifs.then(gifs => {
+        maximizeGif(gifs[indexGif+(iconNumber+countRow)])
+    });
+});
+
+document.getElementById('modalFavIcon').addEventListener('click', ()=> { 
+    trendingGifs.then(gifs => {
+        favoriteGif(gifs[indexGif+(iconNumber+countRow)], 'modalFavIcon')
+    });
+});
+
+document.getElementById('modalDowIcon').addEventListener('click', ()=> { 
+    trendingGifs.then(gifs => {
+        downloadGif(gifs[indexGif+(iconNumber+countRow)].images.original.url, gifs[indexGif+(iconNumber+countRow)].title)
+    });
+});
+
+document.getElementById('modalSlideClose').addEventListener('click', ()=> { 
+    document.getElementById('modal').style.display = "none";
+});
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('modal')) {
+        document.getElementById('modal').style.display = "none";
+    }
 }
 
 export {favGifs};

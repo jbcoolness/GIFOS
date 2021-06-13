@@ -20,6 +20,43 @@
 </head>
 
 <body onmousemove="mousePosition(event)">
+    <!-- ******** Modal donde mostraremos el gif maximizado *********** -->
+    <div class="modal" id="modal">        
+        <div class="modal__content">
+            
+            <div class="modal__content--leftArrow" id="modalLeftArrow">
+                <img src="./assets/img/button-slider-left.svg" id="modalLeftRow" alt="">
+            </div>           
+
+            <div class="modal__slide">
+                <div class="modal__slide--gif" id=modalGif>
+                    <img id="imgGif" class="modal__slide--imgGif" src="" alt="imagen Gif">
+            
+                </div>
+
+                <div class="modal__slide--info">
+                    <div class="modal__slide--text">
+                        <p class="elementText" id="modalUser"></p>
+                        <p class="elementText hoverCardText--title" id="modalTitle"></p>
+
+                    </div>
+                    <div class="modal__slide--icons">
+                        <i class="elementIcon far fa-heart hoverIcon" id="modalFavIcon"></i>
+                        <i class="elementIcon fas fa-download hoverIcon" id="modalDowIcon"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal__content--rightArrow" id="modalRightArrow">
+                <img src="./assets/img/button-slider-Right.svg" id="modalRightRow" alt="">
+            </div>
+
+            <i class="fas fa-times modal__slide--close" id="modalSlideClose"></i>
+        </div>
+    </div>
+
+
     <header class="header">
         <nav id="menu" class="header__menu">
             <div class="menu__header--logo">                

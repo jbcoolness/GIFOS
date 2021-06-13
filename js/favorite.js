@@ -47,3 +47,6 @@ const printFavGifs = (favGifs)=> {
 favPage.addEventListener('click', ()=> {
     printFavGifs(favGifs);
 });
+
+
+
