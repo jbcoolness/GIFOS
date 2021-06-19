@@ -67,7 +67,7 @@
                 <a href="#" id= 'ModoNocturno' onclick="getIdElement(this)" class="menulink">Modo Nocturno</a>
                 <a href="#" id="favPage" class="menulink">Favoritos</a>
                 <a href="#" class="menulink">Mis Gifos</a>
-                <a href="#" > <img class= "menulink--btncreate" id="btn-create" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
+                <a href="#" > <img class= "menulink--btncreate" id="btnCreate" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
             </div>
             <div class="menuburger">
                 <img id="iconBurger" class="menuburger__icon--lines" alt="icono menu hamburguesa">
@@ -119,88 +119,147 @@
     </header>
 
     <main>
-        <section class="search" id="sectionSearch">
 
-            <div class="searchText" id="titleSearch">
-                
-            </div>
+        <section class="index" id="index">
+            <section class="search" id="sectionSearch">
 
-            <div class="searchResult" id="searchResult">
+                <div class="searchText" id="titleSearch">
+                    
+                </div>
+
+                <div class="searchResult" id="searchResult">
+                    
+                </div>
                 
-            </div>
-            
-            <div class="searchShowMore" id="divShowMore">
-            </div>
+                <div class="searchShowMore" id="divShowMore">
+                </div>
+
+            </section>
+
+
+            <section class="trendingGifosContainer" id="trendingGifos">
+
+                <div class="trendingGifosTexts">
+                    <h2 class="trendingGifosTexts__title">
+                        Trending GIFOS
+                    </h2>
+                    <p>Mira los últimos GIFOS de nuestra comunidad</p>
+                </div>
+
+                <div class="trendingGifos">
+                    <div class="trendingGifos__leftRow" id="leftRow">
+                        <img src="./assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
+                    </div>
+        
+                    <div class="trendingGifos__cardsContainer" id="gifsTrendingContainer">
+                        
+                        <div class="trendingGifos__card" id="card0">
+                            <div class="hoverCardText" id="trendingCardText0">
+                                <p id="pUserName0"></p>
+                                <p id="pTitle0" class="hoverCardText--title"></p>
+                            </div>
+                            <div class= "hoverIconsCard" id="trendingIconsCard0">
+                                <i class="far fa-heart hoverIcon" id="iconFav0" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-download hoverIcon" id="iconDow0" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-expand-alt hoverIcon" id="iconMax0" onclick="getIdElement(this)"></i>
+                            </div>
+                        </div>
+
+                        <div class="trendingGifos__card" id="card1">
+
+                            <div class="hoverCardText" id="trendingCardText1">
+                                <p id="pUserName1"></p>
+                                <p id="pTitle1" class="hoverCardText--title"></p>
+                            </div>
+                            <div class= "hoverIconsCard" id="trendingIconsCard1">
+                                <i class="far fa-heart hoverIcon" id="iconFav1" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-download hoverIcon" id="iconDow1" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-expand-alt hoverIcon" id="iconMax1" onclick="getIdElement(this)"></i>
+                            </div>
+
+                        </div>
+                        
+                        <div class="trendingGifos__card" id="card2">
+
+                            <div class="hoverCardText" id="trendingCardText2">
+                                <p id="pUserName2"></p>
+                                <p id="pTitle2" class="hoverCardText--title"></p>
+                            </div>
+                            <div class= "hoverIconsCard" id="trendingIconsCard2">
+                                <i class="far fa-heart hoverIcon" id="iconFav2" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-download hoverIcon" id="iconDow2" onclick="getIdElement(this)"></i>
+                                <i class="fas fa-expand-alt hoverIcon" id="iconMax2" onclick="getIdElement(this)"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+        
+                    <div class="trendingGifos__rightRow" id="rightRow">
+                        <img src="./assets/img/Button-Slider-right.svg" id="imgRightRow" alt="">
+                    </div>
+                </div>
+
+            </section>
 
         </section>
 
-
-        <section class="trendingGifosContainer" id="trendingGifos">
-
-            <div class="trendingGifosTexts">
-                <h2 class="trendingGifosTexts__title">
-                    Trending GIFOS
-                </h2>
-                <p>Mira los últimos GIFOS de nuestra comunidad</p>
-            </div>
-
-            <div class="trendingGifos">
-                <div class="trendingGifos__leftRow" id="leftRow">
-                    <img src="./assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
+        <section id="sectionCreate" class="sectionCreate">
+            <div class="createGifo" id="createGifo">
+                <div class="createGifo__camara">
+                    <img class="cam" src="./assets/img/camara.svg" alt="base de la camara">
+                    <img class="light" src="./assets/img/element-luz-camara.svg" alt="luz de la camara">
                 </div>
-    
-                <div class="trendingGifos__cardsContainer" id="gifsTrendingContainer">
-                    
-                    <div class="trendingGifos__card" id="card0">
-                        <div class="hoverCardText" id="trendingCardText0">
-                            <p id="pUserName0"></p>
-                            <p id="pTitle0" class="hoverCardText--title"></p>
+
+                <div class="createGifo__content">
+                    <div class="createGifo__content--cam">
+                        <div class="createGifo__content--display">
+                            <div class="camText" id="camText">
+
+                            </div>
+
+                            <video src="#" class="videoSpace" id="videoSpace" >
+
+                            </video>
                         </div>
-                        <div class= "hoverIconsCard" id="trendingIconsCard0">
-                            <i class="far fa-heart hoverIcon" id="iconFav0" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow0" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax0" onclick="getIdElement(this)"></i>
-                        </div>
+                            
+                        </video>
+                        
                     </div>
 
-                    <div class="trendingGifos__card" id="card1">
-
-                        <div class="hoverCardText" id="trendingCardText1">
-                            <p id="pUserName1"></p>
-                            <p id="pTitle1" class="hoverCardText--title"></p>
-                        </div>
-                        <div class= "hoverIconsCard" id="trendingIconsCard1">
-                            <i class="far fa-heart hoverIcon" id="iconFav1" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow1" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax1" onclick="getIdElement(this)"></i>
-                        </div>
-
-                    </div>
-                    
-                    <div class="trendingGifos__card" id="card2">
-
-                        <div class="hoverCardText" id="trendingCardText2">
-                            <p id="pUserName2"></p>
-                            <p id="pTitle2" class="hoverCardText--title"></p>
-                        </div>
-                        <div class= "hoverIconsCard" id="trendingIconsCard2">
-                            <i class="far fa-heart hoverIcon" id="iconFav2" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-download hoverIcon" id="iconDow2" onclick="getIdElement(this)"></i>
-                            <i class="fas fa-expand-alt hoverIcon" id="iconMax2" onclick="getIdElement(this)"></i>
-                        </div>
-
-                    </div>
-
-                </div>
-    
-                <div class="trendingGifos__rightRow" id="rightRow">
-                    <img src="./assets/img/Button-Slider-right.svg" id="imgRightRow" alt="">
                 </div>
             </div>
 
+            <div class="createGifo__steps">
+                <p class="steps">1</p>
+                <p class="steps">2</p>
+                <p class="steps">3</p>
+                
+                <div class="timerDisplay" id="timerDisplay">
+                    00:00:00
+                </div>
+
+                <div class="createGifo__pelicula">
+                    <img src="./assets/img/pelicula.svg" alt="cinta de pelicula">
+                </div>
+            </div>
+
+            <div class="createGifo__line">
+                <div class="line"></div>
+                
+            </div>
+
+            <div class="createGifo__divBtn">
+                <div class="createGifo__divBtn--btnSteps" id="btnSteps">
+                    <p id="btnText"></p>
+                </div>
+            </div>
+
+            
         </section>
 
     </main>
+
 
     <footer>
         <div class="social-media">
@@ -218,5 +277,9 @@
     <script src="./js/main.js" type="module"></script>
     <script src="./js/gifsTrending.js" type="module"></script>
     <script src="./js/favorite.js" type="module"></script>
+    <script src="./js/crearGifo.js" type="module"></script>
+    <!-- CDN RecordRTC.js -->
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+.sectionCreate {
+    display: block;
+    background-color: $color-white;
+    padding: 1rem 0 3rem 0;
+}
+
+.createGifo {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15%;
+}
+
+.createGifo__camara {
+    display: flex;
+    justify-content: flex-start;
+    // align-items: center;
+    // position: absolute;
+    // left: 150px;
+    // top: 150px;
+    
+}
+
+// .light {
+//     bottom: 60px;
+//     left: 180px;
+//     position: absolute;
+// }
+
+.createGifo__content {
+    border: solid 1px $color-purple;
+    width: 700px;
+    height: 400px;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    
+}
+
+.createGifo__content__cam {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.camTitle{
+    font-family: $font-monserrat;
+    font-weight: bold;
+    color: $color-purple;
+    font-size: 25px;
+    line-height: 2rem;
+}
+
+.title--color {
+    color: $color-mint-green;
+}
+.camText {
+    font-size: 16px;
+    font-family: $font-roboto;
+    line-height: 2rem;
+}
+
+.createGifo__pelicula {
+    position: absolute;
+    right: 200px;
+    bottom: 1px;
+}
+
+.createGifo__steps {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.steps {
+    border-radius: 50%;
+    background-color: white;
+    margin: 1rem 2rem 1rem 2rem;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    color: $color-purple;
+    border: 1px solid $color-purple;
+    font-family: $font-roboto;
+}
+
+.timerDisplay {
+    position: absolute;
+    right: 400px;
+    bottom: 18px;
+    color: $color-purple;
+    font-family: $font-monserrat;
+    font-weight: bold;
+    width: 120px;
+}
+
+.videoSpace {
+    display: none;
+    width: 650px;
+    height: 300px;
+}
+
+.createGifo__line {
+    display: flex;
+    justify-content: center;
+}
+
+.line{
+    background-color: $color-purple;
+    width: 800px;
+    height: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.createGifo__divBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createGifo__divBtn--btnSteps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color-purple;
+    height: 50px;
+    width: 130px;
+    border-radius: 30px;
+    margin-top: 1rem;
+    color: $color-purple;
+    font-family: $font-monserrat;
+    font-weight: bold;
+    font-size: 0.7rem;
+    
+    &:hover {
+        background-color: $color-purple;
+        color: $color-white;
+        cursor: pointer;
+    }    
+}
+
+
+// Lineas - Esquinas de la camara
+.createGifo__content--cam {
+    position:relative;
+    width:660px;
+    height:360px;
+}
+
+.createGifo__content--cam:before, .createGifo__content--cam:after, .createGifo__content--cam>:first-child:before, .createGifo__content--cam>:first-child:after {
+    position:absolute;
+    width:30px; height: 30px;
+    border-color: $color-mint-green; /* or whatever colour */
+    border-style:solid; /* or whatever style */
+    content: ' ';
+}
+
+.createGifo__content--cam:before {
+        top:0;
+        left:0;
+        border-width: 1px 0 0 1px
+}
+
+.createGifo__content--cam:after {
+    top:0;
+    right:0;
+    border-width: 1px 1px 0 0
+}
+
+.createGifo__content--cam>:first-child:before {
+    bottom:0;
+    right:0;
+    border-width: 0 1px 1px 0
+}
+
+.createGifo__content--cam>:first-child:after {
+    bottom:0;
+    left:0;
+    border-width: 0 0 1px 1px
+}

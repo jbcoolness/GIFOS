@@ -48,7 +48,7 @@ iconBurger.addEventListener('click', function() {
 })
 
 // Efecto mouseover y mouseout para boton crear del menu
-const btnCreate = document.getElementById("btn-create");
+const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener('mouseover', function () {
     btnCreate.src= "./assets/img/CTA-crear-gifo-hover.svg";
 })

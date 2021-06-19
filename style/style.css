@@ -549,6 +549,220 @@ main {
   color: #572EE5;
 }
 
+.sectionCreate {
+  display: block;
+  background-color: #FFFFFF;
+  padding: 1rem 0 3rem 0;
+}
+
+.createGifo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 15%;
+}
+
+.createGifo__camara {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.createGifo__content {
+  border: solid 1px #572EE5;
+  width: 700px;
+  height: 400px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.createGifo__content__cam {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.camTitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #572EE5;
+  font-size: 25px;
+  line-height: 2rem;
+}
+
+.title--color {
+  color: #50E3C2;
+}
+
+.camText {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  line-height: 2rem;
+}
+
+.createGifo__pelicula {
+  position: absolute;
+  right: 200px;
+  bottom: 1px;
+}
+
+.createGifo__steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.steps {
+  border-radius: 50%;
+  background-color: white;
+  margin: 1rem 2rem 1rem 2rem;
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+  color: #572EE5;
+  border: 1px solid #572EE5;
+  font-family: "Roboto", sans-serif;
+}
+
+.timerDisplay {
+  position: absolute;
+  right: 400px;
+  bottom: 18px;
+  color: #572EE5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  width: 120px;
+}
+
+.videoSpace {
+  display: none;
+  width: 650px;
+  height: 300px;
+}
+
+.createGifo__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.line {
+  background-color: #572EE5;
+  width: 800px;
+  height: 8px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+}
+
+.createGifo__divBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createGifo__divBtn--btnSteps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #572EE5;
+  height: 50px;
+  width: 130px;
+  border-radius: 30px;
+  margin-top: 1rem;
+  color: #572EE5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.createGifo__divBtn--btnSteps:hover {
+  background-color: #572EE5;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.createGifo__content--cam {
+  position: relative;
+  width: 660px;
+  height: 360px;
+}
+
+.createGifo__content--cam:before, .createGifo__content--cam:after, .createGifo__content--cam > :first-child:before, .createGifo__content--cam > :first-child:after {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: #50E3C2;
+  /* or whatever colour */
+  border-style: solid;
+  /* or whatever style */
+  content: ' ';
+}
+
+.createGifo__content--cam:before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.createGifo__content--cam:after {
+  top: 0;
+  right: 0;
+  border-width: 1px 1px 0 0;
+}
+
+.createGifo__content--cam > :first-child:before {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+.createGifo__content--cam > :first-child:after {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 1px 1px;
+}
+
 @media screen and (max-width: 600px) {
   .trendingGifos__leftRow {
     display: none;
