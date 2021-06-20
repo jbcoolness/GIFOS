@@ -652,7 +652,12 @@ main {
   color: #572EE5;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
-  width: 120px;
+  width: 180px;
+}
+
+.repeatRec:hover {
+  border-bottom: 1.5px solid #50E3C2;
+  cursor: pointer;
 }
 
 .videoSpace {

@@ -91,7 +91,13 @@
     color: $color-purple;
     font-family: $font-monserrat;
     font-weight: bold;
-    width: 120px;
+    width: 180px;
+}
+.repeatRec{
+    &:hover {
+        border-bottom: 1.5px solid $color-mint-green;
+        cursor: pointer;
+    }
 }
 
 .videoSpace {

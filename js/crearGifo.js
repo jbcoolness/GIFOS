@@ -1,4 +1,4 @@
-// import {isMarch, acumularTime, start, cronometro, stop, resume, reset} from './chronometer.js';
+import { CONFIG_DEV } from './config.js';
 
 const btncreateGif = document.getElementById('btnCreate');
 const divHomeTitle = document.getElementById('homeTitle');
@@ -7,6 +7,7 @@ const sectionCreate = document.getElementById('sectionCreate');
 const camText = document.getElementById('camText');
 const btnSteps = document.getElementById('btnSteps');
 const video = document.getElementById('videoSpace');
+const timerDisplay = document.getElementById('timerDisplay');
 const btnText = document.getElementById('btnText');
 const homeText = `
 <p class="camTitle">Aquí podrás</p>
@@ -36,9 +37,10 @@ btnSteps.addEventListener('click', ()=> {
         btnText.textContent = 'GRABAR';
         getCam();
     }else if (btnText.textContent == 'GRABAR') {
+        timerDisplay.style.visibility = 'visible';
         start();
         btnText.textContent = 'FINALIZAR';
-        rec(cam);
+        rec(stream);
         
 
     }else if (btnText.textContent == 'FINALIZAR') {
@@ -46,20 +48,38 @@ btnSteps.addEventListener('click', ()=> {
         btnText.textContent = 'SUBIR GIFO';
         stopRec(recorder);
         
+    }else if (btnText.textContent == 'SUBIR GIFO') {
+        uploadGif(blobGif);
     }
-    
-
 });
 
-let cam;
+timerDisplay.addEventListener('click', ()=> {
+    try {
+        if (document.getElementById('repeatRec')) {
+            reset();
+            start();
+            btnText.textContent = 'FINALIZAR';
+            rec(stream);
+        }
+    } catch (error) {
+        console.log("Aún no ha grabado vdeo " + error)
+    }
+})
+
+let stream;
 let recorder;
+let blobGif = null;
+
 const getCam = async ()=> {
     try {
-        cam = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+        stream = await navigator.mediaDevices.getUserMedia({
+            video: true, 
+            audio: false
+        });
         camText.style.display = 'none';
         video.style.display = 'flex';
-        video.srcObject = cam;
-        video.onloadedmetadata = ()=> video.play();
+        video.srcObject = stream;
+        video.play();
     }catch(error) {
         console.log(error);
     }
@@ -67,7 +87,6 @@ const getCam = async ()=> {
         // Initialize the recorder
 const rec = async (stream)=> {
     try {
-        // let stream = await getCam();
         recorder = await RecordRTC(stream, {
             type: 'gif',
             frameRate: 1,
@@ -82,74 +101,66 @@ const rec = async (stream)=> {
 }
 
 const stopRec = (recorder)=> {
-
-    let blob = null;
-    recorder.stopRecording(()=> {
-        blob = recorder.getBlob();
-        // invokeSaveAsDialog(blob);
-        console.log(blob)
+    recorder.stopRecording(async()=> {
+        blobGif = await recorder.getBlob();
+        //invokeSaveAsDialog(blobGif);
+        console.log(blobGif)
     })
+};
+
+const uploadGif = async (blob)=> {
+    let formData = new FormData();
+    formData.append('username', CONFIG_DEV.USERNAME);
+    formData.append('file', blob, 'createdGif.gif');
+    formData.append('tags', 'various');
+    try {
+        const dataGif = await fetch(`${CONFIG_DEV.URL_UPLOAD_GIF}?${CONFIG_DEV.API_KEY}`, {
+            method: 'POST',
+            body: formData
+        });
+        const dataGifJson = await dataGif.json();
+        console.log(dataGifJson);
+    } catch (error) {
+        console.log(error)
+    }    
 }
 
+
+
 // chronometer
-const timerDisplay = document.getElementById('timerDisplay');
-let timeInicial;
+let h = 0;
+let m = 0;
+let s = 0;
 let control;
-let timeActual;
-let acumularTime2;
-let isMarch = false; 
-let acumularTime = 0; 
 
 const start = ()=> {
-    if (isMarch == false) {
-        timeInicial = new Date();
-        control = setInterval(cronometro,10);
-        isMarch = true;
-    }
+    cronometro();
+    control = setInterval(cronometro,1000);
 }
 
 const cronometro = ()=> { 
-    timeActual = new Date();
-    acumularTime = timeActual - timeInicial;
-    acumularTime2 = new Date();
-    acumularTime2.setTime(acumularTime); 
-    let cc = Math.round(acumularTime2.getMilliseconds()/10);
-    let ss = acumularTime2.getSeconds();
-    let mm = acumularTime2.getMinutes();
-    let hh = acumularTime2.getHours()-18;
-    if (cc < 10) {cc = "0"+cc;}
-    if (ss < 10) {ss = "0"+ss;} 
-    if (mm < 10) {mm = "0"+mm;}
-    if (hh < 10) {hh = "0"+hh;}
-    timerDisplay.innerHTML = `<p>${mm}:${ss}:${cc}</p>`
+    let hAux, mAux, sAux;
+    s++;
+    if (s>59){m++;s=0;}
+    if (m>59){h++;m=0;}
+    if (h>24){h=0;}
+
+    if (s<10){sAux="0"+s;}else{sAux=s;}
+    if (m<10){mAux="0"+m;}else{mAux=m;}
+    if (h<10){hAux="0"+h;}else{hAux=h;}
+
+    timerDisplay.innerHTML = `${hAux}:${mAux}:${sAux}`;
 }
 
 const stop = ()=> { 
-    if (isMarch == true) {
-        clearInterval(control);
-            isMarch = false;
-    }     
+    clearInterval(control);
+    timerDisplay.innerHTML = `<p class='repeatRec' id='repeatRec'>REPETIR CAPTURA</p>`;
 }      
 
-const resume = ()=> {
-    if (isMarch == false) {
-        timeActu2 = new Date();
-        timeActu2 = timeActu2.getTime();
-        acumularResume = timeActu2-acumularTime;
-        
-        timeInicial.setTime(acumularResume);
-        control = setInterval(cronometro,10);
-        isMarch = true;
-    }     
-}
-
 const reset = ()=> {
-    if (isMarch == true) {
-        clearInterval(control);
-        isMarch = false;
-    }
-    acumularTime = 0;
-    pantalla.innerHTML = "00 : 00 : 00 : 00";
+    clearInterval(control)
+    h = 0;
+    m = 0;
+    s = 0;
+    timerDisplay.innerHTML = "<p>00 : 00 : 00 : 00</p>";
 }
-
-export {isMarch, acumularTime, start, cronometro, stop, resume, reset}
