@@ -1,5 +1,9 @@
 import { CONFIG_DEV } from './config.js';
-
+let myGifs = [];
+if (localStorage.getItem('myGifs')) {
+    myGifs = JSON.parse(localStorage.getItem('myGifs'));
+    console.log(myGifs)
+}
 const btncreateGif = document.getElementById('btnCreate');
 const divHomeTitle = document.getElementById('homeTitle');
 const sectionIndex = document.getElementById('index');
@@ -119,6 +123,8 @@ const uploadGif = async (blob)=> {
             body: formData
         });
         const dataGifJson = await dataGif.json();
+        myGifs.push(dataGifJson);
+        localStorage.setItem('myGifs', JSON.stringify(myGifs))
         console.log(dataGifJson);
     } catch (error) {
         console.log(error)
@@ -163,4 +169,6 @@ const reset = ()=> {
     m = 0;
     s = 0;
     timerDisplay.innerHTML = "<p>00 : 00 : 00 : 00</p>";
-}
+};
+
+export {myGifs};

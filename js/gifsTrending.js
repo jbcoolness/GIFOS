@@ -103,6 +103,10 @@ card2.addEventListener('mouseout', ()=> {
 // Acciones sobre los iconos de los gifs
 let gifsTrendingContainer = document.getElementById('gifsTrendingContainer')
 let favGifs = [];
+if (localStorage.getItem('favGifs')) {
+    favGifs = JSON.parse(localStorage.getItem('favGifs'));
+    console.log(favGifs)
+};
 let favorite;
 // Funcion recibe la variable con gifs y muestra 
 // los 3 gifs en el slide del trending
@@ -181,10 +185,12 @@ const favoriteGif = (gif, iconFav)=> {
     if ((favorite == -1) || (favorite == undefined)) {
         document.getElementById(`${iconFav}`).classList.add('fas');
         favGifs.push(gif);
+        localStorage.setItem('favGifs', JSON.stringify(favGifs));
         console.log(gif);
     }else {
         document.getElementById(`${iconFav}`).classList.remove('fas');
         favGifs.splice(favorite, 1);
+        localStorage.setItem('favGifs', JSON.stringify(favGifs))
     };
 }
 

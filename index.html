@@ -66,7 +66,7 @@
             <div class="menulist">
                 <a href="#" id= 'ModoNocturno' onclick="getIdElement(this)" class="menulink">Modo Nocturno</a>
                 <a href="#" id="favPage" class="menulink">Favoritos</a>
-                <a href="#" class="menulink">Mis Gifos</a>
+                <a href="#" id="myGifsPage" class="menulink">Mis Gifos</a>
                 <a href="#" > <img class= "menulink--btncreate" id="btnCreate" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
             </div>
             <div class="menuburger">
@@ -77,16 +77,16 @@
         <section class="page" id="page">
             
             <div class="page__title" id="pageTitleFav">
-                <img class="" src="./assets/img/icon-favoritos.svg" alt="icono de favoritos">
-                <h3 class="">Favoritos</h3>
+                <img class="" id="iconPage" alt="icono de favoritos">
+                <h3 class="" id="pageTitle"></h3>
             </div>
 
             <div class="page__image" id="pageImage">
-                <img class="" src="./assets/img/icon-fav-sin-contenido.svg" alt="no hay favoritos">
-                <p class="page__image--text">"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
+                <img class="" id="imgPage"  alt="no hay favoritos">
+                <p class="page__image--text" id="pageText"> </p>
             </div>
 
-            <div class="page__favGifs" id="divFavGifs">
+            <div class="page__showGifs" id="divShowGifs">
 
             </div>
             
