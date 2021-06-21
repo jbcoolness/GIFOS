@@ -30,7 +30,7 @@
 
             <div class="modal__slide">
                 <div class="modal__slide--gif" id=modalGif>
-                    <img id="imgGif" class="modal__slide--imgGif" src="" alt="imagen Gif">
+                    <img id="imgGif" class="modal__slide--imgGif" src="#" alt="imagen Gif">
             
                 </div>
 
@@ -70,19 +70,19 @@
                 <a href="#" > <img class= "menulink--btncreate" id="btnCreate" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
             </div>
             <div class="menuburger">
-                <img id="iconBurger" class="menuburger__icon--lines" alt="icono menu hamburguesa">
+                <img src="#" id="iconBurger" class="menuburger__icon--lines" alt="icono menu hamburguesa">
             </div>
         </nav>
 
         <section class="page" id="page">
             
             <div class="page__title" id="pageTitleFav">
-                <img class="" id="iconPage" alt="icono de favoritos">
-                <h3 class="" id="pageTitle"></h3>
+                <img src="#" class="" id="iconPage" alt="icono de favoritos">
+                <h3 class="" id="pageTitle"> </h3>
             </div>
 
             <div class="page__image" id="pageImage">
-                <img class="" id="imgPage"  alt="no hay favoritos">
+                <img src="#" class="" id="imgPage"  alt="no hay favoritos">
                 <p class="page__image--text" id="pageText"> </p>
             </div>
 
@@ -204,57 +204,88 @@
 
         </section>
 
+        <!-- ** seccion CREAR GRIGO ** -->
         <section id="sectionCreate" class="sectionCreate">
+            
             <div class="createGifo" id="createGifo">
+                
                 <div class="createGifo__camara">
                     <img class="cam" src="./assets/img/camara.svg" alt="base de la camara">
-                    <img class="light" src="./assets/img/element-luz-camara.svg" alt="luz de la camara">
+                    <img class="" id="lightCam" src="./assets/img/element-luz-camara.svg" alt="luz de la camara">
                 </div>
 
-                <div class="createGifo__content">
-                    <div class="createGifo__content--cam">
-                        <div class="createGifo__content--display">
-                            <div class="camText" id="camText">
+                <div class="createGifo__centerSection">
+
+                    <!-- cuadro con linea azul exterior seccion display -->
+                    <div class="createGifo__content">
+                        
+                        <!-- enfoque central de los cuadro vertices -->
+                        <div class="createGifo__content--cam">
+
+                            <!-- seccion que contiene los textos y imagen de video -->
+                            <div class="createGifo__content--display">
+
+                                <div class="camText" id="camText">
+                                </div>
+                                
+                                <div class="gifUploadedText" id="gifUploadedText">
+                                    <img class="centerImg rotated" id="imgLoadDone" src="./assets/img/loader.svg" alt="estado de la carga">
+                                    <p class="centerText">Estamos subiendo tu Gifo</p>
+
+                                    <div class="iconUploaded">
+                                        <i class="fas fa-download hoverIcon" id="dowGifCreate"></i>
+                                        <i class="fas fa-link hoverIcon" id="linkGifCreate"></i>
+                                    </div>
+                                </div>
+
+                                <video src="#" class="videoSpace" id="videoSpace" >
+                                </video>
 
                             </div>
-
-                            <video src="#" class="videoSpace" id="videoSpace" >
-
-                            </video>
-                        </div>
                             
-                        </video>
+                        </div>                    
+
+                    </div>
+                    
+                    <!-- caja que contiene los pasos o nuemros y el cronometro -->
+                    <div class="createGifo__steps">
+                        <div class="numbersSteps">
+                            <p class="steps" id="step1">1</p>
+                            <p class="steps" id="step2">2</p>
+                            <p class="steps" id="step3">3</p>
+                        </div>
+                        
+                        <div class="timerDisplay" id="timerDisplay">
+                        </div>               
                         
                     </div>
 
-                </div>
-            </div>
+                    <!-- linea azul centrada que divide los numeros del boton -->
+                    <div class="createGifo__line">
+                        
+                        <div class="line">                        
+                        </div>
+                        
+                    </div>
 
-            <div class="createGifo__steps">
-                <p class="steps">1</p>
-                <p class="steps">2</p>
-                <p class="steps">3</p>
-                
-                <div class="timerDisplay" id="timerDisplay">
+                    <!-- boton de pasos -->
+                    <div class="createGifo__divBtn">
+                        <div class="createGifo__divBtn--btnSteps" id="btnSteps">
+                            <p id="btnText"></p>
+                        </div>
+                    </div>
+
                 </div>
 
+                <!-- imagen de cinta de pelicula izquierda -->
                 <div class="createGifo__pelicula">
                     <img src="./assets/img/pelicula.svg" alt="cinta de pelicula">
                 </div>
-            </div>
 
-            <div class="createGifo__line">
-                <div class="line"></div>
-                
-            </div>
-
-            <div class="createGifo__divBtn">
-                <div class="createGifo__divBtn--btnSteps" id="btnSteps">
-                    <p id="btnText"></p>
-                </div>
-            </div>
+            </div>            
 
             
+
         </section>
 
     </main>
@@ -275,7 +306,7 @@
     <script src="./js/header.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
     <script src="./js/gifsTrending.js" type="module"></script>
-    <script src="./js/favorite.js" type="module"></script>
+    <script src="./js/pages.js" type="module"></script>
     <script src="./js/crearGifo.js" type="module"></script>
     <!-- CDN RecordRTC.js -->
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>

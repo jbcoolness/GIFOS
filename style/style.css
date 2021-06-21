@@ -550,7 +550,7 @@ main {
 }
 
 .sectionCreate {
-  display: block;
+  display: none;
   background-color: #FFFFFF;
   padding: 1rem 0 3rem 0;
 }
@@ -559,24 +559,39 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding-left: 15%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .createGifo__camara {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.createGifo__centerSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .createGifo__content {
   border: solid 1px #572EE5;
-  width: 700px;
+  width: 800px;
   height: 400px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -610,33 +625,175 @@ main {
   color: #50E3C2;
 }
 
-.camText {
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  line-height: 2rem;
-}
-
-.createGifo__pelicula {
-  position: absolute;
-  right: 200px;
-  bottom: 1px;
-}
-
-.createGifo__steps {
+.createGifo__content--display {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.camText {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  line-height: 2rem;
+}
+
+.videoSpace {
+  display: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 500px;
+  height: 300px;
+}
+
+.gifUploadedText {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+          box-shadow: inset 0 0 0 1000px rgba(87, 46, 229, 0.6);
+  width: 400px;
+  height: 300px;
+  z-index: 100;
+}
+
+.iconUploaded {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.centerImg {
+  position: absolute;
+  top: 36%;
+  left: 47%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+}
+
+.rotated {
+  -webkit-animation-name: rotation;
+          animation-name: rotation;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.shine {
+  -webkit-animation-name: shine;
+          animation-name: shine;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+.centerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.createGifo__pelicula {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-bottom: 66px;
+}
+
+.createGifo__steps {
+  vertical-align: middle;
+  display: inline;
+  width: 800px;
+}
+
+.numbersSteps {
+  vertical-align: middle;
   text-align: center;
-  position: relative;
 }
 
 .steps {
+  vertical-align: middle;
+  display: inline-block;
   border-radius: 50%;
-  background-color: white;
-  margin: 1rem 2rem 1rem 2rem;
+  background-color: #FFFFFF;
+  margin: 1rem;
   font-size: 20px;
   width: 28px;
   height: 28px;
@@ -645,25 +802,24 @@ main {
   font-family: "Roboto", sans-serif;
 }
 
+.step-active {
+  background-color: #572EE5;
+  color: #FFFFFF;
+}
+
 .timerDisplay {
-  position: absolute;
-  right: 400px;
-  bottom: 18px;
+  display: inline;
+  float: right;
   color: #572EE5;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
-  width: 180px;
+  position: relative;
+  bottom: 37px;
 }
 
 .repeatRec:hover {
   border-bottom: 1.5px solid #50E3C2;
   cursor: pointer;
-}
-
-.videoSpace {
-  display: none;
-  width: 650px;
-  height: 300px;
 }
 
 .createGifo__line {
@@ -677,7 +833,7 @@ main {
 
 .line {
   background-color: #572EE5;
-  width: 800px;
+  width: 900px;
   height: 8px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -728,9 +884,17 @@ main {
 }
 
 .createGifo__content--cam {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   position: relative;
-  width: 660px;
-  height: 360px;
+  width: 765px;
+  height: 365px;
 }
 
 .createGifo__content--cam:before, .createGifo__content--cam:after, .createGifo__content--cam > :first-child:before, .createGifo__content--cam > :first-child:after {

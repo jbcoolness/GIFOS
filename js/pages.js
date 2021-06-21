@@ -96,12 +96,23 @@ const printMyGifs = (myGifs)=> {
 };
 
 
+const hiddeCreateGif = ()=> {
+    try {
+        if (document.getElementById('sectionCreate')){
+            document.getElementById('sectionCreate').style.display = 'none';
+        }    
+    } catch (error) {
+        console.log('aún no existe seccion crear gifo ' + error)
+    }
+}
 
 favPage.addEventListener('click', ()=> {
+    hiddeCreateGif();
     printFavGifs(favGifs);
 });
 
 myGifsPage.addEventListener('click', ()=> {
+    hiddeCreateGif();
     printMyGifs(myGifs);
 })
 

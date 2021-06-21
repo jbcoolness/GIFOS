@@ -1,4 +1,5 @@
 import { CONFIG_DEV } from './config.js';
+
 let myGifs = [];
 if (localStorage.getItem('myGifs')) {
     myGifs = JSON.parse(localStorage.getItem('myGifs'));
@@ -26,6 +27,7 @@ const getCamText = `
 <p class="camText">por el tiempo en el que estés creando el GIFO</p>
 `
 btncreateGif.addEventListener('click', ()=> {
+    btncreateGif.style.pointerEvents="none";
     divHomeTitle.style.display = 'none';
     sectionIndex.style.display = 'none';
     sectionCreate.style.display = 'block';
@@ -36,11 +38,14 @@ btncreateGif.addEventListener('click', ()=> {
 btnSteps.addEventListener('click', ()=> {
 
     if (btnText.textContent == 'COMENZAR') {
+        document.getElementById('step1').classList.add('step-active')
         camText.innerHTML = '';
         camText.insertAdjacentHTML("afterbegin", getCamText)
         btnText.textContent = 'GRABAR';
         getCam();
     }else if (btnText.textContent == 'GRABAR') {
+        document.getElementById('step1').classList.remove('step-active')
+        document.getElementById('step2').classList.add('step-active')
         timerDisplay.style.visibility = 'visible';
         start();
         btnText.textContent = 'FINALIZAR';
@@ -53,7 +58,15 @@ btnSteps.addEventListener('click', ()=> {
         stopRec(recorder);
         
     }else if (btnText.textContent == 'SUBIR GIFO') {
+        document.getElementById('gifUploadedText').style.visibility = 'visible'
+        document.getElementById('step2').classList.remove('step-active');
+        document.getElementById('step3').classList.add('step-active');
+        timerDisplay.style.visibility = 'hidden';
+        btnSteps.style.visibility = 'hidden';
         uploadGif(blobGif);
+        video.pause();
+        // release camera on stopRecording
+        recorder.stream = stream;
     }
 });
 
@@ -77,13 +90,16 @@ let blobGif = null;
 const getCam = async ()=> {
     try {
         stream = await navigator.mediaDevices.getUserMedia({
-            video: true, 
-            audio: false
+            audio: false,
+            video: {
+                height: { max: 480 }
+            }
         });
         camText.style.display = 'none';
         video.style.display = 'flex';
         video.srcObject = stream;
         video.play();
+        document.getElementById('lightCam').classList.add('shine')
     }catch(error) {
         console.log(error);
     }
@@ -95,8 +111,8 @@ const rec = async (stream)=> {
             type: 'gif',
             frameRate: 1,
             quality: 10,
-            width: 400,
-            hidden: 200,
+            width: 360,
+            hidden: 240,
         });
         recorder.startRecording();
     }catch(error){
@@ -111,7 +127,7 @@ const stopRec = (recorder)=> {
         console.log(blobGif)
     })
 };
-
+let dataGifJson;
 const uploadGif = async (blob)=> {
     let formData = new FormData();
     formData.append('username', CONFIG_DEV.USERNAME);
@@ -122,18 +138,41 @@ const uploadGif = async (blob)=> {
             method: 'POST',
             body: formData
         });
-        const dataGifJson = await dataGif.json();
+        dataGifJson = await dataGif.json();
         myGifs.push(dataGifJson);
         localStorage.setItem('myGifs', JSON.stringify(myGifs))
         console.log(dataGifJson);
+        document.getElementById('imgLoadDone').classList.remove('rotated');
+        document.getElementById('imgLoadDone').src = "./assets/img/ok.svg"
     } catch (error) {
         console.log(error)
     }    
 }
 
+const copyGifToClipboard = (urlGif)=> {
+    try {
+        const input = document.body.appendChild(document.createElement("input"));
+        input.value = urlGif;
+        input.focus();
+        input.select();
+        document.execCommand('copy');
+        input.parentNode.removeChild(input);
+        alert("¡Enlace del Gifo creado copiado en el porta papeles!");
+    } catch (error) {
+        console.log(error);    }
+    
+}
 
+// Descargar Gif creado
+document.getElementById('dowGifCreate').addEventListener('click', ()=> {
+    invokeSaveAsDialog(blobGif);
+});
+// Copiar link de gif creado
+document.getElementById('linkGifCreate').addEventListener('click', ()=> {
+    copyGifToClipboard(`${CONFIG_DEV.URL_GIF_UPLOADED}${dataGifJson.data.id}/giphy.gif`)
+})
 
-// chronometer
+// *** chronometer ****
 let h = 0;
 let m = 0;
 let s = 0;
