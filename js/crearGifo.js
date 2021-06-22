@@ -8,7 +8,7 @@ if (localStorage.getItem('myGifs')) {
 const btncreateGif = document.getElementById('btnCreate');
 const divHomeTitle = document.getElementById('homeTitle');
 const sectionIndex = document.getElementById('index');
-const sectionCreate = document.getElementById('sectionCreate');
+const createGifo = document.getElementById('createGifo');
 const camText = document.getElementById('camText');
 const btnSteps = document.getElementById('btnSteps');
 const video = document.getElementById('videoSpace');
@@ -27,10 +27,12 @@ const getCamText = `
 <p class="camText">por el tiempo en el que estés creando el GIFO</p>
 `
 btncreateGif.addEventListener('click', ()=> {
-    btncreateGif.style.pointerEvents="none";
+    // btncreateGif.style.pointerEvents="none";
     divHomeTitle.style.display = 'none';
     sectionIndex.style.display = 'none';
-    sectionCreate.style.display = 'block';
+    document.getElementById('page').style.display = 'none';
+    createGifo.style.display = 'flex';
+    camText.innerHTML = '';
     camText.insertAdjacentHTML("afterbegin", homeText);
     btnText.textContent = 'COMENZAR';
 });

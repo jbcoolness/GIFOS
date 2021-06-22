@@ -45,9 +45,9 @@ function printSearchGifs(searchGifs) {
                 <p class="elementText hoverCardText--title">${gif.title}</p>
             </div>
             <div class="elementIcon hoverIconsCard" id="hoverIconsCard${countId}">
-                <i class="elementIcon far fa-heart hoverIcon"></i>
-                <i class="elementIcon fas fa-download hoverIcon"></i>
-                <i class="elementIcon fas fa-expand-alt hoverIcon"></i>
+                <i class="elementIcon far fa-heart hoverIcon" id="iconFav${countId}" onclick="getIdElement(this)"></i>
+                <i class="elementIcon fas fa-download hoverIcon" id="iconDow${countId}" onclick="getIdElement(this)"></i>
+                <i class="elementIcon fas fa-expand-alt hoverIcon" id="iconMax${countId}" onclick="getIdElement(this)"></i>
             </div>
             `;
             const divResult = document.createElement('div');

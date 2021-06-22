@@ -1,0 +1,66 @@
+@mixin dark-mode($bg-color) {
+    background-color: $bg-color;
+    
+    a, h3, h2, p, input {
+        color: $color-white;
+    }
+    
+    li {
+        color: $color-text-dark-mode;
+    }
+    
+
+    .imgLeftRow {
+        content: url("/assets/img/button-slider-left-md-noct.svg");
+        &:hover {
+            background-color: $color-white;
+            color: $color-black-light;
+        }
+    }
+    .imgRightRow {
+        content: url("/assets/img/button-slider-right-md-noct.svg");
+        &:hover {
+            background-color: $color-white;
+            color: $color-black-light;
+        }
+    }
+
+
+}
+
+.dark-mode-light {
+    @include dark-mode($color-black-light);
+    
+}
+
+.dark-mode-black {
+    @include dark-mode($color-black-black);
+}
+
+
+.divAutocomplete-focus-noc {
+    border: 1px solid $color-white;
+    img {
+        .iconSearchNoc {
+            content: url("/assets/img/icon-search-mod-noc.svg")
+        }
+    }
+    
+}
+
+.btnCreate-noc {
+    img {
+        content: url("/assets/img/CTA-crar-gifo-modo-noc.svg");
+        &:hover {
+            content: url("/assets/img/CTA-crear-gifo-hover-modo-noc.svg");
+        }
+    }
+}
+
+.cam-noc {
+    content: url("/assets/img/camara-modo-noc.svg");
+}
+
+.pelicula-noc {
+    content: url("/assets/img/pelicula-modo-noc.svg");
+}

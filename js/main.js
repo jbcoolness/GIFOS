@@ -21,12 +21,9 @@ async function getApiSearchgGifs(word, offset) {
 };
 
 
-
-
-
-
 // Busqueda de gifs mediante Barra
 let titleSearch;
+let searchGifs;
 
 searchBar.addEventListener('focus', function () {
     searchBar.addEventListener('keypress', function (event) {
@@ -44,7 +41,7 @@ searchBar.addEventListener('focus', function () {
                 console.log(word);          
 
                 // Variable que almacena el resultado de la API con la consulta
-                let searchGifs = getApiSearchgGifs(word, offset);
+                searchGifs = getApiSearchgGifs(word, offset);
                 titleSearch.innerHTML = `<h3 class="searchText__title" id="h3TitleSearch">${word}</h3>`
 
                 // Recibe la respuesta con 12 gif y los muestra en el div
@@ -65,15 +62,9 @@ divShowMore.addEventListener('click', function () {
     offset = offset + 12;
     
     // Variable que almacena el resultado de la API con la consulta
-    let searchGifs = getApiSearchgGifs(word, offset)
+    searchGifs = getApiSearchgGifs(word, offset)
 
     // Recibe la respuesta con 12 gif y los muestra en el div
     printSearchGifs(searchGifs);
 });
 
-// searchResult.addEventListener('mouseover', (event)=> {
-//     let x = event.clientX
-//     let y = event.clientY
-//     let elementMouseIsOver = document.elementFromPoint(x, y);
-//     console.log(elementMouseIsOver);
-// })

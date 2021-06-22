@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./style/style.css">
     
-    <script src="./js/mousePosition.js"></script>
+    <script src="./js/globalFucntions.js"></script>
 
     <title>GIFOS</title>
 </head>
@@ -57,14 +57,14 @@
     </div>
 
 
-    <header class="header">
+    <header id="header" class="header">
         <nav id="menu" class="header__menu">
             <div class="menu__header--logo">                
                 <a href="/index.html"><img id="logoGifos" class="logo-gifos" src="./assets/img/logo-desktop.svg" alt="logo de gifos"></a>
             </div>
         
             <div class="menulist">
-                <a href="#" id= 'ModoNocturno' onclick="getIdElement(this)" class="menulink">Modo Nocturno</a>
+                <a href="#" id= 'darkMode' class="menulink">Modo Nocturno</a>
                 <a href="#" id="favPage" class="menulink">Favoritos</a>
                 <a href="#" id="myGifsPage" class="menulink">Mis Gifos</a>
                 <a href="#" > <img class= "menulink--btncreate" id="btnCreate" src="./assets/img/button-crear-gifo.svg" alt=""> </a>
@@ -148,7 +148,7 @@
 
                 <div class="trendingGifos">
                     <div class="trendingGifos__leftRow" id="leftRow">
-                        <img src="./assets/img/button-slider-left.svg" id="imgLeftRow" alt="">
+                        <img src="./assets/img/button-slider-left.svg" class="imgLeftRow" id="imgLeftRow" alt="flecha para desplazamiento">
                     </div>
         
                     <div class="trendingGifos__cardsContainer" id="gifsTrendingContainer">
@@ -196,7 +196,7 @@
                     </div>
         
                     <div class="trendingGifos__rightRow" id="rightRow">
-                        <img src="./assets/img/Button-Slider-right.svg" id="imgRightRow" alt="">
+                        <img src="./assets/img/Button-Slider-right.svg" class="imgRightRow" id="imgRightRow" alt="">
                     </div>
                 </div>
 
@@ -210,7 +210,7 @@
             <div class="createGifo" id="createGifo">
                 
                 <div class="createGifo__camara">
-                    <img class="cam" src="./assets/img/camara.svg" alt="base de la camara">
+                    <img class="cam" id="cam" src="./assets/img/camara.svg" alt="base de la camara">
                     <img class="" id="lightCam" src="./assets/img/element-luz-camara.svg" alt="luz de la camara">
                 </div>
 
@@ -279,7 +279,7 @@
 
                 <!-- imagen de cinta de pelicula izquierda -->
                 <div class="createGifo__pelicula">
-                    <img src="./assets/img/pelicula.svg" alt="cinta de pelicula">
+                    <img id="pelicula" src="./assets/img/pelicula.svg" alt="cinta de pelicula">
                 </div>
 
             </div>            
@@ -291,9 +291,14 @@
     </main>
 
 
-    <footer>
+    <footer id="footer">
         <div class="social-media">
-            <p>Compartir en <img src="./assets/img/icon_facebook.svg" alt="icono de facebook"> <img src="./assets/img/icon-twitter.svg" alt="Icono de twitter"> <img src="./assets/img/icon_instagram.svg" alt="Icono de Instagram"></p>
+            <p>                 
+                Compartir en 
+                <a href="http://www.facebook.com"><img src="./assets/img/icon_facebook.svg" alt="icono de facebook"></a>
+                <a href="http://www.twitter.com"><img src="./assets/img/icon-twitter.svg" alt="Icono de twitter"></a>
+                <a href="http://www.instagram.com"><img src="./assets/img/icon_instagram.svg" alt="Icono de Instagram"></a>
+            </p>
         </div>
 
         <div class="rights">
@@ -308,6 +313,7 @@
     <script src="./js/gifsTrending.js" type="module"></script>
     <script src="./js/pages.js" type="module"></script>
     <script src="./js/crearGifo.js" type="module"></script>
+    <script src="./js/darkMode.js" type="module"></script>
     <!-- CDN RecordRTC.js -->
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>

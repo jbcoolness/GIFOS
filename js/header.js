@@ -1,6 +1,7 @@
 // Importamos todas las variables y funciones del archivo global
 // que vamos a necesitar en este script
 import {getApiTrendingTerms, printSearchGifs} from './globalData.js';
+import {darkModeCheck} from './darkMode.js';
 
 // Funcion lanza la apli que autocompleta el texto 
 // de busqueda de gif
@@ -148,10 +149,10 @@ searchBar.addEventListener('focus', function () {
         printWords(getApiAutocomplete(letter));
         
         // Cambiamos el icono de busqueda por y validamos el click
-        iconSearch.src = "/assets/img/close.svg";
+        darkModeCheck == true ? iconSearch.src = "/assets/img/close-modo-noct.svg" : iconSearch.src = "/assets/img/close.svg"
         iconSearch.addEventListener('click', function () {
             ulAutocomplete.remove();
-            iconSearch.src = "/assets/img/icon-search.svg";
+            darkModeCheck == true ? iconSearch.src = "/assets/img/icon-search-mod-noc.svg" : iconSearch.src = "/assets/img/icon-search.svg";
         })
     });
     window.addEventListener('click', (e) => {

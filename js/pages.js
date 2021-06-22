@@ -96,23 +96,23 @@ const printMyGifs = (myGifs)=> {
 };
 
 
-const hiddeCreateGif = ()=> {
-    try {
-        if (document.getElementById('sectionCreate')){
-            document.getElementById('sectionCreate').style.display = 'none';
-        }    
-    } catch (error) {
-        console.log('aún no existe seccion crear gifo ' + error)
-    }
-}
+// const hiddeCreateGif = ()=> {
+//     try {
+//         if (document.getElementById('sectionCreate')){
+//             document.getElementById('createGifo').style.display = 'none';
+//         }    
+//     } catch (error) {
+//         console.log('aún no existe seccion crear gifo ' + error)
+//     }
+// }
 
 favPage.addEventListener('click', ()=> {
-    hiddeCreateGif();
+    document.getElementById('createGifo').style.display = 'none';
     printFavGifs(favGifs);
 });
 
 myGifsPage.addEventListener('click', ()=> {
-    hiddeCreateGif();
+    document.getElementById('createGifo').style.display = 'none';
     printMyGifs(myGifs);
 })
 

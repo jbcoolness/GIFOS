@@ -1,11 +1,11 @@
 .sectionCreate {
-    display: none;
+    display: block;
     background-color: $color-white;
     padding: 1rem 0 3rem 0;
 }
 
 .createGifo {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -182,10 +182,20 @@ align-self: center;
     border: 1px solid $color-purple;
     font-family: $font-roboto;
 }
+.steps-noc {
+    background-color: $color-black-light;
+    color: $color-white;
+    border: 1px solid $color-white;
+}
 
 .step-active {
     background-color: $color-purple;
     color: $color-white;
+}
+
+.step-active-noc {
+    background-color: $color-white;
+    color: $color-black-light;
 }
 
 .timerDisplay {    
@@ -245,6 +255,10 @@ align-self: center;
         color: $color-white;
         cursor: pointer;
     }    
+}
+
+.btnSteps-noc {
+    border: 1px solid $color-white;
 }
 
 

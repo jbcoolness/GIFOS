@@ -550,15 +550,13 @@ main {
 }
 
 .sectionCreate {
-  display: none;
+  display: block;
   background-color: #FFFFFF;
   padding: 1rem 0 3rem 0;
 }
 
 .createGifo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -802,9 +800,20 @@ main {
   font-family: "Roboto", sans-serif;
 }
 
+.steps-noc {
+  background-color: #37383C;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
 .step-active {
   background-color: #572EE5;
   color: #FFFFFF;
+}
+
+.step-active-noc {
+  background-color: #FFFFFF;
+  color: #37383C;
 }
 
 .timerDisplay {
@@ -881,6 +890,10 @@ main {
   background-color: #572EE5;
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.btnSteps-noc {
+  border: 1px solid #FFFFFF;
 }
 
 .createGifo__content--cam {
@@ -1076,5 +1089,89 @@ footer {
 
 footer img {
   margin: auto 0.7rem;
+}
+
+.dark-mode-light {
+  background-color: #37383C;
+}
+
+.dark-mode-light a, .dark-mode-light h3, .dark-mode-light h2, .dark-mode-light p, .dark-mode-light input {
+  color: #FFFFFF;
+}
+
+.dark-mode-light li {
+  color: #9CAFC3;
+}
+
+.dark-mode-light .imgLeftRow {
+  content: url("/assets/img/button-slider-left-md-noct.svg");
+}
+
+.dark-mode-light .imgLeftRow:hover {
+  background-color: #FFFFFF;
+  color: #37383C;
+}
+
+.dark-mode-light .imgRightRow {
+  content: url("/assets/img/button-slider-right-md-noct.svg");
+}
+
+.dark-mode-light .imgRightRow:hover {
+  background-color: #FFFFFF;
+  color: #37383C;
+}
+
+.dark-mode-black {
+  background-color: #222326;
+}
+
+.dark-mode-black a, .dark-mode-black h3, .dark-mode-black h2, .dark-mode-black p, .dark-mode-black input {
+  color: #FFFFFF;
+}
+
+.dark-mode-black li {
+  color: #9CAFC3;
+}
+
+.dark-mode-black .imgLeftRow {
+  content: url("/assets/img/button-slider-left-md-noct.svg");
+}
+
+.dark-mode-black .imgLeftRow:hover {
+  background-color: #FFFFFF;
+  color: #37383C;
+}
+
+.dark-mode-black .imgRightRow {
+  content: url("/assets/img/button-slider-right-md-noct.svg");
+}
+
+.dark-mode-black .imgRightRow:hover {
+  background-color: #FFFFFF;
+  color: #37383C;
+}
+
+.divAutocomplete-focus-noc {
+  border: 1px solid #FFFFFF;
+}
+
+.divAutocomplete-focus-noc img .iconSearchNoc {
+  content: url("/assets/img/icon-search-mod-noc.svg");
+}
+
+.btnCreate-noc img {
+  content: url("/assets/img/CTA-crar-gifo-modo-noc.svg");
+}
+
+.btnCreate-noc img:hover {
+  content: url("/assets/img/CTA-crear-gifo-hover-modo-noc.svg");
+}
+
+.cam-noc {
+  content: url("/assets/img/camara-modo-noc.svg");
+}
+
+.pelicula-noc {
+  content: url("/assets/img/pelicula-modo-noc.svg");
 }
 /*# sourceMappingURL=style.css.map */
