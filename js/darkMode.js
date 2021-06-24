@@ -23,7 +23,7 @@ const darkModeOn = ()=> {
     document.getElementById('btnCreate').classList.add('btnCreate-noc');
     document.getElementById('divAutocomplete').classList.add('divAutocomplete-focus-noc');
     document.getElementById('iconSearch').src = "./assets/img/icon-search-mod-noc.svg";
-    document.getElementById('divShowMore').classList.add('searchShowMore-noc');
+    document.getElementById('imgSearchShowMore').classList.add('imgSearchShowMore-noc');
     document.getElementById('cam').classList.add('cam-noc');
     document.getElementById('pelicula').classList.add('pelicula-noc');
     document.getElementById('step1').classList.add('steps-noc')
@@ -47,7 +47,7 @@ const darkModeOff = ()=> {
     document.getElementById('footer').classList.remove('dark-mode-light');
     document.getElementById('btnCreate').classList.remove('btnCreate-noc');
     document.getElementById('divAutocomplete').classList.remove('divAutocomplete-focus-noc');
-    document.getElementById('divShowMore').classList.remove('searchShowMore-noc')
+    document.getElementById('imgSearchShowMore').classList.remove('searchShowMore-noc')
     document.getElementById('cam').classList.remove('cam-noc');
     document.getElementById('pelicula').classList.remove('pelicula-noc');
     document.getElementById('step1').classList.remove('steps-noc')

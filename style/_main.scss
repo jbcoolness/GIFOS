@@ -49,18 +49,22 @@ main {
         display: none;
         width:127px;
         height:50px;
-        margin: 2rem 0;
-        background-image: url("/assets/img/CTA-ver-mas.svg");
-        &:hover{                
-            background-image: url("/assets/img/CTA-ver-mas-hover.svg");
+        margin: 2rem 0;        
+        &:hover{                            
             cursor: pointer;
         }
     }
 
-    .searchShowMore-noc {
-        background-image: url("/assets/img/CTA-ver_mas-modo-noc.svg");
+    .imgSearchShowMore {
+        &:hover{
+            content: url("/assets/img/CTA-ver-mas-hover.svg");
+        }
+    }
+
+    .imgSearchShowMore-noc {
+        content: url("/assets/img/CTA-ver_mas-modo-noc.svg");
         &:hover {
-            background-image: url("/assets/img/CTA-ver_mas-hover-modo-noc.svg");
+            content: url("/assets/img/CTA-ver_mas-hover-modo-noc.svg");
         }
     }
 

@@ -436,20 +436,22 @@ main {
   width: 127px;
   height: 50px;
   margin: 2rem 0;
-  background-image: url("/assets/img/CTA-ver-mas.svg");
 }
 
 .searchShowMore:hover {
-  background-image: url("/assets/img/CTA-ver-mas-hover.svg");
   cursor: pointer;
 }
 
-.searchShowMore-noc {
-  background-image: url("/assets/img/CTA-ver_mas-modo-noc.svg");
+.imgSearchShowMore:hover {
+  content: url("/assets/img/CTA-ver-mas-hover.svg");
 }
 
-.searchShowMore-noc:hover {
-  background-image: url("/assets/img/CTA-ver_mas-hover-modo-noc.svg");
+.imgSearchShowMore-noc {
+  content: url("/assets/img/CTA-ver_mas-modo-noc.svg");
+}
+
+.imgSearchShowMore-noc:hover {
+  content: url("/assets/img/CTA-ver_mas-hover-modo-noc.svg");
 }
 
 .trendingGifosContainer {
