@@ -60,13 +60,13 @@
 .modal__content--leftArrow {
     margin-right: 1rem;
 &:hover {
-    content: url('/assets/img/button-slider-left-hover.svg');
+    content: url('./assets/img/button-slider-left-hover.svg');
     }
 }
 .modal__content--rightArrow {
     margin-left: 1rem;
 &:hover {
-    content: url('/assets/img/button-slider-right-hover.svg');
+    content: url('./assets/img/button-slider-right-hover.svg');
     }
 }
 

@@ -180,7 +180,6 @@ gifsTrendingContainer.addEventListener('click', ()=> {
 
 // Funcion para marcar o desmarcar favoritos eliminandolos de Favoritos
 const favoriteGif = (gif, iconFav)=> {
-    debugger;
     let favorite = favGifs.findIndex(fav=> fav.id == gif.id);
     if ((favorite == -1) || (favorite == undefined)) {
         document.getElementById(`${iconFav}`).classList.add('fas');

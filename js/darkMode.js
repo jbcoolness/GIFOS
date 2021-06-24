@@ -44,7 +44,7 @@ const darkModeOff = ()=> {
     document.getElementById('sectionCreate').classList.remove('dark-mode-light');
     document.getElementById('footer').classList.remove('dark-mode-light');
     document.getElementById('btnCreate').classList.remove('btnCreate-noc');
-
+    document.getElementById('divAutocomplete').classList.remove('divAutocomplete-focus-noc');
     document.getElementById('cam').classList.remove('cam-noc');
     document.getElementById('pelicula').classList.remove('pelicula-noc');
     document.getElementById('step1').classList.remove('steps-noc')

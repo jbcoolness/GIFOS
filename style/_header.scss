@@ -1,11 +1,11 @@
 // muestra icono de burger normal o cerrado
 .menuburger__icon--lines {
-    content: url("/assets/img/burger.svg");
+    content: url("./assets/img/burger.svg");
 }
 
 // muestra icono de burger en X o abierto
 .menuburger__icon--x {
-    content: url("/assets/img/close.svg");
+    content: url("./assets/img/close.svg");
 }
 
 .header {
@@ -44,7 +44,7 @@
     .menulink--btncreate {
         vertical-align: middle;
         &:hover {
-            content: url("/assets/img/CTA-crear-gifo-hover.svg");
+            content: url("./assets/img/CTA-crear-gifo-hover.svg");
         }        
     }
 

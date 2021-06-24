@@ -11,14 +11,14 @@
     
 
     .imgLeftRow {
-        content: url("/assets/img/button-slider-left-md-noct.svg");
+        content: url("./assets/img/button-slider-left-md-noct.svg");
         &:hover {
             background-color: $color-white;
             color: $color-black-light;
         }
     }
     .imgRightRow {
-        content: url("/assets/img/button-slider-right-md-noct.svg");
+        content: url("./assets/img/button-slider-right-md-noct.svg");
         &:hover {
             background-color: $color-white;
             color: $color-black-light;
@@ -42,7 +42,7 @@
     border: 1px solid $color-white;
     img {
         .iconSearchNoc {
-            content: url("/assets/img/icon-search-mod-noc.svg")
+            content: url("./assets/img/icon-search-mod-noc.svg")
         }
     }
     
@@ -50,17 +50,17 @@
 
 .btnCreate-noc {
     img {
-        content: url("/assets/img/CTA-crar-gifo-modo-noc.svg");
+        content: url("./assets/img/CTA-crar-gifo-modo-noc.svg");
         &:hover {
-            content: url("/assets/img/CTA-crear-gifo-hover-modo-noc.svg");
+            content: url("./assets/img/CTA-crear-gifo-hover-modo-noc.svg");
         }
     }
 }
 
 .cam-noc {
-    content: url("/assets/img/camara-modo-noc.svg");
+    content: url("./assets/img/camara-modo-noc.svg");
 }
 
 .pelicula-noc {
-    content: url("/assets/img/pelicula-modo-noc.svg");
+    content: url("./assets/img/pelicula-modo-noc.svg");
 }

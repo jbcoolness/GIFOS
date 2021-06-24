@@ -149,10 +149,11 @@ searchBar.addEventListener('focus', function () {
         printWords(getApiAutocomplete(letter));
         
         // Cambiamos el icono de busqueda por y validamos el click
-        darkModeCheck == true ? iconSearch.src = "/assets/img/close-modo-noct.svg" : iconSearch.src = "/assets/img/close.svg"
+        darkModeCheck == true ? iconSearch.src = "./assets/img/close-modo-noct.svg" : iconSearch.src = "/assets/img/close.svg"
         iconSearch.addEventListener('click', function () {
             ulAutocomplete.remove();
-            darkModeCheck == true ? iconSearch.src = "/assets/img/icon-search-mod-noc.svg" : iconSearch.src = "/assets/img/icon-search.svg";
+            document.getElementById('searchBar').value='';
+            darkModeCheck == true ? iconSearch.src = "./assets/img/icon-search-mod-noc.svg" : iconSearch.src = "/assets/img/icon-search.svg";
         })
     });
     window.addEventListener('click', (e) => {
