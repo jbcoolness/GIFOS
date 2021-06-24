@@ -172,6 +172,8 @@ searchBar.addEventListener('focus', function () {
             printSearchGifs(searchGifs);
             // offset = offset + 12;
             ulAutocomplete.remove();
+            document.getElementById('searchBar').value= `${word}`;
+            darkModeCheck == true ? iconSearch.src = "./assets/img/icon-search-mod-noc.svg" : iconSearch.src = "/assets/img/icon-search.svg";
             searchBar.blur();
         // }
         } else if ((!e.target.matches("#iconSearch")) && (!e.target.matches("#ulAutocomplete")) && (!e.target.matches("#searchBar"))) {

@@ -50,9 +50,17 @@ main {
         width:127px;
         height:50px;
         margin: 2rem 0;
-        background-image: url("./assets/img/CTA-ver-mas.svg");
+        background-image: url("/assets/img/CTA-ver-mas.svg");
         &:hover{                
-            background-image: url("./assets/img/CTA-ver-mas-hover.svg");
+            background-image: url("/assets/img/CTA-ver-mas-hover.svg");
+            cursor: pointer;
+        }
+    }
+
+    .searchShowMore-noc {
+        background-image: url("/assets/img/CTA-ver_mas-modo-noc.svg");
+        &:hover {
+            background-image: url("/assets/img/CTA-ver_mas-hover-modo-noc.svg");
         }
     }
 

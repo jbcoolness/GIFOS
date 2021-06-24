@@ -11,14 +11,14 @@
     
 
     .imgLeftRow {
-        content: url("./assets/img/button-slider-left-md-noct.svg");
+        content: url("/assets/img/button-slider-left-md-noct.svg");
         &:hover {
             background-color: $color-white;
             color: $color-black-light;
         }
     }
     .imgRightRow {
-        content: url("./assets/img/button-slider-right-md-noct.svg");
+        content: url("/assets/img/button-slider-right-md-noct.svg");
         &:hover {
             background-color: $color-white;
             color: $color-black-light;
